@@ -1,30 +1,69 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>xtal-frappe-chart demo</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <title>xtal-frappe-chart demo</title>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../xtal-frappe-chart.html">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic xtal-frappe-chart demo</h3>
-      <demo-snippet>
-        <template>
-          <xtal-frappe-chart></xtal-frappe-chart>
-        </template>
-      </demo-snippet>
-    </div>
-  </body>
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
+  <link rel="import" href="../xtal-frappe-chart.html">
+  <link rel="import" href="../../json-merge/json-merge.html">
+
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </custom-style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic xtal-frappe-chart demo</h3>
+    <demo-snippet>
+      <template>
+        <dom-bind>
+          <template>
+            <json-merge watch="[]" result="{{example1}}">
+              <script type="application/json">
+                [
+                  {
+                    "title": "My Awesome Chart",
+                    "data": {
+                      "labels": ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+                        "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
+                  
+                      "datasets": [
+                        {
+                          "title": "Some Data", "color": "light-blue",
+                          "values": [25, 40, 30, 35, 8, 52, 17, -4]
+                        },
+                        {
+                          "title": "Another Set", "color": "violet",
+                          "values": [25, 50, -10, 15, 18, 32, 27, 14]
+                        },
+                        {
+                          "title": "Yet Another", "color": "blue",
+                          "values": [15, 20, -3, -15, 58, 12, -17, 37]
+                        }
+                      ]
+                    },
+                    "type": "bar", 
+                    "height": 250
+                  }
+                ]
+              </script>
+            </json-merge>
+            <xtal-frappe-chart data="[[example1]]"></xtal-frappe-chart>
+          </template>
+        </dom-bind>
+      </template>
+    </demo-snippet>
+  </div>
+</body>
+
 </html>

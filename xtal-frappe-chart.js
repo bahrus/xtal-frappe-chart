@@ -17,6 +17,7 @@
             return this._data;
         }
         set data(val) {
+            debugger;
             this._data = val;
             this.connectedCallback();
         }
@@ -33,6 +34,13 @@
                 _dn,
             ];
         }
+        _upgradeProperty(prop) {
+            if (this.hasOwnProperty(prop)) {
+                let value = this[prop];
+                delete this[prop];
+                this[prop] = value;
+            }
+        }
         attributeChangedCallback(name, oldValue, newValue) {
             switch (name) {
                 case _lpn:
@@ -44,12 +52,17 @@
             }
         }
         loadChart() {
+            debugger;
             if (!this._data)
                 return;
+            if (typeof this._data !== 'object')
+                return;
+            this._data['parent'] = this;
             this._chart = new Chart(this._data);
         }
         connectedCallback() {
-            if (!Chart) {
+            this._upgradeProperty(_dn);
+            if (typeof (Chart) === 'undefined') {
                 this.downloadJSFilesInParallelButLoadInSequence([
                     {
                         src: this._libPath

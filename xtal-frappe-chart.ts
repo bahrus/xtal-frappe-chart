@@ -19,6 +19,7 @@ declare class Chart{constructor(data)};
             return this._data;
         }
         set data(val){
+            debugger;
             this._data = val;
             this.connectedCallback();
         }
@@ -35,6 +36,13 @@ declare class Chart{constructor(data)};
                 _dn,
             ]
         }
+        _upgradeProperty(prop) {
+            if (this.hasOwnProperty(prop)) {
+                let value = this[prop];
+                delete this[prop];
+                this[prop] = value;
+            }
+        }
         attributeChangedCallback(name: string, oldValue: string, newValue: string) {
             switch (name) {
                 case _lpn:
@@ -46,12 +54,16 @@ declare class Chart{constructor(data)};
             }
         }
         loadChart(){
+            debugger;
             if(!this._data) return;
+            if(typeof this._data !== 'object') return; 
+            this._data['parent'] = this;
             this._chart = new Chart(this._data);
         }
 
         connectedCallback(){
-            if(!Chart){
+            this._upgradeProperty(_dn);
+            if(typeof(Chart) === 'undefined'){
                 this.downloadJSFilesInParallelButLoadInSequence([
                     {
                         src: this._libPath
