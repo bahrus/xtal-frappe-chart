@@ -9,6 +9,11 @@ declare class Chart{constructor(data)};
         _libPath = 'https://unpkg.com/frappe-charts@0.0.3/dist/frappe-charts.min.iife.js';
         _data: object;
         _chart: Chart;
+        constructor(){
+            super();
+            //this.attachShadow({mode: 'open'});
+            this.style.display="block";
+        }
         get libPath(){
             return this._libPath;
         }
@@ -19,7 +24,6 @@ declare class Chart{constructor(data)};
             return this._data;
         }
         set data(val){
-            debugger;
             this._data = val;
             this.connectedCallback();
         }
@@ -54,9 +58,9 @@ declare class Chart{constructor(data)};
             }
         }
         loadChart(){
-            debugger;
             if(!this._data) return;
             if(typeof this._data !== 'object') return; 
+            //this._data['parent'] = this.shadowRoot;
             this._data['parent'] = this;
             this._chart = new Chart(this._data);
         }

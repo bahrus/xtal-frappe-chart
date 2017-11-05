@@ -4,8 +4,10 @@
     const _dn = 'data';
     class XtalFrappeChart extends HTMLElement {
         constructor() {
-            super(...arguments);
+            super();
             this._libPath = 'https://unpkg.com/frappe-charts@0.0.3/dist/frappe-charts.min.iife.js';
+            //this.attachShadow({mode: 'open'});
+            this.style.display = "block";
         }
         get libPath() {
             return this._libPath;
@@ -17,7 +19,6 @@
             return this._data;
         }
         set data(val) {
-            debugger;
             this._data = val;
             this.connectedCallback();
         }
@@ -52,11 +53,11 @@
             }
         }
         loadChart() {
-            debugger;
             if (!this._data)
                 return;
             if (typeof this._data !== 'object')
                 return;
+            //this._data['parent'] = this.shadowRoot;
             this._data['parent'] = this;
             this._chart = new Chart(this._data);
         }
