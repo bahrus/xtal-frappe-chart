@@ -9,6 +9,7 @@ declare class Chart{constructor(data)};
         _libPath = 'https://unpkg.com/frappe-charts@0.0.3/dist/frappe-charts.min.iife.js';
         _data: object;
         _chart: Chart;
+        _previousData: object;
         constructor(){
             super();
             //this.attachShadow({mode: 'open'});
@@ -60,9 +61,32 @@ declare class Chart{constructor(data)};
         loadChart(){
             if(!this._data) return;
             if(typeof this._data !== 'object') return; 
+            if(this._previousData && this._data === this._previousData) return;
+            this._previousData = this._data;
+            //this.shadowRoot.innerHTML = "<div></div>";
             //this._data['parent'] = this.shadowRoot;
+            //this._data['parent'] = this.shadowRoot.firstChild;
             this._data['parent'] = this;
             this._chart = new Chart(this._data);
+            this._chart['parent'].addEventListener('data-select', (e) => {
+                console.log('in data select');
+                console.log(e);
+                console.log(this._chart);
+                const selectedData = [];
+                this._data['data'].datasets.forEach(dataSet => {
+                    
+                    selectedData.push(dataSet.values[e.index]);
+                });
+                this['selectedElement'] = selectedData;
+                const newEvent = new CustomEvent('selected-element-changed', {
+                    detail: {
+                        value: selectedData
+                    },
+                    bubbles: true,
+                    composed: false,
+                } as CustomEventInit);
+                this.dispatchEvent(newEvent);
+            });
         }
 
         connectedCallback(){
@@ -78,6 +102,7 @@ declare class Chart{constructor(data)};
             }
         }
         downloadJSFilesInParallelButLoadInSequence(refs: IDynamicJSLoadStep[]){
+            //debugger;
             //see https://www.html5rocks.com/en/tutorials/speed/script-loading/
             return new Promise((resolve, reject) => {
                 const notLoadedYet : {[key: string] : boolean} = {};

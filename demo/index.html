@@ -14,6 +14,7 @@
   <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
   <link rel="import" href="../xtal-frappe-chart.html">
   <link rel="import" href="../../json-merge/json-merge.html">
+  <link rel="import" href="../../xtal-json-editor/xtal-json-editor.html">
 
   <custom-style>
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -53,12 +54,16 @@
                       ]
                     },
                     "type": "bar", 
-                    "height": 250
+                    "height": 250,
+                    "is_navigable": 1
                   }
                 ]
               </script>
             </json-merge>
-            <xtal-frappe-chart style="width:720px" lib-path="localVersion.js" data="[[example1]]"></xtal-frappe-chart>
+            <xtal-frappe-chart style="width:720px" lib-path="localVersion.js" data="[[example1]]"
+              selected-element="{{selectedDataPoint}}"
+            ></xtal-frappe-chart>
+            <xtal-json-editor watch="[[selectedDataPoint]]" height="300px"></xtal-json-editor>
           </template>
         </dom-bind>
       </template>
