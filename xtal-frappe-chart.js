@@ -5,9 +5,11 @@
     class XtalFrappeChart extends HTMLElement {
         constructor() {
             super();
-            this._libPath = 'https://unpkg.com/frappe-charts@0.0.3/dist/frappe-charts.min.iife.js';
+            this._libPath = 'https://unpkg.com/frappe-charts@0.0.5/dist/frappe-charts.min.iife.js';
             //this.attachShadow({mode: 'open'});
             this.style.display = "block";
+            // this.style.width="500px";
+            // this.style.height = "500px";
         }
         get libPath() {
             return this._libPath;
