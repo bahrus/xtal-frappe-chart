@@ -5,7 +5,7 @@
     class XtalFrappeChart extends HTMLElement {
         constructor() {
             super();
-            this._libPath = 'https://unpkg.com/frappe-charts@0.0.5/dist/frappe-charts.min.iife.js';
+            this._libPath = 'https://unpkg.com/frappe-charts@0.0.7/dist/frappe-charts.min.iife.js';
             //this.attachShadow({mode: 'open'});
             this.style.display = "block";
             // this.style.width="500px";
@@ -68,9 +68,6 @@
             this._data['parent'] = this;
             this._chart = new Chart(this._data);
             this._chart['parent'].addEventListener('data-select', (e) => {
-                console.log('in data select');
-                console.log(e);
-                console.log(this._chart);
                 const selectedData = [];
                 this._data['data'].datasets.forEach(dataSet => {
                     selectedData.push(dataSet.values[e.index]);

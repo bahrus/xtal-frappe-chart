@@ -6,7 +6,7 @@ declare class Chart{constructor(data)};
     const _lpn = 'lib-path';
     const _dn = 'data';
     class XtalFrappeChart extends HTMLElement{
-        _libPath = 'https://unpkg.com/frappe-charts@0.0.5/dist/frappe-charts.min.iife.js';
+        _libPath = 'https://unpkg.com/frappe-charts@0.0.7/dist/frappe-charts.min.iife.js';
         _data: object;
         _chart: Chart;
         _previousData: object;
@@ -71,9 +71,6 @@ declare class Chart{constructor(data)};
             this._data['parent'] = this;
             this._chart = new Chart(this._data);
             this._chart['parent'].addEventListener('data-select', (e) => {
-                console.log('in data select');
-                console.log(e);
-                console.log(this._chart);
                 const selectedData = [];
                 this._data['data'].datasets.forEach(dataSet => {
                     
