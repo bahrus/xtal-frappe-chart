@@ -9,6 +9,7 @@
 	"exclude":[
 		"build",
 		"bower_components",
+		"node_modules",
 		"demo/PolymerTests/bower_components"
 	]
 
