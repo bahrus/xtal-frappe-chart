@@ -14,13 +14,12 @@ First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polyme
 <custom-element-demo>
   <template>
     <link rel="import" href="https://rawgit.com/bahrus/xtal/master/bower_components/polymer/lib/elements/dom-bind.html">
-        <link rel="import" href="https://rawgit.com/bahrus/xtal/master/bower_components/polymer/lib/elements/dom-if.html">
+    <link rel="import" href="https://rawgit.com/bahrus/xtal/master/bower_components/polymer/lib/elements/dom-if.html">
     <link rel="import" href="xtal-frappe-chart.html">
     <script async src="https://unpkg.com/xtal-json-merge@0.1.0/json-merge.js"></script>
     <link rel="import" href="https://rawgit.com/bahrus/xtal-json-editor/master/xtal-json-editor.html">
- </template>
-         <dom-bind>
-          <template>
+    <dom-bind>
+        <template>
             <json-merge watch="[]" result="{{example1}}">
               <script type="application/json">
                 [
@@ -58,6 +57,7 @@ First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polyme
             <xtal-json-editor watch="[[selectedDataPoint]]" height="300px"></xtal-json-editor>
           </template>
         </dom-bind>
+    </template>
 </custom-element-demo>
 ```
 -->
