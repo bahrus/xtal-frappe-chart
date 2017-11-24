@@ -5,6 +5,14 @@ declare class Chart{constructor(data)};
     }
     const _lpn = 'lib-path';
     const _dn = 'data';
+    /**
+     * `xtal-frappe-charts`
+     * Dependency free web component wrapper around frappé charting library
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+    */        
     class XtalFrappeChart extends HTMLElement{
         _libPath = 'https://unpkg.com/frappe-charts@0.0.7/dist/frappe-charts.min.iife.js';
         _data: object;
