@@ -12,7 +12,46 @@ Things I like about this chart library:
 ```
 <custom-element-demo>
   <template>
-
+    <div class="vertical-section-container centered">
+        <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+        <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/xtal-insert-json.js?module"></script>
+        <script type="module" src="https://unpkg.com/p-d.p-u@0.0.42/p-d.js?module"></script>
+        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.4/xtal-frappe-chart.js?module"></script>
+      <h3>Basic xtal-frappe-chart demo</h3>
+      <xtal-insert-json input="[]">
+        <script type="application/json">
+          [
+            {
+              "title": "My Awesome Chart",
+              "data": {
+                "labels": ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+                  "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
+            
+                "datasets": [
+                  {
+                    "name": "Some Data", "color": "light-blue",
+                    "values": [25, 40, 30, 35, 8, 52, 17, -4]
+                  },
+                  {
+                    "name": "Another Set", "color": "violet",
+                    "values": [25, 50, -10, 15, 18, 32, 27, 14]
+                  },
+                  {
+                    "name": "Yet Another", "color": "blue",
+                    "values": [15, 20, -3, -15, 58, 12, -17, 37]
+                  }
+                ]
+              },
+              "type": "bar", 
+              "height": 250,
+              "is_navigable": 1
+            }
+          ]
+        </script>
+      </xtal-insert-json>
+      <p-d on="merged-prop-changed" to="{data}"></p-d>
+      <xtal-frappe-chart></xtal-frappe-chart>
+    </div>
   </template>
 </custom-element-demo>
 ```
