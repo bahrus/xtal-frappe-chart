@@ -1,5 +1,15 @@
 import {Chart, PercentageChart, PieChart, Heatmap, AxisChart} from 'frappe-charts/dist/frappe-charts.esm.js';
 const data = 'data';
+declare var xtal_frappe_chart;
+
+if(!self['xtal_frappe-chart_css']){
+    //thanks Firefox!
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css';
+    document.head.appendChild(link);
+}
+
 /**
  * `xtal-frappe-charts`
  * Dependency free web component wrapper around frappé charting library

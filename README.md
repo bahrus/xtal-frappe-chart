@@ -1,6 +1,23 @@
 # \<xtal-frappe-chart\>
 
-Web component wrapper around the Frappé chart library 
+Web component wrapper around the cool [Frappe chart](https://frappe.io/charts) library.
+
+Things I like about this chart library:
+
+1)  It is quite small (17kb), yet, unlike chartist, it has nice interactive features.
+2)  It supports ES6 Modules (and iffe).
+3)  The charts look nice.
+
+<!--
+```
+<custom-element-demo>
+  <template>
+
+  </template>
+</custom-element-demo>
+```
+-->
+
 
 ## Install the Polymer-CLI
 
