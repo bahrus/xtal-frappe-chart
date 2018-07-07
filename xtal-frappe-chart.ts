@@ -14,7 +14,7 @@ declare class Chart{constructor(data)};
      * @demo demo/index.html
     */        
     class XtalFrappeChart extends HTMLElement{
-        _libPath = 'https://unpkg.com/frappe-charts@0.0.7/dist/frappe-charts.min.iife.js';
+        _libPath = 'https://unpkg.com/frappe-charts@0.0.8/dist/frappe-charts.min.iife.js';
         _data: object;
         _chart: Chart;
         _previousData: object;
