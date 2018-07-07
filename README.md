@@ -8,15 +8,18 @@ Things I like about this chart library:
 2)  It supports ES6 Modules (and iffe).
 3)  The charts look nice.
 
+xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js) and an iife one (xtal-frape-chart.iife.js);
+
 <!--
 ```
 <custom-element-demo>
   <template>
     <div class="vertical-section-container centered">
         <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-        <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/xtal-insert-json.js?module"></script>
-        <script type="module" src="https://unpkg.com/p-d.p-u@0.0.42/p-d.js?module"></script>
-        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.4/xtal-frappe-chart.js?module"></script>
+        <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/json-merge.js"></script>
+        <script src="https://unpkg.com/p-d.p-u@0.0.42/p-d.p-u.js"></script>
+        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.5/xtal-frappe-chart.iife.js?module"></script>
+        
       <h3>Basic xtal-frappe-chart demo</h3>
       <xtal-insert-json input="[]">
         <script type="application/json">

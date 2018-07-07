@@ -60,7 +60,12 @@ class XtalFrappeChart extends HTMLElement {
             return;
         this._previousData = this._data;
         this._data['parent'] = this;
-        this._chart = new Chart(this, this._data);
+        if (typeof (Chart) !== 'undefined') {
+            this._chart = new Chart(this, this._data);
+        }
+        else {
+            this._chart = new frappe.Chart(this, this._data);
+        }
         this._chart['parent'].addEventListener('data-select', (e) => {
             const selectedData = [];
             this._data['data'].datasets.forEach(dataSet => {

@@ -1,6 +1,7 @@
 import {Chart, PercentageChart, PieChart, Heatmap, AxisChart} from 'frappe-charts/dist/frappe-charts.esm.js';
 const data = 'data';
 declare var xtal_frappe_chart;
+declare var frappe;
 
 if(!self['xtal_frappe-chart_css']){
     //thanks Firefox!
@@ -67,7 +68,12 @@ class XtalFrappeChart extends HTMLElement{
         if(this._previousData && this._data === this._previousData) return;
         this._previousData = this._data;
         this._data['parent'] = this;
-        this._chart = new Chart(this, this._data);
+        if(typeof(Chart) !== 'undefined'){
+            this._chart = new Chart(this, this._data);
+        }else{
+            this._chart = new frappe.Chart(this, this._data);
+        }
+        
         this._chart['parent'].addEventListener('data-select', (e) => {
             const selectedData = [];
             this._data['data'].datasets.forEach(dataSet => {
