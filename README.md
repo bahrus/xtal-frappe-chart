@@ -22,9 +22,10 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
         <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
         <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/json-merge.js"></script>
         <script type="module" src="https://unpkg.com/p-d.p-u@0.0.42/p-d.p-u.js"></script>
-        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.9/xtal-frappe-chart.iife.js"></script>
+        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.10/xtal-frappe-chart.iife.js"></script>
+        <script  src="https://unpkg.com/xtal-json-editor@0.0.19/xtal-json-editor.js"></script>
       <h3>Basic xtal-frappe-chart demo</h3>
-      <h4>Click on a bar to select it.  Use arrow keys to navigate.</h4>
+      
       <xtal-insert-json input="[]">
         <script type="application/json">
           [
@@ -58,6 +59,8 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
       </xtal-insert-json>
       <p-d on="merged-prop-changed" to="{data}"></p-d>
       <xtal-frappe-chart></xtal-frappe-chart>
+      <p-d on="selected-element-changed" to="{input}"></p-d>
+      <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
       <p-d on="selected-element-changed" to="{input}"></p-d>
       <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
     </div>

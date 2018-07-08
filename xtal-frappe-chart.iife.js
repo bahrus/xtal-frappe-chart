@@ -20,9 +20,10 @@ if (!self['xtal_frappe-chart_css']) {
  * @polymer
  * @demo demo/index.html
 */
-class XtalFrappeChart extends HTMLElement {
+class XtalFrappeChart extends XtallatX(HTMLElement) {
     constructor() {
         super();
+        this._pendingNewDataPoints = [];
         this.style.display = "block";
     }
     /**
@@ -36,16 +37,9 @@ class XtalFrappeChart extends HTMLElement {
         this.onPropsChange();
     }
     static get observedAttributes() {
-        return [
+        return super.observedAttributes.concat([
             data,
-        ];
-    }
-    _upgradeProperty(prop) {
-        if (this.hasOwnProperty(prop)) {
-            let value = this[prop];
-            delete this[prop];
-            this[prop] = value;
-        }
+        ]);
     }
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
@@ -53,10 +47,11 @@ class XtalFrappeChart extends HTMLElement {
                 this._data = JSON.parse(newValue);
                 break;
         }
+        super.attributeChangedCallback(name, oldValue, newValue);
         this.onPropsChange();
     }
     onPropsChange() {
-        if (!this._data || (typeof (this._data) !== 'object'))
+        if (this._disabled || !this._data || (typeof (this._data) !== 'object'))
             return;
         this.loadChart();
     }
@@ -71,6 +66,7 @@ class XtalFrappeChart extends HTMLElement {
         else {
             this._chart = new frappe.Chart(this, this._data);
         }
+        console.log(this._chart.parent);
         this._chart['parent'].addEventListener('data-select', (e) => {
             const selectedData = [];
             this._data['data'].datasets.forEach(dataSet => {
@@ -87,9 +83,38 @@ class XtalFrappeChart extends HTMLElement {
             });
             this.dispatchEvent(newEvent);
         });
+        this._pendingNewDataPoints.forEach(dp => {
+            this._chart.addDataPoint(dp.label, dp.valueFromEachDataset, dp.index);
+        });
+    }
+    get newDataPoint() {
+        return this._newDataPoint;
+    }
+    set newDataPoint(val) {
+        this._newDataPoint = val;
+        if (this._chart) {
+            this._chart.addDataPoint(val.label, val.valueFromEachDataset, val.index);
+        }
+        else {
+            this._pendingNewDataPoints.push(val);
+        }
+    }
+    get staleDataPoint() {
+        return this._staleDataPoint;
+    }
+    set staleDataPoint(val) {
+        this._staleDataPoint = val;
+        this._chart.removeDataPoint(val);
+    }
+    get updateData() {
+        return this._updateData;
+    }
+    set updateData(val) {
+        this._updateData = val;
+        this._chart.update(val);
     }
     connectedCallback() {
-        this._upgradeProperty(data);
+        this._upgradeProperties([data, 'newDataPoint', 'staleDataPoint', 'updateData']);
         this._connected = true;
         this.onPropsChange();
     }

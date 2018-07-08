@@ -1,8 +1,13 @@
 import {Chart, PercentageChart, PieChart, Heatmap, AxisChart} from 'frappe-charts/dist/frappe-charts.esm.js';
+import {XtallatX} from 'xtal-latx/xtal-latx.js'
 const data = 'data';
 declare var xtal_frappe_chart;
 declare var frappe;
-
+export interface IAddDataPointParams{
+    label: string, 
+    valueFromEachDataset: number[], 
+    index?: number;
+}
 if(!self['xtal_frappe-chart_css']){
     //thanks Firefox!
     const link = document.createElement('link');
@@ -19,7 +24,7 @@ if(!self['xtal_frappe-chart_css']){
  * @polymer
  * @demo demo/index.html
 */        
-class XtalFrappeChart extends HTMLElement{
+class XtalFrappeChart extends  XtallatX(HTMLElement){
    // _libPath = 'https://unpkg.com/frappe-charts@0.0.8/dist/frappe-charts.min.iife.js';
     _data: object;
     _chart: Chart;
@@ -42,27 +47,22 @@ class XtalFrappeChart extends HTMLElement{
         this.onPropsChange();
     }
     static get observedAttributes() {
-        return [
+        return super.observedAttributes.concat( [
             data,
-        ]
+        ]);
     }
-    _upgradeProperty(prop) {
-        if (this.hasOwnProperty(prop)) {
-            let value = this[prop];
-            delete this[prop];
-            this[prop] = value;
-        }
-    }
+
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         switch (name) {
             case data:
                 this._data = JSON.parse(newValue);
                 break;
         }
+        super.attributeChangedCallback(name, oldValue, newValue);
         this.onPropsChange();
     }
     onPropsChange(){
-        if(!this._data || (typeof(this._data) !== 'object')) return;
+        if(this._disabled || !this._data || (typeof(this._data) !== 'object')) return;
         this.loadChart();
     }
     loadChart(){
@@ -74,7 +74,7 @@ class XtalFrappeChart extends HTMLElement{
         }else{
             this._chart = new frappe.Chart(this, this._data);
         }
-        
+        console.log(this._chart.parent);
         this._chart['parent'].addEventListener('data-select', (e) => {
             const selectedData = [];
             this._data['data'].datasets.forEach(dataSet => {
@@ -91,19 +91,45 @@ class XtalFrappeChart extends HTMLElement{
             } as CustomEventInit);
             this.dispatchEvent(newEvent);
         });
+        this._pendingNewDataPoints.forEach(dp =>{
+            this._chart.addDataPoint(dp.label, dp.valueFromEachDataset, dp.index);
+        })
     }
-    // _pendingNewDataPoints = [];
-    // _newDataPoint;
-    // get newDataPoint(){
-    //     return this._newDataPoint;
-    // }
-    // set newDataPoint(){
+    _pendingNewDataPoints : IAddDataPointParams[] = [];
+    _newDataPoint: IAddDataPointParams;
+    get newDataPoint(){
+        return this._newDataPoint;
+    }
+    set newDataPoint(val){
+        this._newDataPoint = val;
+        if(this._chart){
+            this._chart.addDataPoint(val.label, val.valueFromEachDataset, val.index);
+        }else{
+            this._pendingNewDataPoints.push(val);
+        }
+    }
 
-    // }
+    _staleDataPoint: number;
+    get staleDataPoint(){
+        return this._staleDataPoint;
+    }
+    set staleDataPoint(val){
+        this._staleDataPoint = val;
+        this._chart.removeDataPoint(val);
+    }
+
+    _updateData: any;
+    get updateData(){
+        return this._updateData;
+    }
+    set updateData(val){
+        this._updateData = val;
+        this._chart.update(val);
+    }
 
     _connected: boolean;
     connectedCallback(){
-        this._upgradeProperty(data);
+        this._upgradeProperties([data,'newDataPoint', 'staleDataPoint', 'updateData'] );
         this._connected = true;
         this.onPropsChange();
     }
