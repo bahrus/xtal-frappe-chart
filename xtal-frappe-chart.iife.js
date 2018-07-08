@@ -69,15 +69,25 @@ function XtallatX(superClass) {
 }
 //# sourceMappingURL=xtal-latx.js.map
 const data = 'data';
-if (!self['xtal_frappe-chart_css']) {
-    //thanks Firefox!
+//thanks Firefox!
+const link = self['xtal_frappe-chart_css'];
+if (link) {
+    if (link.rel !== 'stylesheet') {
+        loadCss(link.href);
+    }
+    else {
+        init();
+    }
+}
+else {
+    loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
+}
+function loadCss(url) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css';
+    link.href = url;
     link.addEventListener('load', e => {
-        setTimeout(() => {
-            init();
-        }, 50);
+        init();
     });
     document.head.appendChild(link);
 }
@@ -122,36 +132,39 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
     onPropsChange() {
         if (this._disabled || !this._data || (typeof (this._data) !== 'object'))
             return;
-        this.loadChart();
+        setTimeout(() => {
+            this.loadChart();
+        }, 50);
     }
     loadChart() {
         if (this._previousData && this._data === this._previousData)
             return;
         this._previousData = this._data;
-        this._data['parent'] = this;
+        //this._data['parent'] = this;
         if (typeof (Chart) !== 'undefined') {
             this._chart = new Chart(this, this._data);
         }
         else {
             this._chart = new frappe.Chart(this, this._data);
         }
-        console.log(this._chart.parent);
-        this._chart['parent'].addEventListener('data-select', (e) => {
-            const selectedData = [];
-            this._data['data'].datasets.forEach(dataSet => {
-                selectedData.push(dataSet.values[e.index]);
+        setTimeout(() => {
+            this._chart['parent'].addEventListener('data-select', (e) => {
+                const selectedData = [];
+                this._data['data'].datasets.forEach(dataSet => {
+                    selectedData.push(dataSet.values[e.index]);
+                });
+                this['selectedElement'] = selectedData;
+                this.value = selectedData;
+                const newEvent = new CustomEvent('selected-element-changed', {
+                    detail: {
+                        value: selectedData
+                    },
+                    bubbles: true,
+                    composed: false,
+                });
+                this.dispatchEvent(newEvent);
             });
-            this['selectedElement'] = selectedData;
-            this.value = selectedData;
-            const newEvent = new CustomEvent('selected-element-changed', {
-                detail: {
-                    value: selectedData
-                },
-                bubbles: true,
-                composed: false,
-            });
-            this.dispatchEvent(newEvent);
-        });
+        }, 50);
         this._pendingNewDataPoints.forEach(dp => {
             this._chart.addDataPoint(dp.label, dp.valueFromEachDataset, dp.index);
         });
