@@ -6,6 +6,11 @@ if (!self['xtal_frappe-chart_css']) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css';
+    link.addEventListener('load', e => {
+        setTimeout(() => {
+            init();
+        }, 50);
+    });
     document.head.appendChild(link);
 }
 /**
@@ -115,5 +120,7 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
         this.onPropsChange();
     }
 }
-customElements.define('xtal-frappe-chart', XtalFrappeChart);
+function init() {
+    customElements.define('xtal-frappe-chart', XtalFrappeChart);
+}
 //# sourceMappingURL=xtal-frappe-chart.js.map
