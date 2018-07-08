@@ -21,10 +21,10 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
     <div class="vertical-section-container centered">
         <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
         <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/json-merge.js"></script>
-        <script src="https://unpkg.com/p-d.p-u@0.0.42/p-d.p-u.js"></script>
-        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.6/xtal-frappe-chart.iife.js?module"></script>
-        
+        <script type="module" src="https://unpkg.com/p-d.p-u@0.0.42/p-d.p-u.js"></script>
+        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.9/xtal-frappe-chart.iife.js"></script>
       <h3>Basic xtal-frappe-chart demo</h3>
+      <h4>Click on a bar to select it.  Use arrow keys to navigate.</h4>
       <xtal-insert-json input="[]">
         <script type="application/json">
           [
@@ -51,18 +51,24 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
               },
               "type": "bar", 
               "height": 250,
-              "is_navigable": 1
+              "isNavigable": true
             }
           ]
         </script>
       </xtal-insert-json>
       <p-d on="merged-prop-changed" to="{data}"></p-d>
       <xtal-frappe-chart></xtal-frappe-chart>
+      <p-d on="selected-element-changed" to="{input}"></p-d>
+      <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
     </div>
   </template>
 </custom-element-demo>
 ```
 -->
+
+## Selected Element
+
+
 
 
 ## Install the Polymer-CLI

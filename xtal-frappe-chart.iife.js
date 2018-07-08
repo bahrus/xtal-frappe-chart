@@ -77,6 +77,7 @@ class XtalFrappeChart extends HTMLElement {
                 selectedData.push(dataSet.values[e.index]);
             });
             this['selectedElement'] = selectedData;
+            this.value = selectedData;
             const newEvent = new CustomEvent('selected-element-changed', {
                 detail: {
                     value: selectedData

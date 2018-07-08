@@ -24,6 +24,7 @@ class XtalFrappeChart extends HTMLElement{
     _data: object;
     _chart: Chart;
     _previousData: object;
+    value: object;
     constructor(){
         super();
         this.style.display="block";
@@ -77,10 +78,10 @@ class XtalFrappeChart extends HTMLElement{
         this._chart['parent'].addEventListener('data-select', (e) => {
             const selectedData = [];
             this._data['data'].datasets.forEach(dataSet => {
-                
                 selectedData.push(dataSet.values[e.index]);
             });
             this['selectedElement'] = selectedData;
+            this.value = selectedData;
             const newEvent = new CustomEvent('selected-element-changed', {
                 detail: {
                     value: selectedData
@@ -91,6 +92,14 @@ class XtalFrappeChart extends HTMLElement{
             this.dispatchEvent(newEvent);
         });
     }
+    // _pendingNewDataPoints = [];
+    // _newDataPoint;
+    // get newDataPoint(){
+    //     return this._newDataPoint;
+    // }
+    // set newDataPoint(){
+
+    // }
 
     _connected: boolean;
     connectedCallback(){
