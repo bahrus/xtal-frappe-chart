@@ -62,7 +62,7 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
       <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
 
       <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-      <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.31/json-merge.js"></script>
+      <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.32/json-merge.js"></script>
       <script  src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
       <script type="module" src="https://unpkg.com/pass-down@0.0.10/pass-down.iife.js"></script>
       <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.16/xtal-frappe-chart.iife.js"></script>
