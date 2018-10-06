@@ -1,5 +1,7 @@
 import {Chart, PercentageChart, PieChart, Heatmap, AxisChart} from 'frappe-charts/dist/frappe-charts.esm.js';
-import {XtallatX} from 'xtal-latx/xtal-latx.js'
+import {XtallatX} from 'xtal-latx/xtal-latx.js';
+import {define} from 'xtal-latx/define.js';
+
 const data = 'data';
 declare var xtal_frappe_chart;
 declare var frappe;
@@ -40,7 +42,7 @@ function loadCss(url: string){
  * @demo demo/index.html
 */        
 class XtalFrappeChart extends  XtallatX(HTMLElement){
-   // _libPath = 'https://unpkg.com/frappe-charts@0.0.8/dist/frappe-charts.min.iife.js';
+    static get is(){return 'xtal-frappe-chart';}
     _data: object;
     _chart: Chart;
     _previousData: object;
@@ -156,6 +158,6 @@ class XtalFrappeChart extends  XtallatX(HTMLElement){
 
 }
 function init(){
-    customElements.define('xtal-frappe-chart', XtalFrappeChart);
+    define(XtalFrappeChart);
 }
 

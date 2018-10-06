@@ -1,5 +1,6 @@
 import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
 import { XtallatX } from 'xtal-latx/xtal-latx.js';
+import { define } from 'xtal-latx/define.js';
 const data = 'data';
 //thanks Firefox!
 const link = self['xtal_frappe-chart_css'];
@@ -37,6 +38,7 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
         this._pendingNewDataPoints = [];
         this.style.display = "block";
     }
+    static get is() { return 'xtal-frappe-chart'; }
     /**
      * @type {object} Data to chart
      */
@@ -134,6 +136,6 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
     }
 }
 function init() {
-    customElements.define('xtal-frappe-chart', XtalFrappeChart);
+    define(XtalFrappeChart);
 }
 //# sourceMappingURL=xtal-frappe-chart.js.map

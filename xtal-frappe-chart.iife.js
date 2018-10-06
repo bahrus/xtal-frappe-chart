@@ -5,6 +5,10 @@
 //# sourceMappingURL=frappe-charts.min.iife.js.map
 
 const disabled = 'disabled';
+/**
+ * Base class for many xtal- components
+ * @param superClass
+ */
 function XtallatX(superClass) {
     return class extends superClass {
         constructor() {
@@ -14,20 +18,39 @@ function XtallatX(superClass) {
         static get observedAttributes() {
             return [disabled];
         }
+        /**
+         * Any component that emits events should not do so if it is disabled.
+         * Note that this is not enforced, but the disabled property is made available.
+         * Users of this mix-in should ensure not to call "de" if this property is set to true.
+         */
         get disabled() {
             return this._disabled;
         }
         set disabled(val) {
             this.attr(disabled, val, '');
         }
+        /**
+         * Set attribute value.
+         * @param name
+         * @param val
+         * @param trueVal String to set attribute if true.
+         */
         attr(name, val, trueVal) {
-            if (val) {
-                this.setAttribute(name, trueVal || val);
-            }
-            else {
-                this.removeAttribute(name);
-            }
+            const v = val ? 'set' : 'remove'; //verb
+            this[v + 'Attribute'](name, trueVal || val);
         }
+        /**
+         * Turn number into string with even and odd values easy to query via css.
+         * @param n
+         */
+        to$(n) {
+            const mod = n % 2;
+            return (n - mod) / 2 + '-' + mod;
+        }
+        /**
+         * Increment event count
+         * @param name
+         */
         incAttr(name) {
             const ec = this._evCount;
             if (name in ec) {
@@ -36,7 +59,7 @@ function XtallatX(superClass) {
             else {
                 ec[name] = 0;
             }
-            this.attr(name, ec[name].toString());
+            this.attr('data-' + name, this.to$(ec[name]));
         }
         attributeChangedCallback(name, oldVal, newVal) {
             switch (name) {
@@ -45,8 +68,14 @@ function XtallatX(superClass) {
                     break;
             }
         }
-        de(name, detail) {
-            const eventName = name + '-changed';
+        /**
+         * Dispatch Custom Event
+         * @param name Name of event to dispatch ("-changed" will be appended if asIs is false)
+         * @param detail Information to be passed with the event
+         * @param asIs If true, don't append event name with '-changed'
+         */
+        de(name, detail, asIs) {
+            const eventName = name + (asIs ? '' : '-changed');
             const newEvent = new CustomEvent(eventName, {
                 detail: detail,
                 bubbles: true,
@@ -56,6 +85,10 @@ function XtallatX(superClass) {
             this.incAttr(eventName);
             return newEvent;
         }
+        /**
+         * Needed for asynchronous loading
+         * @param props Array of property names to "upgrade", without losing value set while element was Unknown
+         */
         _upgradeProperties(props) {
             props.forEach(prop => {
                 if (this.hasOwnProperty(prop)) {
@@ -67,7 +100,14 @@ function XtallatX(superClass) {
         }
     };
 }
-//# sourceMappingURL=xtal-latx.js.map
+function define(custEl) {
+    let tagName = custEl.is;
+    if (customElements.get(tagName)) {
+        console.warn('Already registered ' + tagName);
+        return;
+    }
+    customElements.define(tagName, custEl);
+}
 const data = 'data';
 //thanks Firefox!
 const link = self['xtal_frappe-chart_css'];
@@ -105,6 +145,7 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
         this._pendingNewDataPoints = [];
         this.style.display = "block";
     }
+    static get is() { return 'xtal-frappe-chart'; }
     /**
      * @type {object} Data to chart
      */
@@ -202,8 +243,7 @@ class XtalFrappeChart extends XtallatX(HTMLElement) {
     }
 }
 function init() {
-    customElements.define('xtal-frappe-chart', XtalFrappeChart);
+    define(XtalFrappeChart);
 }
-//# sourceMappingURL=xtal-frappe-chart.js.map
     })();  
         

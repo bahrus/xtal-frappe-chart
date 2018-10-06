@@ -2,6 +2,8 @@
 
 <a href="https://nodei.co/npm/xtal-frappe-chart/"><img src="https://nodei.co/npm/xtal-frappe-chart.png"></a>
 
+<img src="http://img.badgesize.io/https://unpkg.com/xtal-frappe-chart@0.0.13/build/ES6/xtal-frappe-chart.iife.js?compression=gzip"> (includes frappe-chart code)
+
 # \<xtal-frappe-chart\>
 
 Web component wrapper around the cool [Frappe chart](https://frappe.io/charts) library.
@@ -18,15 +20,12 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
 ```
 <custom-element-demo>
   <template>
-    <div class="vertical-section-container centered">
-        <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-        <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.24/json-merge.js"></script>
-        <script type="module" src="https://unpkg.com/p-d.p-u@0.0.42/p-d.p-u.js"></script>
-        <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.13/xtal-frappe-chart.iife.js"></script>
-        <script  src="https://unpkg.com/xtal-json-editor@0.0.19/xtal-json-editor.js"></script>
+    <div data-pd>
+      <pass-down></pass-down>
       <h3>Basic xtal-frappe-chart demo</h3>
-      
-      <xtal-insert-json input="[]">
+      <xtal-insert-json input="[]"
+        data-on="merged-prop-changed: pass-to-next:{data:target.value}"
+      >
         <script type="application/json">
           [
             {
@@ -57,12 +56,16 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
           ]
         </script>
       </xtal-insert-json>
-      <p-d on="merged-prop-changed" to="{data}"></p-d>
-      <xtal-frappe-chart></xtal-frappe-chart>
-      <p-d on="selected-element-changed" to="{input}"></p-d>
+      <xtal-frappe-chart
+        data-on="selected-element-changed: pass-to-next:{input:target.value}"
+      ></xtal-frappe-chart>
       <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
-      <p-d on="selected-element-changed" to="{input}"></p-d>
-      <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
+
+      <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+      <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.31/json-merge.js"></script>
+      <script  src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
+      <script type="module" src="https://unpkg.com/pass-down@0.0.10/pass-down.iife.js"></script>
+      <script type="module" src="https://unpkg.com/xtal-frappe@0.0.13/xtal-frappe-chart.iife.js"></script>
     </div>
   </template>
 </custom-element-demo>
@@ -86,8 +89,4 @@ $ polymer serve
 
 ## Running Tests
 
-```
-$ polymer test
-```
-
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+WIP
