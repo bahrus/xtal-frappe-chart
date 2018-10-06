@@ -2,7 +2,7 @@
 
 <a href="https://nodei.co/npm/xtal-frappe-chart/"><img src="https://nodei.co/npm/xtal-frappe-chart.png"></a>
 
-<img src="http://img.badgesize.io/https://unpkg.com/xtal-frappe-chart@0.0.14/build/ES6/xtal-frappe-chart.iife.js?compression=gzip"> (includes frappe-chart code)
+<img src="http://img.badgesize.io/https://unpkg.com/xtal-frappe-chart@0.0.16/build/ES6/xtal-frappe-chart.iife.js?compression=gzip"> (includes frappe-chart code)
 
 # \<xtal-frappe-chart\>
 
@@ -65,7 +65,7 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
       <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.31/json-merge.js"></script>
       <script  src="https://unpkg.com/xtal-json-editor@0.0.29/xtal-json-editor.js"></script>
       <script type="module" src="https://unpkg.com/pass-down@0.0.10/pass-down.iife.js"></script>
-      <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.14/xtal-frappe-chart.iife.js"></script>
+      <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.16/xtal-frappe-chart.iife.js"></script>
     </div>
   </template>
 </custom-element-demo>

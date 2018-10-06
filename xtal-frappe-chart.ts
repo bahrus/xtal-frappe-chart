@@ -102,14 +102,9 @@ class XtalFrappeChart extends  XtallatX(HTMLElement){
                 });
                 this['selectedElement'] = selectedData;
                 this.value = selectedData;
-                const newEvent = new CustomEvent('selected-element-changed', {
-                    detail: {
-                        value: selectedData
-                    },
-                    bubbles: true,
-                    composed: false,
-                } as CustomEventInit);
-                this.dispatchEvent(newEvent);
+                this.de('selected-element', {
+                    value: selectedData
+                });
             });
         }, 50);
 
