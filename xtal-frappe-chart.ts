@@ -11,17 +11,7 @@ export interface IAddDataPointParams{
     index?: number;
 }
 
-//thanks Firefox!
-const link = self['xtal_frappe-chart_css'] as HTMLLinkElement;
-if(link){
-    if(link.rel !== 'stylesheet'){
-        loadCss(link.href)
-    }else{
-        init();
-    }
-}else{
-    loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
-}
+
 
 function loadCss(url: string){
     const link = document.createElement('link');
@@ -154,5 +144,17 @@ class XtalFrappeChart extends  XtallatX(HTMLElement){
 }
 function init(){
     define(XtalFrappeChart);
+}
+
+//thanks Firefox!
+const link = self['xtal_frappe-chart_css'] as HTMLLinkElement;
+if(link){
+    if(link.rel !== 'stylesheet'){
+        loadCss(link.href)
+    }else{
+        init();
+    }
+}else{
+    loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
 }
 
