@@ -84,7 +84,7 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
       <script  type="module-shim">
         import 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.18/xtal-frappe-chart.js';
         import 'https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.32/xtal-insert-json.js';
-        import 'https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.29/xtal-json-editor.esm.js';
+        import 'https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.32/xtal-json-editor.js';
         import 'https://cdn.jsdelivr.net/npm/pass-down@0.0.10/pass-down.js';
       </script>
     </div>
