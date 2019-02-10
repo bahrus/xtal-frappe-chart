@@ -2,7 +2,7 @@
 
 <a href="https://nodei.co/npm/xtal-frappe-chart/"><img src="https://nodei.co/npm/xtal-frappe-chart.png"></a>
 
-<img src="http://img.badgesize.io/https://unpkg.com/xtal-frappe-chart@0.0.16/build/ES6/xtal-frappe-chart.iife.js?compression=gzip"> (includes frappe-chart code)
+<img src="https://badgen.net/bundlephobia/minzip/xtal-frappe-chart">
 
 # \<xtal-frappe-chart\>
 
@@ -20,13 +20,9 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
 ```
 <custom-element-demo>
   <template>
-    <div data-pd>
-        <link id="xtal_frappe-chart_css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/dist/frappe-charts.min.css">
-      <pass-down></pass-down>
+    <div>
       <h3>Basic xtal-frappe-chart demo</h3>
-      <xtal-insert-json input="[]"
-        data-on="merged-prop-changed: pass-to-next:{data:target.value}"
-      >
+      <xtal-insert-json input="[]">
         <script type="application/json">
           [
             {
@@ -57,43 +53,53 @@ xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js
           ]
         </script>
       </xtal-insert-json>
-      <xtal-frappe-chart
-        data-on="selected-element-changed: pass-to-next:{input:target.value}"
-      ></xtal-frappe-chart>
+      <p-d on="merged-prop-changed" prop="data" val="target.value"></p-d>
+      <xtal-frappe-chart></xtal-frappe-chart>
+      <p-d on="selected-element-changed" prop="input" val="target.value"></p-d>
       <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
 
-      <!-- Polyfills Needed for retro browsers -->
-      <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-
-      <!-- Cutting edge (subject to change) package maps -->
-      <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@0.1.15/dist/es-module-shims.js"></script>
-      <script type="packagemap-shim">
-        {
-          "packages": {
-            "xtal-latx":{
-              "path": "https://cdn.jsdelivr.net/npm/xtal-latx@0.0.44"
-            },
-            "frappe-charts":{
-              "path": "https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0"
+      <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    
+        <!-- Use experimental import maps -->
+        <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@0.2.0/dist/es-module-shims.js"></script>
+        <script type="importmap-shim">
+          {
+            "imports": {
+              "xtal-latx/": "https://cdn.jsdelivr.net/npm/xtal-latx@0.0.88/",
+              "xtal-json-merge/": "https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.32/",
+              "xtal-json-editor/": "https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.32/",
+              "p-d.p-u/": "https://cdn.jsdelivr.net/npm/p-d.p-u@0.0.101/",
+              "xtal-frappe-chart/": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.20/",
+              "frappe-charts/": "https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/"
             }
-
           }
-        }
+          </script>
+        <script  type="module-shim">
+          import 'xtal-frappe-chart/xtal-frappe-chart.js';
+          import 'xtal-json-merge/xtal-insert-json.js';
+          import 'xtal-json-editor/xtal-json-editor.js';
+          import 'p-d.p-u/p-d.js';
         </script>
-        
-      <script  type="module-shim">
-        import 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.18/xtal-frappe-chart.js';
-        import 'https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.32/xtal-insert-json.js';
-        import 'https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.32/xtal-json-editor.js';
-        import 'https://cdn.jsdelivr.net/npm/pass-down@0.0.10/pass-down.js';
-      </script>
     </div>
   </template>
 </custom-element-demo>
 ```
 -->
 
-## Selected Element
+# Syntax
+
+<!--
+```
+<custom-element-demo>
+<template>
+    <div>
+        <wc-info package-name="npm.hypo-link" href="https://unpkg.com/xtal-frappe-chart@0.0.21/html.json"></wc-info>
+        <script type="module" src="https://unpkg.com/wc-info@0.0.29/wc-info.js?module"></script>
+    </div>
+</template>
+</custom-element-demo>
+```
+-->
 
 
 

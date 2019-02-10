@@ -2,7 +2,7 @@
     "version": 1,
     "tags": [{
         "name": "xtal-frappe-chart",
-        "description": "Web component wrapper around the cool [Frappe chart](https://frappe.io/charts) library.",
+        "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
         "attributes": [
             {
                 "name": "data",
