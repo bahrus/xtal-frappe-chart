@@ -19,7 +19,7 @@ function loadCss(url) {
  * @polymer
  * @demo demo/index.html
 */
-class XtalFrappeChart extends XtallatX(HTMLElement) {
+export class XtalFrappeChart extends XtallatX(HTMLElement) {
     constructor() {
         super();
         this._pendingNewDataPoints = [];
@@ -133,4 +133,3 @@ if (link) {
 else {
     loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
 }
-//# sourceMappingURL=xtal-frappe-chart.js.map

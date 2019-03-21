@@ -31,7 +31,7 @@ function loadCss(url: string){
  * @polymer
  * @demo demo/index.html
 */        
-class XtalFrappeChart extends  XtallatX(HTMLElement){
+export class XtalFrappeChart extends  XtallatX(HTMLElement){
     static get is(){return 'xtal-frappe-chart';}
     _data: object;
     _chart: Chart;
