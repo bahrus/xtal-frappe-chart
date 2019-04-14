@@ -14,7 +14,7 @@ Things I like about this chart library:
 2)  It supports ES6 Modules (and iffe).
 3)  The charts look nice.
 
-xtal-frappe-charts follows suit and provides an ES6 Module (xtal-frappe-chart.js) and an iife one (xtal-frape-chart.iife.js);
+**NB** Tooltips [don't](https://github.com/frappe/charts/issues/222) display properly within ShadowDOM.
 
 <!--
 ```

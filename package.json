@@ -9,10 +9,10 @@
   "module": "xtal-frappe-chart.js",
   "dependencies": {
     "frappe-charts": "1.1.0",
-    "xtal-element": "0.0.50"
+    "xtal-element": "0.0.51"
   },
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "2.2.7",
+    "@webcomponents/webcomponentsjs": "2.2.8",
     "p-d.p-u": "0.0.113",
     "jiife": "0.0.12"
   }
