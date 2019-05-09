@@ -1,7 +1,7 @@
 import {Chart, PercentageChart, PieChart, Heatmap, AxisChart} from 'frappe-charts/dist/frappe-charts.esm.js';
 import {XtallatX} from 'xtal-element/xtal-latx.js';
 import {define} from 'trans-render/define.js';
-import {disabled, up, hydrate} from 'trans-render/hydrate.js';
+import {disabled, hydrate} from 'trans-render/hydrate.js';
 
 const data = 'data';
 declare var xtal_frappe_chart;
@@ -137,7 +137,7 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
 
     _connected: boolean;
     connectedCallback(){
-        this[up]([data,'newDataPoint', 'staleDataPoint', 'updateData'] );
+        this.propUp([data,'newDataPoint', 'staleDataPoint', 'updateData'] );
         this._connected = true;
         this.onPropsChange();
     }

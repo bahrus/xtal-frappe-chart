@@ -1,7 +1,7 @@
 import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
 import { XtallatX } from 'xtal-element/xtal-latx.js';
 import { define } from 'trans-render/define.js';
-import { up, hydrate } from 'trans-render/hydrate.js';
+import { hydrate } from 'trans-render/hydrate.js';
 const data = 'data';
 function loadCss(url) {
     const link = document.createElement('link');
@@ -113,7 +113,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this._chart.update(val);
     }
     connectedCallback() {
-        this[up]([data, 'newDataPoint', 'staleDataPoint', 'updateData']);
+        this.propUp([data, 'newDataPoint', 'staleDataPoint', 'updateData']);
         this._connected = true;
         this.onPropsChange();
     }
