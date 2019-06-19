@@ -8,13 +8,19 @@
   "main": "xtal-frappe-chart.js",
   "module": "xtal-frappe-chart.js",
   "dependencies": {
-    "frappe-charts": "1.1.0",
-    "xtal-element": "0.0.59",
-    "trans-render": "0.0.111"
+    "frappe-charts": "1.2.2",
+    "xtal-element": "0.0.60",
+    "trans-render": "0.0.114"
+  },
+  "scripts": {
+    "serve": "node node_modules/xtal-test/serve.js"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "2.2.10",
-    "p-d.p-u": "0.0.121",
-    "jiife": "0.0.12"
+    "p-et-alia": "0.0.8",
+    "xtal-json-editor": "0.0.35",
+    "xtal-json-merge": "0.2.37",
+    "jiife": "0.0.12",
+    "xtal-test": "0.0.19"
   }
 }
