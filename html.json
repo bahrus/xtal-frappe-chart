@@ -42,7 +42,24 @@
                         "isNavigable": true
                       }
                 }
+            },
+            {
+              "name": "selectedElement",
+              "description": "Data corresponding to selected chart element.",
+              "testValues": {
+                "test1": [8,18,58]
+              }
             }            
+        ],
+        "events": [
+          {
+            "name": "selected-element-changed",
+            "testExpectedValues":{
+              "test1":{
+                "value": [8,18,58] 
+              }
+            }
+          }
         ]
     }]
 }
