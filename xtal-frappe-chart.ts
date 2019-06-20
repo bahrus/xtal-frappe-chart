@@ -40,7 +40,7 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     value: object;
     constructor(){
         super();
-        this.style.display="block";
+        //
 
     }
 
@@ -94,6 +94,7 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     }
 
     loadChart(){
+        this.style.display="block";
         if(this._previousData && this._data === this._previousData) return;
         this._previousData = this._data;
         //this._data['parent'] = this;

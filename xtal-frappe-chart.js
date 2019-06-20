@@ -24,7 +24,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     constructor() {
         super();
         this._pendingNewDataPoints = [];
-        this.style.display = "block";
+        //
     }
     static get is() { return 'xtal-frappe-chart'; }
     /**
@@ -69,6 +69,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         });
     }
     loadChart() {
+        this.style.display = "block";
         if (this._previousData && this._data === this._previousData)
             return;
         this._previousData = this._data;
