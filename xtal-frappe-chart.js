@@ -120,7 +120,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this._chart.update(val);
     }
     connectedCallback() {
-        this.propUp([data, 'newDataPoint', 'staleDataPoint', 'updateData']);
+        this.propUp([data, 'newDataPoint', 'staleDataPoint', 'updateData', 'selectedElement']);
         this._connected = true;
         this.onPropsChange();
     }
