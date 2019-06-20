@@ -60,6 +60,8 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
         ]);
     }
 
+
+
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         switch (name) {
             case data:
@@ -76,6 +78,21 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
         }, 50);
         
     }
+
+
+    _selectedElement : any[];
+    get selectedElement(){
+        return this._selectedElement;
+    }
+
+    set selectedElement(nv){
+        this._selectedElement = nv;
+        this.value = nv;
+        this.de('selected-element', {
+            value: nv
+        });        
+    }
+
     loadChart(){
         if(this._previousData && this._data === this._previousData) return;
         this._previousData = this._data;
@@ -91,11 +108,7 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
                 this._data['data'].datasets.forEach(dataSet => {
                     selectedData.push(dataSet.values[e.index]);
                 });
-                this['selectedElement'] = selectedData;
-                this.value = selectedData;
-                this.de('selected-element', {
-                    value: selectedData
-                });
+                this.selectedElement = selectedData;
             });
         }, 50);
 

@@ -58,6 +58,16 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
             this.loadChart();
         }, 50);
     }
+    get selectedElement() {
+        return this._selectedElement;
+    }
+    set selectedElement(nv) {
+        this._selectedElement = nv;
+        this.value = nv;
+        this.de('selected-element', {
+            value: nv
+        });
+    }
     loadChart() {
         if (this._previousData && this._data === this._previousData)
             return;
@@ -75,11 +85,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
                 this._data['data'].datasets.forEach(dataSet => {
                     selectedData.push(dataSet.values[e.index]);
                 });
-                this['selectedElement'] = selectedData;
-                this.value = selectedData;
-                this.de('selected-element', {
-                    value: selectedData
-                });
+                this.selectedElement = selectedData;
             });
         }, 50);
         this._pendingNewDataPoints.forEach(dp => {
