@@ -47,6 +47,7 @@
             {
               "name": "selectedElement",
               "description": "Data corresponding to selected chart element.",
+              "readOnly": true,
               "testValues": {
                 "test1": [8,18,58]
               }
