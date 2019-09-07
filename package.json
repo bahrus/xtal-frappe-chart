@@ -9,8 +9,8 @@
   "module": "xtal-frappe-chart.js",
   "dependencies": {
     "frappe-charts": "1.2.2",
-    "xtal-element": "0.0.60",
-    "trans-render": "0.0.114"
+    "xtal-element": "0.0.82",
+    "trans-render": "0.0.131"
   },
   "scripts": {
     "serve": "node node_modules/xtal-test/serve.js"

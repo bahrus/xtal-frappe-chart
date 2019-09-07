@@ -1,30 +1,34 @@
 import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
 import { XtallatX } from 'xtal-element/xtal-latx.js';
 import { define } from 'trans-render/define.js';
+import { createTemplate } from 'xtal-element/utils.js';
 import { hydrate } from 'trans-render/hydrate.js';
 const data = 'data';
-function loadCss(url) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = url;
-    link.addEventListener('load', e => {
-        init();
-    });
-    document.head.appendChild(link);
-}
+const mainTemplate = createTemplate(/* html */ `
+<style>
+:host{display:block;}
+.chart-container{position:relative;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif}.chart-container .axis,.chart-container .chart-label{fill:#555b51}.chart-container .axis line,.chart-container .chart-label line{stroke:#dadada}.chart-container .dataset-units circle{stroke:#fff;stroke-width:2}.chart-container .dataset-units path{fill:none;stroke-opacity:1;stroke-width:2px}.chart-container .dataset-path{stroke-width:2px}.chart-container .path-group path{fill:none;stroke-opacity:1;stroke-width:2px}.chart-container line.dashed{stroke-dasharray:5,3}.chart-container .axis-line .specific-value{text-anchor:start}.chart-container .axis-line .y-line{text-anchor:end}.chart-container .axis-line .x-line{text-anchor:middle}.chart-container .legend-dataset-text{fill:#6c7680;font-weight:600}.graph-svg-tip{position:absolute;z-index:1;padding:10px;font-size:12px;color:#959da5;text-align:center;background:rgba(0,0,0,.8);border-radius:3px}.graph-svg-tip ol,.graph-svg-tip ul{padding-left:0;display:-webkit-box;display:-ms-flexbox;display:flex}.graph-svg-tip ul.data-point-list li{min-width:90px;-webkit-box-flex:1;-ms-flex:1;flex:1;font-weight:600}.graph-svg-tip strong{color:#dfe2e5;font-weight:600}.graph-svg-tip .svg-pointer{position:absolute;height:5px;margin:0 0 0 -5px;content:" ";border:5px solid transparent;border-top-color:rgba(0,0,0,.8)}.graph-svg-tip.comparison{padding:0;text-align:left;pointer-events:none}.graph-svg-tip.comparison .title{display:block;padding:10px;margin:0;font-weight:600;line-height:1;pointer-events:none}.graph-svg-tip.comparison ul{margin:0;white-space:nowrap;list-style:none}.graph-svg-tip.comparison li{display:inline-block;padding:5px 10px}
+</style>
+<div id=target></div>
+`);
+// function loadCss(url: string){
+//     const link = document.createElement('link');
+//     link.rel = 'stylesheet';
+//     link.href = url;
+//     link.addEventListener('load', e =>{
+//         init();
+//     })
+//     document.head.appendChild(link);
+// }
 /**
- * `xtal-frappe-charts`
- * Dependency free web component wrapper around frappé charting library
- *
- * @customElement
- * @polymer
- * @demo demo/index.html
+ * `xtal-frappe-chart`
 */
 export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     constructor() {
         super();
         this._pendingNewDataPoints = [];
-        //
+        const shadowRoot = this.attachShadow({ mode: "open" });
+        shadowRoot.appendChild(mainTemplate.content.cloneNode(true));
     }
     static get is() { return 'xtal-frappe-chart'; }
     /**
@@ -69,16 +73,17 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         });
     }
     loadChart() {
-        this.style.display = "block";
+        //this.style.display="block";
         if (this._previousData && this._data === this._previousData)
             return;
         this._previousData = this._data;
         //this._data['parent'] = this;
+        const target = this.shadowRoot.querySelector('#target');
         if (typeof (Chart) !== 'undefined') {
-            this._chart = new Chart(this, this._data);
+            this._chart = new Chart(target, this._data);
         }
         else {
-            this._chart = new frappe.Chart(this, this._data);
+            this._chart = new frappe.Chart(target, this._data);
         }
         setTimeout(() => {
             this._chart['parent'].addEventListener('data-select', (e) => {
@@ -125,19 +130,17 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this.onPropsChange();
     }
 }
-function init() {
-    define(XtalFrappeChart);
-}
-//thanks Firefox!
-const link = self['xtal_frappe-chart_css'];
-if (link) {
-    if (link.rel !== 'stylesheet') {
-        loadCss(link.href);
-    }
-    else {
-        init();
-    }
-}
-else {
-    loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
-}
+define(XtalFrappeChart);
+// function init(){
+//     define(XtalFrappeChart);
+// }
+// const link = self['xtal_frappe-chart_css'] as HTMLLinkElement;
+// if(link){
+//     if(link.rel !== 'stylesheet'){
+//         loadCss(link.href)
+//     }else{
+//         init();
+//     }
+// }else{
+//     loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
+// }
