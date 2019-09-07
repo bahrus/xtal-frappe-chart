@@ -58,19 +58,20 @@ Things I like about this chart library:
       <p-d on="selected-element-changed" prop="input" val="target.value"></p-d>
       <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
 
-      <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
     
-        <!-- Use experimental import maps -->
-        <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@0.2.0/dist/es-module-shims.js"></script>
+        <!--Use experimental import maps -->
+        <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@0.2.7/dist/es-module-shims.js"></script>
         <script type="importmap-shim">
           {
             "imports": {
-              "xtal-element/": "https://cdn.jsdelivr.net/npm/xtal-element@0.0.43/",
-              "xtal-json-merge/": "https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.34/",
-              "xtal-json-editor/": "https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.33/",
-              "p-d.p-u/": "https://cdn.jsdelivr.net/npm/p-d.p-u@0.0.110/",
-              "xtal-frappe-chart/": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.22/",
-              "frappe-charts/": "https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/"
+              "xtal-element/": "https://cdn.jsdelivr.net/npm/xtal-element@0.0.60/",
+              "trans-render/": "https://cdn.jsdelivr.net/npm/trans-render@0.0.114/",
+              "xtal-json-merge/": "https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.37/",
+              "xtal-json-editor/": "https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.35/",
+              "p-et-alia/": "https://cdn.jsdelivr.net/npm/p-et-alia@0.0.8/",
+              "xtal-frappe-chart/": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.38/",
+              "frappe-charts/": "https://cdn.jsdelivr.net/npm/frappe-charts@1.2.2/"
             }
           }
           </script>
@@ -78,7 +79,7 @@ Things I like about this chart library:
           import 'xtal-frappe-chart/xtal-frappe-chart.js';
           import 'xtal-json-merge/xtal-insert-json.js';
           import 'xtal-json-editor/xtal-json-editor.js';
-          import 'p-d.p-u/p-d.js';
+          import 'p-et-alia/p-d.js';
         </script>
     </div>
   </template>
