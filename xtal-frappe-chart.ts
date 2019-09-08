@@ -13,6 +13,12 @@ export interface IAddDataPointParams{
     index?: number;
 }
 
+export interface SelectedElement{
+    label: string,
+    values: any[],
+    index: number,
+}
+
 const mainTemplate = createTemplate(/* html */`
 <style>
 :host{display:block;}
@@ -84,7 +90,7 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     }
 
 
-    _selectedElement : any[];
+    _selectedElement : SelectedElement;
     get selectedElement(){
         return this._selectedElement;
     }
@@ -110,11 +116,12 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
         }
         setTimeout(() =>{
             this._chart['parent'].addEventListener('data-select', (e) => {
-                const selectedData = [];
-                this._data['data'].datasets.forEach(dataSet => {
-                    selectedData.push(dataSet.values[e.index]);
-                });
-                this.selectedElement = selectedData;
+                this.selectedElement = {
+                    values: e.values,
+                    label: e.label,
+                    index: e.index,
+                }
+                
             });
         }, 50);
 

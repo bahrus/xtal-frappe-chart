@@ -87,11 +87,11 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         }
         setTimeout(() => {
             this._chart['parent'].addEventListener('data-select', (e) => {
-                const selectedData = [];
-                this._data['data'].datasets.forEach(dataSet => {
-                    selectedData.push(dataSet.values[e.index]);
-                });
-                this.selectedElement = selectedData;
+                this.selectedElement = {
+                    values: e.values,
+                    label: e.label,
+                    index: e.index,
+                };
             });
         }, 50);
         this._pendingNewDataPoints.forEach(dp => {
