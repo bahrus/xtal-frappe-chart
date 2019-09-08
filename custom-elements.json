@@ -62,9 +62,11 @@
             "name": "selected-element-changed",
             "testExpectedValues":{
               "test1":{
-                "values": [-4, 14, 37],
-                "label": "9pm-12am",
-                "index": 7
+                "value":{
+                  "values": [-4, 14, 37],
+                  "label": "9pm-12am",
+                  "index": 7
+                }
               }
             }
           }
