@@ -93,8 +93,8 @@ Things I like about this chart library:
 <custom-element-demo>
 <template>
     <div>
-        <wc-info package-name="npm.hypo-link" href="https://unpkg.com/xtal-frappe-chart@0.0.21/html.json"></wc-info>
-        <script type="module" src="https://unpkg.com/wc-info@0.0.29/wc-info.js?module"></script>
+        <wc-info package-name="npm.xtal-frappe-chart" href="https://unpkg.com/xtal-frappe-chart@0.0.39/custom-elements.json"></wc-info>
+        <script type="module" src="https://unpkg.com/wc-info@0.0.65/wc-info.js?module"></script>
     </div>
 </template>
 </custom-element-demo>
@@ -103,15 +103,11 @@ Things I like about this chart library:
 
 
 
-
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) and npm (packaged with [Node.js](https://nodejs.org)) installed. Run `npm install` to install your element's dependencies, then run `polymer serve` to serve your element locally.
-
-## Viewing Your Element
+## Viewing Your Element Locally
 
 ```
-$ polymer serve
+$ npm install
+$ npm run serve
 ```
 
 ## Running Tests
