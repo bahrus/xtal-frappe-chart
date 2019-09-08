@@ -49,7 +49,11 @@
               "description": "Data corresponding to selected chart element.",
               "readOnly": true,
               "testValues": {
-                "test1": [8,18,58]
+                "test1": {
+                  "values": [-4, 14, 37],
+                  "label": "9pm-12am",
+                  "index": 7
+                }
               }
             }            
         ],
@@ -58,7 +62,9 @@
             "name": "selected-element-changed",
             "testExpectedValues":{
               "test1":{
-                "value": [8,18,58] 
+                "values": [-4, 14, 37],
+                "label": "9pm-12am",
+                "index": 7
               }
             }
           }
