@@ -3,7 +3,7 @@
     "tags": [{
         "name": "xtal-frappe-chart",
         "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-        "selfResolvingModulePath": "https://unpkg.com/xtal-frappe-chart@0.0.35/xtal-frappe-chart.js?module",
+        "selfResolvingModulePath": "https://unpkg.com/xtal-frappe-chart@0.0.43/xtal-frappe-chart.js?module",
         "testCaseNames": ["test1"],
         "attributes": [
             {
