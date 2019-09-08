@@ -11,10 +11,9 @@ Web component wrapper around the cool [Frappe chart](https://frappe.io/charts) l
 Things I like about this chart library:
 
 1)  It is quite small (17kb), yet, unlike chartist, it has nice interactive features.
-2)  It supports ES6 Modules (and iffe).
+2)  It supports ES6 Modules.
 3)  The charts look nice.
 
-**NB** Tooltips [don't](https://github.com/frappe/charts/issues/222) display properly within ShadowDOM.
 
 <!--
 ```
