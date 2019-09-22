@@ -59,27 +59,10 @@ Things I like about this chart library:
 
 
     
-        <!--Use experimental import maps -->
-        <script defer src="https://cdn.jsdelivr.net/npm/es-module-shims@0.2.7/dist/es-module-shims.js"></script>
-        <script type="importmap-shim">
-          {
-            "imports": {
-              "xtal-element/": "https://cdn.jsdelivr.net/npm/xtal-element@0.0.60/",
-              "trans-render/": "https://cdn.jsdelivr.net/npm/trans-render@0.0.114/",
-              "xtal-json-merge/": "https://cdn.jsdelivr.net/npm/xtal-json-merge@0.2.37/",
-              "xtal-json-editor/": "https://cdn.jsdelivr.net/npm/xtal-json-editor@0.0.35/",
-              "p-et-alia/": "https://cdn.jsdelivr.net/npm/p-et-alia@0.0.8/",
-              "xtal-frappe-chart/": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart@0.0.38/",
-              "frappe-charts/": "https://cdn.jsdelivr.net/npm/frappe-charts@1.2.2/"
-            }
-          }
-          </script>
-        <script  type="module-shim">
-          import 'xtal-frappe-chart/xtal-frappe-chart.js';
-          import 'xtal-json-merge/xtal-insert-json.js';
-          import 'xtal-json-editor/xtal-json-editor.js';
-          import 'p-et-alia/p-d.js';
-        </script>
+      <script type="module" src="https://unpkg.com/xtal-json-editor@0.0.39/xtal-json-editor.js?module"></script>
+      <script type="module" src="https://unpkg.com/p-et-alia@0.0.47/p-et-alia.js?module"></script>
+      <script type="module" src="https://unpkg.com/xtal-json-merge@0.2.37/xtal-json-merge.js?module"></script>
+      <script type="module" src="https://unpkg.com/xtal-frappe-chart@0.0.44/xtal-frappe-chart.js?module"></script>
     </div>
   </template>
 </custom-element-demo>
@@ -93,8 +76,8 @@ Things I like about this chart library:
 <custom-element-demo>
 <template>
     <div>
-        <wc-info package-name="npm.xtal-frappe-chart" href="https://unpkg.com/xtal-frappe-chart@0.0.39/custom-elements.json"></wc-info>
-        <script type="module" src="https://unpkg.com/wc-info@0.0.65/wc-info.js?module"></script>
+        <wc-info package-name="npm.xtal-frappe-chart" href="https://unpkg.com/xtal-frappe-chart@0.0.45/custom-elements.json"></wc-info>
+        <script type="module" src="https://unpkg.com/wc-info@0.0.67/wc-info.js?module"></script>
     </div>
 </template>
 </custom-element-demo>

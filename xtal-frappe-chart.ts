@@ -13,6 +13,7 @@ export interface IAddDataPointParams{
     index?: number;
 }
 
+
 export interface SelectedElement{
     label: string,
     values: any[],
@@ -27,18 +28,12 @@ const mainTemplate = createTemplate(/* html */`
 <div id=target></div>
 `);
 
-// function loadCss(url: string){
-//     const link = document.createElement('link');
-//     link.rel = 'stylesheet';
-//     link.href = url;
-//     link.addEventListener('load', e =>{
-//         init();
-//     })
-//     document.head.appendChild(link);
-// }
+
 
 /**
- * `xtal-frappe-chart`
+ * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
+ * @element xtal-frappe-chart
+ * @event selected-element-changed - testing
 */        
 export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     static get is(){return 'xtal-frappe-chart';}
@@ -54,12 +49,14 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
 
     }
 
-    /**
-     * @type {object} Data to chart
-     */
+
     get data(){
         return this._data;
     }
+
+    /**
+     * Data to chart
+    */
     set data(val){
         this._data = val;
         this.onPropsChange();
@@ -94,7 +91,15 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     get selectedElement(){
         return this._selectedElement;
     }
-
+    /**
+     * Selected data element from within the chart. 
+     * @example
+     * "test1": {
+     *      "values": [-4, 14, 37],
+     *      "label": "9pm-12am",
+     *      "index": 7
+      *}
+     */
     set selectedElement(nv){
         this._selectedElement = nv;
         this.value = nv;
@@ -130,10 +135,37 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
         })
     }
     _pendingNewDataPoints : IAddDataPointParams[] = [];
+
+
+    newDataPointTestValue2: any = {
+        label: "test",
+        index: 10,
+        valueFromEachDataset: []
+    };
+    newDataPointTestValue :{ [key: string]: any } = {
+        artv: 20,
+        b: 30,
+        c: {
+            d: 20,
+            e: 40
+        }
+    };
+    newDataPointTestValue3 : any = {
+        a: "a",
+        b: 30,
+        c: {
+            d: 50,
+            e: 40
+        }
+    };    
     _newDataPoint: IAddDataPointParams;
     get newDataPoint(){
         return this._newDataPoint;
     }
+    /**
+     * Add new data point to chart
+     * 
+     */
     set newDataPoint(val){
         this._newDataPoint = val;
         if(this._chart){
@@ -147,6 +179,9 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     get staleDataPoint(){
         return this._staleDataPoint;
     }
+    /**
+     * Remove data point from chart
+     */
     set staleDataPoint(val){
         this._staleDataPoint = val;
         this._chart.removeDataPoint(val);
@@ -156,6 +191,9 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
     get updateData(){
         return this._updateData;
     }
+    /**
+     * Update Data
+     */
     set updateData(val){
         this._updateData = val;
         this._chart.update(val);
@@ -170,18 +208,5 @@ export class XtalFrappeChart extends  XtallatX(hydrate(HTMLElement)){
 
 }
 define(XtalFrappeChart);
-// function init(){
-//     define(XtalFrappeChart);
-// }
 
-// const link = self['xtal_frappe-chart_css'] as HTMLLinkElement;
-// if(link){
-//     if(link.rel !== 'stylesheet'){
-//         loadCss(link.href)
-//     }else{
-//         init();
-//     }
-// }else{
-//     loadCss('https://unpkg.com/frappe-charts@1.1.0/dist/frappe-charts.min.css');
-// }
 
