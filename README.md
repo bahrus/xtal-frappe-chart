@@ -14,6 +14,7 @@ Things I like about this chart library:
 2)  It supports ES6 Modules.
 3)  The charts look nice.
 
+[Demo](https://jsfiddle.net/bahrus/ma2y8ev0/)
 
 <!--
 ```
