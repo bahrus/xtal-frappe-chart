@@ -4,7 +4,7 @@
     {
       "name": "xtal-frappe-chart",
       "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-      "jsDoc": "/**\n * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.\n * @element xtal-frappe-chart\n * @event selected-element-changed - testing\n*/",
+      "jsDoc": "/**\n * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.\n * @element xtal-frappe-chart\n * @event selected-element-changed - fires when user selects chart data element\n*/",
       "attributes": [],
       "properties": [
         {
@@ -24,18 +24,6 @@
           "type": "\"\" | \"-changed\""
         },
         {
-          "name": "newDataPointTestValue2",
-          "type": "{}"
-        },
-        {
-          "name": "newDataPointTestValue",
-          "type": "{}"
-        },
-        {
-          "name": "newDataPointTestValue3",
-          "type": "{}"
-        },
-        {
           "name": "data",
           "description": "Data to chart",
           "jsDoc": "/**\n     * Data to chart\n    */",
@@ -44,7 +32,7 @@
         {
           "name": "selectedElement",
           "description": "Selected data element from within the chart.",
-          "jsDoc": "/**\n     * Selected data element from within the chart.\n     * @example\n     * \"test1\": {\n     *      \"values\": [-4, 14, 37],\n     *      \"label\": \"9pm-12am\",\n     *      \"index\": 7\n      *}\n     */",
+          "jsDoc": "/**\n     * Selected data element from within the chart.\n     */",
           "type": "any"
         },
         {
@@ -69,7 +57,7 @@
       "events": [
         {
           "name": "selected-element-changed",
-          "description": "testing"
+          "description": "fires when user selects chart data element"
         }
       ],
       "slots": []

@@ -14,33 +14,12 @@ const mainTemplate = createTemplate(/* html */ `
 /**
  * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
  * @element xtal-frappe-chart
- * @event selected-element-changed - testing
+ * @event selected-element-changed - fires when user selects chart data element
 */
 export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     constructor() {
         super();
         this._pendingNewDataPoints = [];
-        this.newDataPointTestValue2 = {
-            label: "test",
-            index: 10,
-            valueFromEachDataset: []
-        };
-        this.newDataPointTestValue = {
-            artv: 20,
-            b: 30,
-            c: {
-                d: 20,
-                e: 40
-            }
-        };
-        this.newDataPointTestValue3 = {
-            a: "a",
-            b: 30,
-            c: {
-                d: 50,
-                e: 40
-            }
-        };
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.appendChild(mainTemplate.content.cloneNode(true));
     }
@@ -81,12 +60,6 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     }
     /**
      * Selected data element from within the chart.
-     * @example
-     * "test1": {
-     *      "values": [-4, 14, 37],
-     *      "label": "9pm-12am",
-     *      "index": 7
-      *}
      */
     set selectedElement(nv) {
         this._selectedElement = nv;
