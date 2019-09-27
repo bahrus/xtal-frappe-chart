@@ -1,9 +1,9 @@
-import { Chart } from 'frappe-charts/dist/frappe-charts.esm.js';
-import { XtallatX } from 'xtal-element/xtal-latx.js';
-import { define } from 'trans-render/define.js';
-import { createTemplate } from 'xtal-element/utils.js';
-import { hydrate } from 'trans-render/hydrate.js';
-const data = 'data';
+import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
+import { XtallatX } from "xtal-element/xtal-latx.js";
+import { define } from "trans-render/define.js";
+import { createTemplate } from "xtal-element/utils.js";
+import { hydrate } from "trans-render/hydrate.js";
+const data = "data";
 const mainTemplate = createTemplate(/* html */ `
 <style>
 :host{display:block;}
@@ -15,7 +15,7 @@ const mainTemplate = createTemplate(/* html */ `
  * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
  * @element xtal-frappe-chart
  * @event selected-element-changed - fires when user selects chart data element
-*/
+ */
 export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     constructor() {
         super();
@@ -23,21 +23,21 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         const shadowRoot = this.attachShadow({ mode: "open" });
         shadowRoot.appendChild(mainTemplate.content.cloneNode(true));
     }
-    static get is() { return 'xtal-frappe-chart'; }
+    static get is() {
+        return "xtal-frappe-chart";
+    }
     get data() {
         return this._data;
     }
     /**
      * Data to chart
-    */
+     */
     set data(val) {
         this._data = val;
         this.onPropsChange();
     }
     static get observedAttributes() {
-        return super.observedAttributes.concat([
-            data,
-        ]);
+        return super.observedAttributes.concat([data]);
     }
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
@@ -49,7 +49,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this.onPropsChange();
     }
     onPropsChange() {
-        if (this._disabled || !this._data || (typeof (this._data) !== 'object'))
+        if (this._disabled || !this._data || typeof this._data !== "object")
             return;
         setTimeout(() => {
             this.loadChart();
@@ -61,33 +61,35 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     /**
      * Selected data element from within the chart.
      */
-    set selectedElement(nv) {
-        this._selectedElement = nv;
-        this.value = nv;
-        this.de('selected-element', {
-            value: nv
-        });
-    }
+    // set selectedElement(nv){
+    //     this._selectedElement = nv;
+    //     this.value = nv;
+    //     this.de('selected-element', {
+    //         value: nv
+    //     });
+    // }
     loadChart() {
         //this.style.display="block";
         if (this._previousData && this._data === this._previousData)
             return;
         this._previousData = this._data;
         //this._data['parent'] = this;
-        const target = this.shadowRoot.querySelector('#target');
-        if (typeof (Chart) !== 'undefined') {
+        const target = this.shadowRoot.querySelector("#target");
+        if (typeof Chart !== "undefined") {
             this._chart = new Chart(target, this._data);
         }
         else {
             this._chart = new frappe.Chart(target, this._data);
         }
         setTimeout(() => {
-            this._chart['parent'].addEventListener('data-select', (e) => {
-                this.selectedElement = {
-                    values: e.values,
-                    label: e.label,
-                    index: e.index,
-                };
+            this._chart["parent"].addEventListener("data-select", e => {
+                this.de("selected-element", {
+                    value: {
+                        values: e.values,
+                        label: e.label,
+                        index: e.index
+                    }
+                });
             });
         }, 50);
         this._pendingNewDataPoints.forEach(dp => {
@@ -131,7 +133,13 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this._chart.update(val);
     }
     connectedCallback() {
-        this.propUp([data, 'newDataPoint', 'staleDataPoint', 'updateData', 'selectedElement']);
+        this.propUp([
+            data,
+            "newDataPoint",
+            "staleDataPoint",
+            "updateData",
+            "selectedElement"
+        ]);
         this._connected = true;
         this.onPropsChange();
     }
