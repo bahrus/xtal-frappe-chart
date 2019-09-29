@@ -3,31 +3,12 @@
     "tags": [
         {
             "name": "xtal-frappe-chart",
-            "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-            "jsDoc": "/**\n * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.\n * @element xtal-frappe-chart\n * @event selected-element-changed - fires when user selects chart data element\n */",
-            "attributes": [],
+            "testCaseNames": [
+                "test1"
+            ],
             "properties": [
                 {
-                    "name": "val",
-                    "type": "\"set\" | \"remove\""
-                },
-                {
-                    "name": "disabled",
-                    "type": "boolean"
-                },
-                {
-                    "name": "evCount",
-                    "type": "{ [key: string]: number; }"
-                },
-                {
-                    "name": "asIs",
-                    "type": "\"\" | \"-changed\""
-                },
-                {
                     "name": "data",
-                    "description": "Data to chart",
-                    "jsDoc": "/**\n     * Data to chart\n     */",
-                    "type": "any",
                     "testValues": {
                         "test1": {
                             "title": "My Awesome Chart",
@@ -92,30 +73,11 @@
                             "isNavigable": true
                         }
                     }
-                },
-                {
-                    "name": "newDataPoint",
-                    "description": "Add new data point to chart",
-                    "jsDoc": "/**\n     * Add new data point to chart\n     *\n     */",
-                    "type": "any"
-                },
-                {
-                    "name": "staleDataPoint",
-                    "description": "Remove data point from chart",
-                    "jsDoc": "/**\n     * Remove data point from chart\n     */",
-                    "type": "any"
-                },
-                {
-                    "name": "updateData",
-                    "description": "Update Data",
-                    "jsDoc": "/**\n     * Update Data\n     */",
-                    "type": "any"
                 }
             ],
             "events": [
                 {
                     "name": "selected-element-changed",
-                    "description": "fires when user selects chart data element",
                     "testExpectedValues": {
                         "test1": {
                             "value": {
@@ -130,8 +92,7 @@
                         }
                     }
                 }
-            ],
-            "slots": []
+            ]
         }
     ]
 }
