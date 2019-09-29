@@ -115,7 +115,14 @@
             "events": [
                 {
                     "name": "selected-element-changed",
-                    "description": "fires when user selects chart data element",
+                    "description": "Fired when user selects chart element",
+                    "detail": [
+                        {
+                            "name": "value",
+                            "description": "Value of selected Element",
+                            "type": "SelectedElementEventDetail"
+                        }
+                    ],
                     "testExpectedValues": {
                         "test1": {
                             "value": {

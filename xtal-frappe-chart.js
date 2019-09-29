@@ -30,6 +30,13 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         return this._data;
     }
     /**
+     * All events emitted pass through this method
+     * @param evt
+     */
+    emit(evt) {
+        this.de(evt.name, evt.detail, true);
+    }
+    /**
      * Data to chart
      */
     set data(val) {
@@ -83,11 +90,15 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         }
         setTimeout(() => {
             this._chart["parent"].addEventListener("data-select", e => {
-                this.de("selected-element", {
-                    value: {
-                        values: e.values,
-                        label: e.label,
-                        index: e.index
+                this.value = {
+                    values: e.values,
+                    label: e.label,
+                    index: e.index
+                };
+                this.emit({
+                    name: "selected-element-changed",
+                    detail: {
+                        value: this.value
                     }
                 });
             });

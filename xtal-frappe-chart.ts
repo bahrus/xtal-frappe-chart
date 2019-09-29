@@ -19,10 +19,22 @@ export interface IAddDataPointParams {
   index?: number;
 }
 
+
 export interface SelectedElement {
   label: string;
   values: any[];
   index: number;
+}
+
+export interface SelectedElementEventDetail{
+  value: SelectedElement
+}
+
+export type EventNames = 'selected-element-changed';
+
+export interface XtalFrappeChartEvent{
+  name: EventNames,
+  detail: SelectedElementEventDetail
 }
 
 const mainTemplate = createTemplate(/* html */ `
@@ -47,7 +59,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
   _data: object;
   _chart: Chart;
   _previousData: object;
-  value: object;
+  value: SelectedElement;
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: "open" });
@@ -56,6 +68,14 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
 
   get data() {
     return this._data;
+  }
+
+  /**
+   * All events emitted pass through this method
+   * @param evt 
+   */
+  emit(evt: XtalFrappeChartEvent){
+    this.de(evt.name, evt.detail, true);
   }
 
   /**
@@ -99,7 +119,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
   //         value: nv
   //     });
   // }
-
+  
   loadChart() {
     //this.style.display="block";
     if (this._previousData && this._data === this._previousData) return;
@@ -111,16 +131,21 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     } else {
       this._chart = new frappe.Chart(target, this._data);
     }
+    
     setTimeout(() => {
       this._chart["parent"].addEventListener("data-select", e => {
-
-        this.de("selected-element", {
-          value: {
+        this.value = {
             values: e.values,
             label: e.label,
             index: e.index
+        }
+        this.emit({
+          name: "selected-element-changed",
+          detail: {
+            value: this.value
           }
         });
+
       });
     }, 50);
 
