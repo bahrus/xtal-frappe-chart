@@ -32,10 +32,12 @@ export interface SelectedElementEventDetail{
 
 export type EventNames = 'selected-element-changed';
 
-export interface XtalFrappeChartEvent{
-  name: EventNames,
-  detail: SelectedElementEventDetail
-}
+// export interface XtalFrappeChartEvent{
+//   detail: SelectedElementEventDetail
+// }
+
+// type TypeName<T in EventNames> = 
+//   T extends 
 
 const mainTemplate = createTemplate(/* html */ `
 <style>
@@ -74,8 +76,8 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
    * All events emitted pass through this method
    * @param evt 
    */
-  emit(evt: XtalFrappeChartEvent){
-    this.de(evt.name, evt.detail, true);
+  emit(type: EventNames,  detail: SelectedElementEventDetail){
+    this.de(type, detail, true);
   }
 
   /**
@@ -139,13 +141,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
             label: e.label,
             index: e.index
         }
-        this.emit({
-          name: "selected-element-changed",
-          detail: {
-            value: this.value
-          }
-        });
-
+        this.emit("selected-element-changed", { value: this.value});
       });
     }, 50);
 

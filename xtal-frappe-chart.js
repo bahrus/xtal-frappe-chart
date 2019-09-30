@@ -4,6 +4,11 @@ import { define } from "trans-render/define.js";
 import { createTemplate } from "xtal-element/utils.js";
 import { hydrate } from "trans-render/hydrate.js";
 const data = "data";
+// export interface XtalFrappeChartEvent{
+//   detail: SelectedElementEventDetail
+// }
+// type TypeName<T in EventNames> = 
+//   T extends 
 const mainTemplate = createTemplate(/* html */ `
 <style>
 :host{display:block;}
@@ -33,8 +38,8 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
      * All events emitted pass through this method
      * @param evt
      */
-    emit(evt) {
-        this.de(evt.name, evt.detail, true);
+    emit(type, detail) {
+        this.de(type, detail, true);
     }
     /**
      * Data to chart
@@ -95,12 +100,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
                     label: e.label,
                     index: e.index
                 };
-                this.emit({
-                    name: "selected-element-changed",
-                    detail: {
-                        value: this.value
-                    }
-                });
+                this.emit("selected-element-changed", { value: this.value });
             });
         }, 50);
         this._pendingNewDataPoints.forEach(dp => {

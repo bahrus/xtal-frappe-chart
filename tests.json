@@ -6,6 +6,27 @@
             "testCaseNames": [
                 "test1"
             ],
+            "testInitializations":{
+                "test1":[
+                    {
+                        "method": "emit",
+                        "args": [
+                            "selected-element-changed",
+                            {
+                                "value": {
+                                    "values": [
+                                        -4,
+                                        14,
+                                        37
+                                    ],
+                                    "label": "9pm-12am",
+                                    "index": 7
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
             "properties": [
                 {
                     "name": "data",
