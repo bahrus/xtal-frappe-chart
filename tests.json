@@ -3,6 +3,7 @@
     "tags": [
         {
             "name": "xtal-frappe-chart",
+            "selfResolvingModulePath": "https://cdn.pika.dev/xtal-frappe-chart",
             "testCaseNames": [
                 "test1"
             ],

@@ -86,6 +86,21 @@ Things I like about this chart library:
 ```
 -->
 
+## Referencing from CDN:
+
+Optimized:
+
+```html
+<script type="module" src="https://cdn.pika.dev/xtal-frappe-chart"></script>
+```
+
+or
+
+Easy to debug:
+
+```html
+<script type="module" src="https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module"></script>
+```
 
 
 ## Viewing Your Element Locally

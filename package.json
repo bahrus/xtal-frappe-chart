@@ -23,6 +23,6 @@
     "xtal-json-merge": "0.2.37",
     "jiife": "0.0.12",
     "xtal-test": "0.0.19",
-    "json-file-patch": "0.0.0"
+    "json-file-patch": "0.0.1"
   }
 }
