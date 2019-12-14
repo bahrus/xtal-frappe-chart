@@ -35,18 +35,18 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         return this._data;
     }
     /**
+    * Data to chart
+    */
+    set data(val) {
+        this._data = val;
+        this.onPropsChange();
+    }
+    /**
      * All events emitted pass through this method
      * @param evt
      */
     emit(type, detail) {
         this.de(type, detail, true);
-    }
-    /**
-     * Data to chart
-     */
-    set data(val) {
-        this._data = val;
-        this.onPropsChange();
     }
     static get observedAttributes() {
         return super.observedAttributes.concat([data]);

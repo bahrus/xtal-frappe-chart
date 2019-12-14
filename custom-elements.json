@@ -1,33 +1,79 @@
 {
-    "version": 2,
+    "version": "experimental",
     "tags": [
         {
-            "name": "xtal-frappe-chart",
-            "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-            "jsDoc": "/**\n * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.\n * @element xtal-frappe-chart\n * @event selected-element-changed - fires when user selects chart data element\n */",
-            "attributes": [],
-            "properties": [
-                {
-                    "name": "val",
-                    "type": "\"set\" | \"remove\""
-                },
+            "name": "xtal-frappe-chart-ex1",
+            "attributes": [
                 {
                     "name": "disabled",
+                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
                     "type": "boolean"
-                },
+                }
+            ],
+            "properties": [
                 {
-                    "name": "evCount",
-                    "type": "{ [key: string]: number; }"
-                },
-                {
-                    "name": "asIs",
-                    "type": "\"\" | \"-changed\""
+                    "name": "value",
+                    "type": "SelectedElement"
                 },
                 {
                     "name": "data",
                     "description": "Data to chart",
-                    "jsDoc": "/**\n     * Data to chart\n     */",
-                    "type": "any",
+                    "type": "object",
+                    "default": "{\"title\":\"My Awesome Chart\",\"data\":{\"labels\":[\"12am-3am\",\"3am-6am\",\"6am-9am\",\"9am-12pm\",\"12pm-3pm\",\"3pm-6pm\",\"6pm-9pm\",\"9pm-12am\"],\"datasets\":[{\"name\":\"Some Data\",\"color\":\"light-blue\",\"values\":[25,40,30,35,8,52,17,null]},{\"name\":\"Another Set\",\"color\":\"violet\",\"values\":[25,50,null,15,18,32,27,14]},{\"name\":\"Yet Another\",\"color\":\"blue\",\"values\":[15,20,null,null,58,12,null,37]}]},\"type\":\"bar\",\"height\":250,\"isNavigable\":true}"
+                },
+                {
+                    "name": "selectedElement",
+                    "type": "SelectedElement"
+                },
+                {
+                    "name": "newDataPoint",
+                    "description": "Add new data point to chart",
+                    "type": "IAddDataPointParams"
+                },
+                {
+                    "name": "staleDataPoint",
+                    "description": "Remove data point from chart",
+                    "type": "number"
+                },
+                {
+                    "name": "updateData",
+                    "description": "Update Data"
+                },
+                {
+                    "name": "evCount",
+                    "description": "Tracks how many times each event type was called.",
+                    "type": "{ [key: string]: number; }",
+                    "default": "{}"
+                },
+                {
+                    "name": "disabled",
+                    "attribute": "disabled",
+                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+                    "type": "boolean"
+                }
+            ],
+            "events": [
+                {
+                    "name": "selected-element-changed",
+                    "description": "fires when user selects chart data element"
+                }
+            ]
+        },
+        {
+            "name": "xtal-frappe-chart",
+            "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
+            "attributes": [
+                {
+                    "name": "disabled",
+                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+                    "type": "boolean"
+                }
+            ],
+            "properties": [
+                {
+                    "name": "data",
+                    "description": "Data to chart",
+                    "type": "object",
                     "testValues": {
                         "test1": {
                             "title": "My Awesome Chart",
@@ -94,22 +140,33 @@
                     }
                 },
                 {
+                    "name": "selectedElement"
+                },
+                {
                     "name": "newDataPoint",
                     "description": "Add new data point to chart",
-                    "jsDoc": "/**\n     * Add new data point to chart\n     *\n     */",
-                    "type": "any"
+                    "type": "object"
                 },
                 {
                     "name": "staleDataPoint",
                     "description": "Remove data point from chart",
-                    "jsDoc": "/**\n     * Remove data point from chart\n     */",
-                    "type": "any"
+                    "type": "object"
                 },
                 {
                     "name": "updateData",
-                    "description": "Update Data",
-                    "jsDoc": "/**\n     * Update Data\n     */",
-                    "type": "any"
+                    "description": "Update Data"
+                },
+                {
+                    "name": "evCount",
+                    "description": "Tracks how many times each event type was called.",
+                    "type": "{ [key: string]: number; }",
+                    "default": "{}"
+                },
+                {
+                    "name": "disabled",
+                    "attribute": "disabled",
+                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+                    "type": "boolean"
                 }
             ],
             "events": [
@@ -138,7 +195,6 @@
                     }
                 }
             ],
-            "slots": [],
             "selfResolvingModulePath": "https://cdn.pika.dev/xtal-frappe-chart"
         }
     ]
