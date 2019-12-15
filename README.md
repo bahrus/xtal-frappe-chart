@@ -2,6 +2,8 @@
 
 <a href="https://nodei.co/npm/xtal-frappe-chart/"><img src="https://nodei.co/npm/xtal-frappe-chart.png"></a>
 
+[![Actions Status](https://github.com/bahrus/xtal-frappe-chart/workflows/CI/badge.svg)](https://github.com/bahrus/xtal-frappe-chart/actions?query=workflow%3ACI)
+
 <img src="https://badgen.net/bundlephobia/minzip/xtal-frappe-chart">
 
 # \<xtal-frappe-chart\>
