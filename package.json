@@ -7,6 +7,7 @@
   "license": "MIT",
   "main": "xtal-frappe-chart.js",
   "module": "xtal-frappe-chart.js",
+  "typings": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.3.0",
     "xtal-element": "0.0.97",
