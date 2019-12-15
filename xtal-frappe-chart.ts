@@ -9,39 +9,14 @@ import { XtallatX } from "xtal-element/xtal-latx.js";
 import { define } from "trans-render/define.js";
 import { createTemplate } from "xtal-element/utils.js";
 import { disabled, hydrate } from "trans-render/hydrate.js";
+import {ChartOptions, EventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.d.js';
 
 const data = "data";
 declare var xtal_frappe_chart;
 declare var frappe;
-export interface IAddDataPointParams {
-  label: string;
-  valueFromEachDataset: number[];
-  index?: number;
-}
 
 
-export interface SelectedElement {
-  label: string;
-  values: any[];
-  index: number;
-}
 
-export interface SelectedElementEventDetail{
-  value: SelectedElement
-}
-
-//export type EventNames = 'selected-element-changed';
-
-interface EventNameMap {
-  'selected-element-changed': SelectedElementEventDetail;
-}
-
-// export interface XtalFrappeChartEvent{
-//   detail: SelectedElementEventDetail
-// }
-
-// type TypeName<T in EventNames> = 
-//   T extends 
 
 const mainTemplate = createTemplate(/* html */ `
 <style>
@@ -56,8 +31,7 @@ const mainTemplate = createTemplate(/* html */ `
  * @element xtal-frappe-chart
  * @event selected-element-changed - fires when user selects chart data element
  */
-
-export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
+export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements XtalFrappeChartIfc {
   static get is() {
     return "xtal-frappe-chart";
   }
@@ -72,7 +46,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
     shadowRoot.appendChild(mainTemplate.content.cloneNode(true));
   }
 
-  _data: object;
+  _data: ChartOptions;
   get data() {
     return this._data;
   }

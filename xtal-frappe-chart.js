@@ -4,11 +4,6 @@ import { define } from "trans-render/define.js";
 import { createTemplate } from "xtal-element/utils.js";
 import { hydrate } from "trans-render/hydrate.js";
 const data = "data";
-// export interface XtalFrappeChartEvent{
-//   detail: SelectedElementEventDetail
-// }
-// type TypeName<T in EventNames> = 
-//   T extends 
 const mainTemplate = createTemplate(/* html */ `
 <style>
 :host{display:block;}
