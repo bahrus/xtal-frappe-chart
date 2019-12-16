@@ -2,7 +2,7 @@
     "version": "experimental",
     "tags": [
         {
-            "name": "xtal-frappe-chart-ex1",
+            "name": "xtal-frappe-chart-example1",
             "attributes": [
                 {
                     "name": "disabled",
@@ -12,17 +12,12 @@
             ],
             "properties": [
                 {
-                    "name": "value",
-                    "type": "SelectedElement"
-                },
-                {
-                    "name": "data",
-                    "description": "Data to chart",
+                    "name": "act1",
                     "type": "object",
-                    "default": "{\"title\":\"My Awesome Chart\",\"data\":{\"labels\":[\"12am-3am\",\"3am-6am\",\"6am-9am\",\"9am-12pm\",\"12pm-3pm\",\"3pm-6pm\",\"6pm-9pm\",\"9pm-12am\"],\"datasets\":[{\"name\":\"Some Data\",\"color\":\"light-blue\",\"values\":[25,40,30,35,8,52,17,null]},{\"name\":\"Another Set\",\"color\":\"violet\",\"values\":[25,50,null,15,18,32,27,14]},{\"name\":\"Yet Another\",\"color\":\"blue\",\"values\":[15,20,null,null,58,12,null,37]}]},\"type\":\"bar\",\"height\":250,\"isNavigable\":true}"
+                    "default": "{\"script\":\"blahblah\",\"detail\":{\"value\":{\"values\":[30,null,null],\"label\":\"6am-9am\",\"index\":2}},\"name\":\"selected-element-changed\"}"
                 },
                 {
-                    "name": "selectedElement",
+                    "name": "value",
                     "type": "SelectedElement"
                 },
                 {
@@ -50,6 +45,16 @@
                     "attribute": "disabled",
                     "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
                     "type": "boolean"
+                },
+                {
+                    "name": "data",
+                    "description": "Data to chart",
+                    "type": "object",
+                    "default": "{\"title\":\"My Awesome Chart\",\"data\":{\"labels\":[\"12am-3am\",\"3am-6am\",\"6am-9am\",\"9am-12pm\",\"12pm-3pm\",\"3pm-6pm\",\"6pm-9pm\",\"9pm-12am\"],\"datasets\":[{\"name\":\"Some Data\",\"color\":\"light-blue\",\"values\":[25,40,30,35,8,52,17,null]},{\"name\":\"Another Set\",\"color\":\"violet\",\"values\":[25,50,null,15,18,32,27,14]},{\"name\":\"Yet Another\",\"color\":\"blue\",\"values\":[15,20,null,null,58,12,null,37]}]},\"type\":\"bar\",\"height\":250,\"isNavigable\":true}"
+                },
+                {
+                    "name": "selectedElement",
+                    "type": "SelectedElement"
                 }
             ],
             "events": [

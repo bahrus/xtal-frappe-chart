@@ -1,6 +1,12 @@
-import { XtalFrappeChart} from './xtal-frappe-chart.js';
+import { XtalFrappeChart } from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
-import { TabularData, ChartOptions, EventNameMap  } from './types.js';
+import { TabularData, ChartOptions, EventNameMap } from './types.js';
+
+type EventContractMap<K extends keyof EventNameMap> = {
+    script: string,
+    name: K,
+    detail: EventNameMap[K],
+};
 /**
  * @element xtal-frappe-chart-example1
  */
@@ -31,9 +37,23 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
-    get eventMap<K extends keyof EventNameMap>() : Map<K, EventNameMap[K]>{
-        
+    act1: EventContractMap<'selected-element-changed'> = {
+        script: `blahblah`,
+        detail: {
+            value: {
+                values: [30, -10, -3],
+                label: "6am-9am",
+                index: 2,
+            }
+        },
+        name: 'selected-element-changed'
     }
+    // get act1(){
+    //     return this._act1;
+    // }
+    // set act1(nv){
+    //     this._act1 = nv;
+    // }
 
 }
 define(XtalFrappeChartExample1);
