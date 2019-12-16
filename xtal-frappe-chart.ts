@@ -67,6 +67,8 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
   }
 
 
+
+
   static get observedAttributes() {
     return super.observedAttributes.concat([data]);
   }

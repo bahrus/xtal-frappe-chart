@@ -1,11 +1,11 @@
-import { XtalFrappeChart } from './xtal-frappe-chart.js';
+import { XtalFrappeChart} from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
-import { TabularData, ChartOptions } from './types.js';
+import { TabularData, ChartOptions, EventNameMap  } from './types.js';
 /**
- * @element xtal-frappe-chart-ex1
+ * @element xtal-frappe-chart-example1
  */
-export class XtalFrappeChartEx1 extends XtalFrappeChart {
-    static get is() { return 'xtal-frappe-chart-ex1'; }
+export class XtalFrappeChartExample1 extends XtalFrappeChart {
+    static get is() { return 'xtal-frappe-chart-example1'; }
     data = {
         title: "My Awesome Chart",
         data: {
@@ -31,5 +31,9 @@ export class XtalFrappeChartEx1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
+    get eventMap<K extends keyof EventNameMap>() : Map<K, EventNameMap[K]>{
+        
+    }
+
 }
-define(XtalFrappeChartEx1);
+define(XtalFrappeChartExample1);
