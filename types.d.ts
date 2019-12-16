@@ -24,11 +24,11 @@ export interface XtalFrappeChartIfc{
 }
 
 export interface ChartOptions{
-    data: HeatMapData | TabularData,
-    title: string,
-    height: number,
-    colors: string[],
-    type: 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'
+    data?: HeatMapData | TabularData,
+    title?: string,
+    height?: number,
+    colors?: string[],
+    type?: 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'
 }
 
 export interface ChartData{
@@ -41,13 +41,13 @@ export interface HeatMapData extends ChartData{
     start: Date,
     end: Date
 }
-type TabularDataChartTypes = 'bar' | 'line';
+//type TabularDataChartTypes = 'bar' | 'line';
 export interface DataSet{
     name?: string,
     values: number[]
 }
 export interface TabularData extends ChartData{
-    type: TabularDataChartTypes,
+    //type?: TabularDataChartTypes,
     labels?: string[],
     datasets?: any[],
     yMarkers?: Marker[],

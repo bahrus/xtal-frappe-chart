@@ -1,5 +1,6 @@
 import { XtalFrappeChart } from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
+import { TabularData, ChartOptions } from './types.js';
 /**
  * @element xtal-frappe-chart-ex1
  */
@@ -24,11 +25,11 @@ export class XtalFrappeChartEx1 extends XtalFrappeChart {
                     values: [15, 20, -3, -15, 58, 12, -17, 37]
                 }
             ]
-        },
+        } as TabularData,
         type: "bar",
         height: 250,
         isNavigable: true
-    }
-    
+    } as ChartOptions
+
 }
 define(XtalFrappeChartEx1);
