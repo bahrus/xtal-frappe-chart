@@ -4,8 +4,8 @@ import { TabularData, ChartOptions, EventNameMap } from './types.js';
 
 type EventContractMap<K extends keyof EventNameMap> = {
     script: string,
-    name: K,
-    detail: EventNameMap[K],
+    expectedEventName: K,
+    expectedEventDetail: EventNameMap[K],
 };
 /**
  * @element xtal-frappe-chart-example1
@@ -37,23 +37,27 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
-    act1: EventContractMap<'selected-element-changed'> = {
-        script: `blahblah`,
-        detail: {
+    expectation1: EventContractMap<'selected-element-changed'> = {
+        script: /* JS */`
+        setTimeout(() =>{
+            $hell.cd("/xtal-frappe-chart#chart/div#target/div/svg/g[0]/g[2]/rect[2]");
+            setTimeout(() =>{
+              $hell.$0.dispatchEvent(new Event('click'));
+            }, 500);
+            
+          }, 3000);
+        `,
+        expectedEventName: 'selected-element-changed',
+        expectedEventDetail: {
             value: {
                 values: [30, -10, -3],
                 label: "6am-9am",
                 index: 2,
             }
         },
-        name: 'selected-element-changed'
+        
     }
-    // get act1(){
-    //     return this._act1;
-    // }
-    // set act1(nv){
-    //     this._act1 = nv;
-    // }
+
 
 }
 define(XtalFrappeChartExample1);

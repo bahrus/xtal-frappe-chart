@@ -30,23 +30,25 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             height: 250,
             isNavigable: true
         };
-        this.act1 = {
-            script: `blahblah`,
-            detail: {
+        this.expectation1 = {
+            script: /* JS */ `
+        setTimeout(() =>{
+            $hell.cd("/xtal-frappe-chart#chart/div#target/div/svg/g[0]/g[2]/rect[2]");
+            setTimeout(() =>{
+              $hell.$0.dispatchEvent(new Event('click'));
+            }, 500);
+            
+          }, 3000);
+        `,
+            expectedEventName: 'selected-element-changed',
+            expectedEventDetail: {
                 value: {
                     values: [30, -10, -3],
                     label: "6am-9am",
                     index: 2,
                 }
             },
-            name: 'selected-element-changed'
         };
-        // get act1(){
-        //     return this._act1;
-        // }
-        // set act1(nv){
-        //     this._act1 = nv;
-        // }
     }
     static get is() { return 'xtal-frappe-chart-example1'; }
 }

@@ -12,9 +12,9 @@
             ],
             "properties": [
                 {
-                    "name": "act1",
+                    "name": "expectation1",
                     "type": "object",
-                    "default": "{\"script\":\"blahblah\",\"detail\":{\"value\":{\"values\":[30,null,null],\"label\":\"6am-9am\",\"index\":2}},\"name\":\"selected-element-changed\"}"
+                    "default": "{\"script\":\"\\n        setTimeout(() =>{\\n            $hell.cd(\\\"/xtal-frappe-chart#chart/div#target/div/svg/g[0]/g[2]/rect[2]\\\");\\n            setTimeout(() =>{\\n              $hell.$0.dispatchEvent(new Event('click'));\\n            }, 500);\\n            \\n          }, 3000);\\n        \",\"expectedEventName\":\"selected-element-changed\",\"expectedEventDetail\":{\"value\":{\"values\":[30,null,null],\"label\":\"6am-9am\",\"index\":2}}}"
                 },
                 {
                     "name": "value",
