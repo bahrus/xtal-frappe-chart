@@ -1,206 +1,55 @@
 {
-    "version": "experimental",
-    "tags": [
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "xtal-frappe-chart",
+      "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
+      "attributes": [
         {
-            "name": "xtal-frappe-chart-example1",
-            "attributes": [
-                {
-                    "name": "disabled",
-                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-                    "type": "boolean"
-                }
-            ],
-            "properties": [
-                {
-                    "name": "expectation1",
-                    "type": "object",
-                    "default": "{\"script\":\"\\n        setTimeout(() =>{\\n            $hell.cd(\\\"/xtal-frappe-chart#chart/div#target/div/svg/g[0]/g[2]/rect[2]\\\");\\n            setTimeout(() =>{\\n              $hell.$0.dispatchEvent(new Event('click'));\\n            }, 500);\\n            \\n          }, 3000);\\n        \",\"expectedEventName\":\"selected-element-changed\",\"expectedEventDetail\":{\"value\":{\"values\":[30,null,null],\"label\":\"6am-9am\",\"index\":2}}}"
-                },
-                {
-                    "name": "value",
-                    "type": "SelectedElement"
-                },
-                {
-                    "name": "newDataPoint",
-                    "description": "Add new data point to chart",
-                    "type": "IAddDataPointParams"
-                },
-                {
-                    "name": "staleDataPoint",
-                    "description": "Remove data point from chart",
-                    "type": "number"
-                },
-                {
-                    "name": "updateData",
-                    "description": "Update Data"
-                },
-                {
-                    "name": "evCount",
-                    "description": "Tracks how many times each event type was called.",
-                    "type": "{ [key: string]: number; }",
-                    "default": "{}"
-                },
-                {
-                    "name": "disabled",
-                    "attribute": "disabled",
-                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-                    "type": "boolean"
-                },
-                {
-                    "name": "data",
-                    "description": "Data to chart",
-                    "type": "object",
-                    "default": "{\"title\":\"My Awesome Chart\",\"data\":{\"labels\":[\"12am-3am\",\"3am-6am\",\"6am-9am\",\"9am-12pm\",\"12pm-3pm\",\"3pm-6pm\",\"6pm-9pm\",\"9pm-12am\"],\"datasets\":[{\"name\":\"Some Data\",\"color\":\"light-blue\",\"values\":[25,40,30,35,8,52,17,null]},{\"name\":\"Another Set\",\"color\":\"violet\",\"values\":[25,50,null,15,18,32,27,14]},{\"name\":\"Yet Another\",\"color\":\"blue\",\"values\":[15,20,null,null,58,12,null,37]}]},\"type\":\"bar\",\"height\":250,\"isNavigable\":true}"
-                },
-                {
-                    "name": "selectedElement",
-                    "type": "SelectedElement"
-                }
-            ],
-            "events": [
-                {
-                    "name": "selected-element-changed",
-                    "description": "fires when user selects chart data element"
-                }
-            ]
+          "name": "disabled",
+          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "type": "boolean"
+        }
+      ],
+      "properties": [
+        {
+          "name": "data",
+          "description": "Data to chart"
         },
         {
-            "name": "xtal-frappe-chart",
-            "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-            "attributes": [
-                {
-                    "name": "disabled",
-                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-                    "type": "boolean"
-                }
-            ],
-            "properties": [
-                {
-                    "name": "data",
-                    "description": "Data to chart",
-                    "type": "object",
-                    "testValues": {
-                        "test1": {
-                            "title": "My Awesome Chart",
-                            "data": {
-                                "labels": [
-                                    "12am-3am",
-                                    "3am-6am",
-                                    "6am-9am",
-                                    "9am-12pm",
-                                    "12pm-3pm",
-                                    "3pm-6pm",
-                                    "6pm-9pm",
-                                    "9pm-12am"
-                                ],
-                                "datasets": [
-                                    {
-                                        "name": "Some Data",
-                                        "color": "light-blue",
-                                        "values": [
-                                            25,
-                                            40,
-                                            30,
-                                            35,
-                                            8,
-                                            52,
-                                            17,
-                                            -4
-                                        ]
-                                    },
-                                    {
-                                        "name": "Another Set",
-                                        "color": "violet",
-                                        "values": [
-                                            25,
-                                            50,
-                                            -10,
-                                            15,
-                                            18,
-                                            32,
-                                            27,
-                                            14
-                                        ]
-                                    },
-                                    {
-                                        "name": "Yet Another",
-                                        "color": "blue",
-                                        "values": [
-                                            15,
-                                            20,
-                                            -3,
-                                            -15,
-                                            58,
-                                            12,
-                                            -17,
-                                            37
-                                        ]
-                                    }
-                                ]
-                            },
-                            "type": "bar",
-                            "height": 250,
-                            "isNavigable": true
-                        }
-                    }
-                },
-                {
-                    "name": "selectedElement"
-                },
-                {
-                    "name": "newDataPoint",
-                    "description": "Add new data point to chart",
-                    "type": "object"
-                },
-                {
-                    "name": "staleDataPoint",
-                    "description": "Remove data point from chart",
-                    "type": "object"
-                },
-                {
-                    "name": "updateData",
-                    "description": "Update Data"
-                },
-                {
-                    "name": "evCount",
-                    "description": "Tracks how many times each event type was called.",
-                    "type": "{ [key: string]: number; }",
-                    "default": "{}"
-                },
-                {
-                    "name": "disabled",
-                    "attribute": "disabled",
-                    "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-                    "type": "boolean"
-                }
-            ],
-            "events": [
-                {
-                    "name": "selected-element-changed",
-                    "description": "Fired when user selects chart element",
-                    "detail": [
-                        {
-                            "name": "value",
-                            "description": "Value of selected Element",
-                            "type": "SelectedElementEventDetail"
-                        }
-                    ],
-                    "testExpectedValues": {
-                        "test1": {
-                            "value": {
-                                "values": [
-                                    -4,
-                                    14,
-                                    37
-                                ],
-                                "label": "9pm-12am",
-                                "index": 7
-                            }
-                        }
-                    }
-                }
-            ],
-            "selfResolvingModulePath": "https://cdn.pika.dev/xtal-frappe-chart"
+          "name": "selectedElement"
+        },
+        {
+          "name": "newDataPoint",
+          "description": "Add new data point to chart"
+        },
+        {
+          "name": "staleDataPoint",
+          "description": "Remove data point from chart"
+        },
+        {
+          "name": "updateData",
+          "description": "Update Data"
+        },
+        {
+          "name": "evCount",
+          "description": "Tracks how many times each event type was called.",
+          "type": "{ [key: string]: number; }",
+          "default": "{}"
+        },
+        {
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "type": "boolean"
         }
-    ]
+      ],
+      "events": [
+        {
+          "name": "selected-element-changed",
+          "description": "fires when user selects chart data element"
+        }
+      ]
+    }
+  ]
 }

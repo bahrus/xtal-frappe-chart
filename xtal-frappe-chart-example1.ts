@@ -24,11 +24,11 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
                 },
                 {
                     name: "Another Set", "color": "violet",
-                    values: [25, 50, -10, 15, 18, 32, 27, 14]
+                    values: [25, 50, 10, 15, 18, 32, 27, 14]
                 },
                 {
                     name: "Yet Another", "color": "blue",
-                    values: [15, 20, -3, -15, 58, 12, -17, 37]
+                    values: [15, 20, 3, -15, 58, 12, -17, 37]
                 }
             ]
         } as TabularData,
@@ -37,10 +37,12 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
-    expectation1: EventContractMap<'selected-element-changed'> = {
+    greatExpectations: EventContractMap<'selected-element-changed'> = {
         script: /* JS */`
+        import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
+        import 'https://unpkg.com/xtal-frappe-chart@0.0.51/xtal-frappe-chart-example1.js?module';
         setTimeout(() =>{
-            $hell.cd("/xtal-frappe-chart#chart/div#target/div/svg/g[0]/g[2]/rect[2]");
+            $hell.cd("/xtal-frappe-chart-example1#chart/div#target/div/svg/g[0]/g[2]/rect[2]");
             setTimeout(() =>{
               $hell.$0.dispatchEvent(new Event('click'));
             }, 500);
@@ -50,7 +52,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         expectedEventName: 'selected-element-changed',
         expectedEventDetail: {
             value: {
-                values: [30, -10, -3],
+                values: [30, 10, 3],
                 label: "6am-9am",
                 index: 2,
             }
