@@ -42,14 +42,18 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             
           }, 3000);
         `,
-            expectedEventName: 'selected-element-changed',
-            expectedEventDetail: {
-                value: {
-                    values: [30, 10, 3],
-                    label: "6am-9am",
-                    index: 2,
+            expectedEvents: [
+                {
+                    expectedName: 'selected-element-changed',
+                    expectedDetail: {
+                        value: {
+                            values: [30, 10, 3],
+                            label: "6am-9am",
+                            index: 2,
+                        }
+                    },
                 }
-            },
+            ]
         };
     }
     static get is() { return 'xtal-frappe-chart-example1'; }

@@ -2,10 +2,13 @@ import { XtalFrappeChart } from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
 import { TabularData, ChartOptions, EventNameMap } from './types.js';
 
-type EventContractMap<K extends keyof EventNameMap> = {
+interface ExpectedEvent<K extends keyof EventNameMap>{
+    expectedName: K,
+    expectedDetail: EventNameMap[K],
+}
+type ExpectedEventsScript<K extends keyof EventNameMap> = {
     script: string,
-    expectedEventName: K,
-    expectedEventDetail: EventNameMap[K],
+    expectedEvents: ExpectedEvent<K>[]
 };
 /**
  * @element xtal-frappe-chart-example1
@@ -37,7 +40,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
-    greatExpectations: EventContractMap<'selected-element-changed'> = {
+    greatExpectations: ExpectedEventsScript<'selected-element-changed'> = {
         script: /* JS */`
         import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
         import 'https://unpkg.com/xtal-frappe-chart@0.0.51/xtal-frappe-chart-example1.js?module';
@@ -49,14 +52,20 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             
           }, 3000);
         `,
-        expectedEventName: 'selected-element-changed',
-        expectedEventDetail: {
-            value: {
-                values: [30, 10, 3],
-                label: "6am-9am",
-                index: 2,
+        expectedEvents:[
+            {
+                expectedName: 'selected-element-changed',
+                expectedDetail: {
+                    value: {
+                        values: [30, 10, 3],
+                        label: "6am-9am",
+                        index: 2,
+                    }
+                },
             }
-        },
+
+        ]
+
         
     }
 
