@@ -30,8 +30,8 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             height: 250,
             isNavigable: true
         };
-        this.greatExpectations = {
-            script: /* JS */ `
+        this.SelectedElementContract = {
+            trigger: /* JS */ `
         import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
         import 'https://unpkg.com/xtal-frappe-chart@0.0.51/xtal-frappe-chart-example1.js?module';
         setTimeout(() =>{
@@ -42,18 +42,17 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             
           }, 3000);
         `,
-            expectedEvents: [
-                {
-                    expectedName: 'selected-element-changed',
-                    expectedDetail: {
-                        value: {
-                            values: [30, 10, 3],
-                            label: "6am-9am",
-                            index: 2,
-                        }
-                    },
-                }
-            ]
+            expectedEvent: {
+                name: 'selected-element-changed',
+                detail: {
+                    value: {
+                        values: [30, 10, 3],
+                        label: "6am-9am",
+                        index: 2,
+                    }
+                },
+                associatedPropName: "selectedElement"
+            }
         };
     }
     static get is() { return 'xtal-frappe-chart-example1'; }
