@@ -79,10 +79,8 @@ Things I like about this chart library:
 ```
 <custom-element-demo>
 <template>
-    <div>
-        <wc-info package-name="npm.xtal-frappe-chart" href="https://unpkg.com/xtal-frappe-chart@0.0.47/custom-elements.json"></wc-info>
-        <script type="module" src="https://unpkg.com/wc-info@0.0.67/wc-info.js?module"></script>
-    </div>
+        <api-viewer src="https://unpkg.com/xtal-frappe-chart@0.0.51/custom-elements.json"></api-viewer>
+        <script type=module src=https://unpkg.com/api-viewer-element@0.3.0/lib/api-viewer.js?module></script>
 </template>
 </custom-element-demo>
 ```
