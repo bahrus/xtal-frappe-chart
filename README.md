@@ -73,18 +73,9 @@ Things I like about this chart library:
 ```
 -->
 
-# Syntax
+# [Syntax](https://bahrus.github.io/api-viewer/index.html?npmPackage=xtal-frappe-chart)
 
-<!--
-```
-<custom-element-demo>
-<template>
-        <api-viewer src="https://unpkg.com/xtal-frappe-chart@0.0.51/custom-elements.json"></api-viewer>
-        <script type=module src=https://unpkg.com/api-viewer-element@0.3.0/lib/api-viewer.js?module></script>
-</template>
-</custom-element-demo>
-```
--->
+
 
 ## Referencing from CDN:
 
