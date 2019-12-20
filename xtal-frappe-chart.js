@@ -56,7 +56,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) {
         this.onPropsChange();
     }
     onPropsChange() {
-        if (this._disabled || !this._data || typeof this._data !== "object")
+        if (this._disabled || !this._data || typeof this._data !== "object" || !this._connected)
             return;
         setTimeout(() => {
             this.loadChart();

@@ -83,7 +83,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
     this.onPropsChange();
   }
   onPropsChange() {
-    if (this._disabled || !this._data || typeof this._data !== "object") return;
+    if (this._disabled || !this._data || typeof this._data !== "object" || !this._connected) return;
     setTimeout(() => {
       this.loadChart();
     }, 50);
