@@ -30,12 +30,12 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             height: 250,
             isNavigable: true
         };
-        this.SelectedElementContract = {
+        this.selectedElementContract = {
             trigger: /* JS */ `
         import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
         import 'https://unpkg.com/xtal-frappe-chart@0.0.51/xtal-frappe-chart-example1.js?module';
         setTimeout(() =>{
-            $hell.cd("/xtal-frappe-chart-example1#chart/div#target/div/svg/g[0]/g[2]/rect[2]");
+            $hell.cd(/xtal-frappe-chart-example1#chart/div#target/div/svg/g[0]/g[2]/rect[2]);
             setTimeout(() =>{
               $hell.$0.dispatchEvent(new Event('click'));
             }, 500);
@@ -51,7 +51,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
                         index: 2,
                     }
                 },
-                associatedPropName: "selectedElement"
+                associatedPropName: 'selectedElement'
             }
         };
     }
