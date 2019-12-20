@@ -1,16 +1,30 @@
-import { XtalFrappeChart } from './xtal-frappe-chart.js';
+import { XtalFrappeChart} from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
-import { TabularData, ChartOptions, EventNameMap, XtalFrappeChartIfc } from './types.js';
+import { TabularData, ChartOptions, XtalFrappeChartEventNameMap, XtalFrappeChartIfc } from './types.js';
 
-interface ExpectedEvent<eventName extends keyof EventNameMap, assocPropName extends keyof XtalFrappeChartIfc>{
+interface XtalFrappeChartExpectedEvent<eventName extends keyof XtalFrappeChartEventNameMap, assocPropName extends keyof XtalFrappeChartIfc> extends ExpectedEvent{
     name: eventName,
-    detail?: EventNameMap[eventName],
+    detail?: XtalFrappeChartEventNameMap[eventName],
     associatedPropName?: assocPropName,
 }
-type EventContractScript<K extends keyof EventNameMap, L extends keyof XtalFrappeChartIfc> = {
-    trigger: string,
-    expectedEvent: ExpectedEvent<K, L>,
+interface XtalFrappeChartTest<K extends keyof XtalFrappeChartEventNameMap, L extends keyof XtalFrappeChartIfc> extends Test{
+    trigger?: string,
+    expectedEvent: XtalFrappeChartExpectedEvent<K, L>,
 };
+
+interface ExpectedEvent{
+    name: any,
+    detail?: any,
+    associatedPropName?:  any
+}
+
+interface Test{
+    trigger?: string,
+    innerHTML?: string,
+    expectedEvent: ExpectedEvent,
+}
+
+//interface 
 /**
  * @element xtal-frappe-chart-example1
  */
@@ -41,7 +55,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         isNavigable: true
     } as ChartOptions
 
-    selectedElementContract: EventContractScript<'selected-element-changed', 'selectedElement'> = {
+    selectedElementContract: XtalFrappeChartTest<'selected-element-changed', 'selectedElement'> = {
         trigger: /* JS */`
         import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
         import 'https://unpkg.com/xtal-frappe-chart@0.0.58/xtal-frappe-chart-example1.js?module';

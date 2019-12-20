@@ -9,7 +9,7 @@ import { XtallatX } from "xtal-element/xtal-latx.js";
 import { define } from "trans-render/define.js";
 import { createTemplate } from "xtal-element/utils.js";
 import { disabled, hydrate } from "trans-render/hydrate.js";
-import {ChartOptions, EventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.d.js';
+import {ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.d.js';
 
 const data = "data";
 declare var xtal_frappe_chart;
@@ -62,7 +62,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
    * All events emitted pass through this method
    * @param evt 
    */
-  emit<K extends keyof EventNameMap>(type: K,  detail: EventNameMap[K]){
+  emit<K extends keyof XtalFrappeChartEventNameMap>(type: K,  detail: XtalFrappeChartEventNameMap[K]){
     this.de(type, detail, true);
   }
 

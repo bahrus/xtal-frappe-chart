@@ -8,7 +8,7 @@ export interface SelectedElementEventDetail {
     value: SelectedElement
 }
 
-export interface EventNameMap {
+export interface XtalFrappeChartEventNameMap {
     'selected-element-changed': SelectedElementEventDetail;
 }
 
