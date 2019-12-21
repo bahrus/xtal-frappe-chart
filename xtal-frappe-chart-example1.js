@@ -1,5 +1,7 @@
 import { XtalFrappeChart } from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
+;
+//interface 
 /**
  * @element xtal-frappe-chart-example1
  */
