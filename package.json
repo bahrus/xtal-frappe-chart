@@ -27,6 +27,7 @@
     "xtal-test": "0.0.31",
     "json-file-patch": "0.0.1",
     "es-module-shims": "0.4.6",
-    "xtal-shell": "0.0.23"
+    "xtal-shell": "0.0.23",
+    "for-instance": "0.0.9"
   }
 }
