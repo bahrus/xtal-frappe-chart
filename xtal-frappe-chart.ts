@@ -123,6 +123,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
             label: e.label,
             index: e.index
         }
+        this._selectedElement = this.value;
         this.emit("selected-element-changed", { value: this.value});
       });
     }, 50);

@@ -1,5 +1,7 @@
 import { XtalFrappeChart } from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
+;
+//interface 
 /**
  * @element xtal-frappe-chart-example1
  */
@@ -32,8 +34,8 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         };
         this.selectedElementContract = {
             trigger: /* JS */ `
-        import 'https://unpkg.com/xtal-shell@0.0.25/$hell.js?module';
-        import 'https://unpkg.com/xtal-frappe-chart@0.0.58/xtal-frappe-chart-example1.js?module';
+        import 'https://unpkg.com/xtal-shell/$hell.js?module';
+        import 'https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart-example1.js?module';
         setTimeout(() =>{
             $hell.$0=document.querySelector('xtal-frappe-chart-example1');
             $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');

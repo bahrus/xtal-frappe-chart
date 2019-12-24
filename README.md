@@ -73,7 +73,7 @@ Things I like about this chart library:
 ```
 -->
 
-# [Syntax](https://bahrus.github.io/api-viewer/index.html?npmPackage=xtal-frappe-chart)
+# [Syntax](https://bahrus.github.io/api-viewer/index.html?npmPackage=xtal-frappe-chart&jsPath=xtal-frappe-chart-example1.js&jsonPath=custom-elements-example1.json)
 
 <!--
 ```
@@ -92,6 +92,7 @@ Things I like about this chart library:
 
 ## Referencing from CDN:
 
+<!--
 Optimized:
 
 ```html
@@ -101,6 +102,7 @@ Optimized:
 or
 
 Easy to debug:
+-->
 
 ```html
 <script type="module" src="https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module"></script>
