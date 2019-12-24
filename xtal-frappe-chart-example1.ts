@@ -13,9 +13,9 @@ interface XtalFrappeChartTest<K extends keyof XtalFrappeChartEventNameMap, L ext
 };
 
 interface ExpectedEvent{
-    name: any,
+    name: string,
     detail?: any,
-    associatedPropName?:  any
+    associatedPropName?:  string
 }
 
 interface Test{
@@ -24,7 +24,7 @@ interface Test{
     expectedEvent: ExpectedEvent,
 }
 
-//interface 
+
 /**
  * @element xtal-frappe-chart-example1
  */
@@ -79,10 +79,6 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             },
             associatedPropName: 'selectedElement'
         }
-
-        
-
-        
     }
 
 
