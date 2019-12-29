@@ -1,6 +1,7 @@
 import { XtalFrappeChart} from './xtal-frappe-chart.js';
 import { define } from "trans-render/define.js";
 import { TabularData, ChartOptions, XtalFrappeChartEventNameMap, XtalFrappeChartIfc } from './types.js';
+import {Test, ExpectedEvent} from 'for-instance/types.d.js';
 
 interface XtalFrappeChartExpectedEvent<eventName extends keyof XtalFrappeChartEventNameMap, assocPropName extends keyof XtalFrappeChartIfc> extends ExpectedEvent{
     name: eventName,
@@ -12,17 +13,7 @@ interface XtalFrappeChartTest<K extends keyof XtalFrappeChartEventNameMap, L ext
     expectedEvent: XtalFrappeChartExpectedEvent<K, L>,
 };
 
-interface ExpectedEvent{
-    name: string,
-    detail?: any,
-    associatedPropName?:  string
-}
 
-interface Test{
-    trigger?: string,
-    innerHTML?: string,
-    expectedEvent: ExpectedEvent,
-}
 
 
 /**
