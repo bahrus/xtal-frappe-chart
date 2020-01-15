@@ -1,55 +1,48 @@
 {
-  "version": 2,
+  "version": "experimental",
   "tags": [
     {
       "name": "xtal-frappe-chart",
       "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-      "jsDoc": "/**\n * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.\n * @element xtal-frappe-chart\n * @event selected-element-changed - fires when user selects chart data element\n */",
       "attributes": [
         {
           "name": "disabled",
           "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-          "jsDoc": "/**\r\n         * Any component that emits events should not do so if it is disabled.\r\n         * Note that this is not enforced, but the disabled property is made available.\r\n         * Users of this mix-in should ensure not to call \"de\" if this property is set to true.\r\n         * @attr\r\n         */",
           "type": "boolean"
         }
       ],
       "properties": [
         {
-          "name": "disabled",
-          "attribute": "disabled",
-          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
-          "jsDoc": "/**\r\n         * Any component that emits events should not do so if it is disabled.\r\n         * Note that this is not enforced, but the disabled property is made available.\r\n         * Users of this mix-in should ensure not to call \"de\" if this property is set to true.\r\n         * @attr\r\n         */",
-          "type": "boolean"
+          "name": "data",
+          "description": "Data to chart"
+        },
+        {
+          "name": "selectedElement",
+          "type": "{ values: any; label: any; index: any; } | undefined"
+        },
+        {
+          "name": "newDataPoint",
+          "description": "Add new data point to chart"
+        },
+        {
+          "name": "staleDataPoint",
+          "description": "Remove data point from chart"
+        },
+        {
+          "name": "updateData",
+          "description": "Update Data"
         },
         {
           "name": "evCount",
           "description": "Tracks how many times each event type was called.",
-          "jsDoc": "/**\r\n         * Tracks how many times each event type was called.\r\n         */",
-          "type": "{ [key: string]: number; }"
+          "type": "{ [key: string]: number; }",
+          "default": "{}"
         },
         {
-          "name": "data",
-          "description": "Data to chart",
-          "jsDoc": "/**\n    * Data to chart\n    */",
-          "type": "any"
-        },
-        {
-          "name": "newDataPoint",
-          "description": "Add new data point to chart",
-          "jsDoc": "/**\n     * Add new data point to chart\n     *\n     */",
-          "type": "any"
-        },
-        {
-          "name": "staleDataPoint",
-          "description": "Remove data point from chart",
-          "jsDoc": "/**\n     * Remove data point from chart\n     */",
-          "type": "any"
-        },
-        {
-          "name": "updateData",
-          "description": "Update Data",
-          "jsDoc": "/**\n     * Update Data\n     */",
-          "type": "any"
+          "name": "disabled",
+          "attribute": "disabled",
+          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "type": "boolean"
         }
       ],
       "events": [

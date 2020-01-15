@@ -8,19 +8,18 @@ interface XtalFrappeChartExpectedEvent<eventName extends keyof XtalFrappeChartEv
     detail?: XtalFrappeChartEventNameMap[eventName],
     associatedPropName?: assocPropName,
 }
-interface XtalFrappeChartTest<K extends keyof XtalFrappeChartEventNameMap, L extends keyof XtalFrappeChartIfc> extends Test{
+interface XtalFrappeChartTest<eventName extends keyof XtalFrappeChartEventNameMap, assocPropName extends keyof XtalFrappeChartIfc> extends Test{
     trigger?: string,
-    expectedEvent: XtalFrappeChartExpectedEvent<K, L>,
+    expectedEvent: XtalFrappeChartExpectedEvent<eventName, assocPropName>,
 };
 
 
 
 
 /**
- * @element xtal-frappe-chart-example1
+ * @element xtal-frappe-chart
  */
 export class XtalFrappeChartExample1 extends XtalFrappeChart {
-    static get is() { return 'xtal-frappe-chart-example1'; }
     data = {
         title: "My Awesome Chart",
         data: {
@@ -71,7 +70,4 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
             associatedPropName: 'selectedElement'
         }
     }
-
-
 }
-define(XtalFrappeChartExample1);
