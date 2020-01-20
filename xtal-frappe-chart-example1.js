@@ -18,11 +18,11 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
                     },
                     {
                         name: "Another Set", "color": "violet",
-                        values: [25, 50, 10, 15, 18, 32, 27, 14]
+                        values: [25, 50, -10, 15, 18, 32, 27, 14]
                     },
                     {
                         name: "Yet Another", "color": "blue",
-                        values: [15, 20, 3, -15, 58, 12, -17, 37]
+                        values: [15, 20, -3, -15, 58, 12, -17, 37]
                     }
                 ]
             },
@@ -47,7 +47,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
                 name: 'selected-element-changed',
                 detail: {
                     value: {
-                        values: [30, 10, 3],
+                        values: [30, -10, -3],
                         label: "6am-9am",
                         index: 2,
                     }
