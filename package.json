@@ -11,7 +11,7 @@
   "dependencies": {
     "frappe-charts": "1.3.0",
     "xtal-element": "0.0.101",
-    "trans-render": "0.0.142"
+    "trans-render": "0.0.143"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -21,13 +21,13 @@
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "2.4.1",
-    "p-et-alia": "0.0.66",
+    "p-et-alia": "0.0.74",
     "xtal-json-editor": "0.0.41",
     "xtal-json-merge": "0.2.38",
-    "xtal-test": "0.0.31",
+    "xtal-test": "0.0.44",
     "json-file-patch": "0.0.1",
     "es-module-shims": "0.4.6",
     "xtal-shell": "0.0.25",
-    "for-instance": "0.0.14"
+    "for-instance": "0.0.18"
   }
 }
