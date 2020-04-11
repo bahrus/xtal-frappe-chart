@@ -3,6 +3,7 @@
   "tags": [
     {
       "name": "xtal-frappe-chart",
+      "path": "./xtal-frappe-chart.js",
       "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
       "attributes": [
         {

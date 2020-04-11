@@ -3,6 +3,7 @@
   "tags": [
     {
       "name": "xtal-frappe-chart",
+      "path": "./xtal-frappe-chart-example1.js",
       "attributes": [
         {
           "name": "disabled",
