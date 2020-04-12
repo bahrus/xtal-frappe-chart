@@ -39,7 +39,11 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
 
   _chart: Chart;
   _previousData: object;
-  value: SelectedElement;
+
+  _value: SelectedElement;
+  get value(): SelectedElement{
+    return this._value;
+  }
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: "open" });
@@ -93,16 +97,7 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
   get selectedElement() {
     return this._selectedElement;
   }
-  /**
-   * Selected data element from within the chart.
-   */
-  // set selectedElement(nv){
-  //     this._selectedElement = nv;
-  //     this.value = nv;
-  //     this.de('selected-element', {
-  //         value: nv
-  //     });
-  // }
+
   
   loadChart() {
     //this.style.display="block";
@@ -118,13 +113,13 @@ export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements X
     
     setTimeout(() => {
       this._chart["parent"].addEventListener("data-select", e => {
-        this.value = {
+        this._value = {
             values: e.values,
             label: e.label,
             index: e.index
         }
-        this._selectedElement = this.value;
-        this.emit("selected-element-changed", { value: this.value});
+        this._selectedElement = this._value;
+        this.emit("selected-element-changed", { value: this._value});
       });
     }, 50);
 
