@@ -7,7 +7,7 @@ import {
 } from "frappe-charts/dist/frappe-charts.esm.js";
 import { XtallatX } from "xtal-element/xtal-latx.js";
 import { define } from "trans-render/define.js";
-import { createTemplate } from "xtal-element/utils.js";
+import { createTemplate } from "trans-render/createTemplate.js";
 import { disabled, hydrate } from "trans-render/hydrate.js";
 import {ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.d.js';
 
