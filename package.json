@@ -9,9 +9,9 @@
   "module": "xtal-frappe-chart.js",
   "typings": "types.d.ts",
   "dependencies": {
-    "frappe-charts": "1.3.0",
-    "xtal-element": "0.0.118",
-    "trans-render": "0.0.168"
+    "frappe-charts": "1.4.1",
+    "xtal-element": "0.0.159",
+    "trans-render": "0.0.182"
   },
   "scripts": {
     "test": "node test/test-all.js",
