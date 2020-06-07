@@ -1,12 +1,19 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
+		"target": "ES2020",
 		"module":"esnext",
 		"sourceMap": false,
 		"experimentalDecorators": true,
 		"newLine": "LF",
-		"watch": true
+		"watch": true,
+		"baseUrl": ".",
+		"paths":{
+			"frappe-charts/*": ["node_modules/frappe-charts/*"],
+			"xtal-element/*": ["node_modules/xtal-element/*"],
+			"trans-render/*": ["node_modules/trans-render/*"]
+		}
 	},
+
 	"exclude":[
 		"build",
 		"node_modules",

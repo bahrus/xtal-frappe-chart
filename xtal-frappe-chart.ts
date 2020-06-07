@@ -1,22 +1,16 @@
+import {XtalElement, define} from 'xtal-element/XtalElement.js';
+import {de} from 'trans-render/hydrate.js';
 import {
-  Chart,
-  PercentageChart,
-  PieChart,
-  Heatmap,
-  AxisChart
+    Chart,
+    PercentageChart,
+    PieChart,
+    Heatmap,
+    AxisChart
 } from "frappe-charts/dist/frappe-charts.esm.js";
-import { XtallatX } from "xtal-element/xtal-latx.js";
-import { define } from "trans-render/define.js";
 import { createTemplate } from "trans-render/createTemplate.js";
-import { disabled, hydrate } from "trans-render/hydrate.js";
-import {ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.d.js';
-
-const data = "data";
-declare var xtal_frappe_chart;
-declare var frappe;
-
-
-
+import {ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.js';
+import { PESettings } from 'trans-render/types.js';
+import {AttributeProps} from 'xtal-element/types.d.js';
 
 const mainTemplate = createTemplate(/* html */ `
 <style>
@@ -26,161 +20,64 @@ const mainTemplate = createTemplate(/* html */ `
 <div id=target></div>
 `);
 
-/**
- * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
- * @element xtal-frappe-chart
- * @event selected-element-changed - fires when user selects chart data element
- */
-export class XtalFrappeChart extends XtallatX(hydrate(HTMLElement)) implements XtalFrappeChartIfc {
-  static get is() {
-    return "xtal-frappe-chart";
-  }
+declare var frappe;
+
+export class XtalFrappeChart extends XtalElement{
+
+    static is = 'xtal-frappe-chart';
+    data: ChartOptions;
+    value: SelectedElement;
+    selectedElement: SelectedElement;
+    newDataPoint: IAddDataPointParams;
+    staleDataPoint: number;
+
+    readyToInit = true;
+
+    readyToRender = true;
+
+    mainTemplate = mainTemplate;
+
+    static attributeProps: any = ({data, value, selectedElement, newDataPoint, staleDataPoint}: XtalFrappeChart) => ({
+        obj: [data, value, selectedElement, newDataPoint],
+        num: [staleDataPoint],
+        notify: [selectedElement]
+    }) as AttributeProps;
 
 
-  _chart: Chart;
-  _previousData: object;
+    chart: Chart;
+    initTransform = {
+        '#target': [,{'data-selected': this.handleDataSelect}] as PESettings<XtalFrappeChart>
+    };
 
-  _value: SelectedElement;
-  get value(): SelectedElement{
-    return this._value;
-  }
-  constructor() {
-    super();
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.appendChild(mainTemplate.content.cloneNode(true));
-  }
-
-  _data: ChartOptions;
-  get data() {
-    return this._data;
-  }
-  /**
-  * Data to chart
-  */
-  set data(val) {
-    this._data = val;
-    this.onPropsChange();
-  }
-
-  /**
-   * All events emitted pass through this method
-   * @param evt 
-   */
-  emit<K extends keyof XtalFrappeChartEventNameMap>(type: K,  detail: XtalFrappeChartEventNameMap[K]){
-    this.de(type, detail, true);
-  }
-
-
-
-
-  static get observedAttributes() {
-    return super.observedAttributes.concat([data]);
-  }
-
-  attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    switch (name) {
-      case data:
-        this._data = JSON.parse(newValue);
-        break;
-    }
-    super.attributeChangedCallback(name, oldValue, newValue);
-    this.onPropsChange();
-  }
-  onPropsChange() {
-    if (this._disabled || !this._data || typeof this._data !== "object" || !this._connected) return;
-    setTimeout(() => {
-      this.loadChart();
-    }, 50);
-  }
-
-  _selectedElement: SelectedElement;
-  get selectedElement() {
-    return this._selectedElement;
-  }
-
-  
-  loadChart() {
-    //this.style.display="block";
-    if (this._previousData && this._data === this._previousData) return;
-    this._previousData = this._data;
-    //this._data['parent'] = this;
-    const target = this.shadowRoot.querySelector("#target");
-    if (typeof Chart !== "undefined") {
-      this._chart = new Chart(target, this._data);
-    } else {
-      this._chart = new frappe.Chart(target, this._data);
-    }
-    
-    setTimeout(() => {
-      this._chart["parent"].addEventListener("data-select", e => {
-        this._value = {
+    handleDataSelect(e: any){
+        this.value = {
             values: e.values,
             label: e.label,
             index: e.index
         }
-        this._selectedElement = this._value;
-        this.emit("selected-element-changed", { value: this._value});
-      });
-    }, 50);
-
-    this._pendingNewDataPoints.forEach(dp => {
-      this._chart.addDataPoint(dp.label, dp.valueFromEachDataset, dp.index);
-    });
-  }
-  _pendingNewDataPoints: IAddDataPointParams[] = [];
-
-  _newDataPoint: IAddDataPointParams;
-  get newDataPoint() {
-    return this._newDataPoint;
-  }
-  /**
-   * Add new data point to chart
-   *
-   */
-  set newDataPoint(val) {
-    this._newDataPoint = val;
-    if (this._chart) {
-      this._chart.addDataPoint(val.label, val.valueFromEachDataset, val.index);
-    } else {
-      this._pendingNewDataPoints.push(val);
+        this.selectedElement = this.value;
     }
-  }
 
-  _staleDataPoint: number;
-  get staleDataPoint() {
-    return this._staleDataPoint;
-  }
-  /**
-   * Remove data point from chart
-   */
-  set staleDataPoint(val) {
-    this._staleDataPoint = val;
-    this._chart.removeDataPoint(val);
-  }
+    updateTransforms = [
+        ({data}) =>({
+            '#target': ({target}) => {
+                if (typeof Chart !== "undefined") {
+                    this.chart = new Chart(target, data);
+                } else {
+                    this.chart = new frappe.Chart(target, data);
+                }
+            }
+        })
+    ];
 
-  _updateData: any;
-  get updateData() {
-    return this._updateData;
-  }
-  /**
-   * Update Data
-   */
-  set updateData(val) {
-    this._updateData = val;
-    this._chart.update(val);
-  }
-
-  _connected: boolean;
-  connectedCallback() {
-    this.propUp([
-      data,
-      "newDataPoint",
-      "staleDataPoint",
-      "updateData",
-      "selectedElement"
-    ]);
-    this._connected = true;
-    this.onPropsChange();
-  }
+    propActions = [
+        ({newDataPoint}: XtalFrappeChart) =>{
+            this.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
+        },
+        ({staleDataPoint}: XtalFrappeChart) => {
+            this.chart.removeDataPoint(staleDataPoint);
+        }
+    ]
 }
+
 define(XtalFrappeChart);
