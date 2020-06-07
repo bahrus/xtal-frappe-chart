@@ -24,10 +24,20 @@ const mainTemplate = createTemplate(/* html */ `
 export class XtalFrappeChart extends XtalElement{
 
     static is = 'xtal-frappe-chart';
+    /**
+     * Data to chart
+     */
     data: ChartOptions;
     value: SelectedElement;
     selectedElement: SelectedElement;
+    /**
+     * Add new data point to chart
+     *
+     */
     newDataPoint: IAddDataPointParams;
+    /**
+     * Remove data point from chart
+     */
     staleDataPoint: number;
 
     readyToInit = true;
