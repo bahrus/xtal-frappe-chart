@@ -21,21 +21,19 @@ let XtalFrappeChart = /** @class */ (() => {
             this.updateTransforms = [
                 ({ data }) => ({
                     '#target': ({ target }) => {
-                        if (typeof Chart !== "undefined") {
-                            this.chart = new Chart(target, data);
-                        }
-                        else {
-                            this.chart = new frappe.Chart(target, data);
-                        }
+                        this.chart = new Chart(target, data);
+                        setTimeout(() => {
+                            this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
+                        }, 50);
                     }
                 })
             ];
             this.propActions = [
-                ({ newDataPoint }) => {
-                    this.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
+                ({ newDataPoint, self }) => {
+                    self.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
                 },
-                ({ staleDataPoint }) => {
-                    this.chart.removeDataPoint(staleDataPoint);
+                ({ staleDataPoint, self }) => {
+                    self.chart.removeDataPoint(staleDataPoint);
                 }
             ];
         }

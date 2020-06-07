@@ -20,7 +20,6 @@ const mainTemplate = createTemplate(/* html */ `
 <div id=target></div>
 `);
 
-declare var frappe;
 
 export class XtalFrappeChart extends XtalElement{
 
@@ -59,23 +58,22 @@ export class XtalFrappeChart extends XtalElement{
     }
 
     updateTransforms = [
-        ({data}) =>({
+        ({data}: XtalFrappeChart) =>({
             '#target': ({target}) => {
-                if (typeof Chart !== "undefined") {
-                    this.chart = new Chart(target, data);
-                } else {
-                    this.chart = new frappe.Chart(target, data);
-                }
+                this.chart = new Chart(target, data);
+                setTimeout(() => {
+                    this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
+                }, 50);
             }
         })
     ];
 
     propActions = [
-        ({newDataPoint}: XtalFrappeChart) =>{
-            this.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
+        ({newDataPoint, self}: XtalFrappeChart) =>{
+            self.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
         },
-        ({staleDataPoint}: XtalFrappeChart) => {
-            this.chart.removeDataPoint(staleDataPoint);
+        ({staleDataPoint, self}: XtalFrappeChart) => {
+            self.chart.removeDataPoint(staleDataPoint);
         }
     ]
 }
