@@ -15,9 +15,7 @@ let XtalFrappeChart = /** @class */ (() => {
             this.readyToInit = true;
             this.readyToRender = true;
             this.mainTemplate = mainTemplate;
-            this.initTransform = {
-                '#target': [, { 'data-selected': this.handleDataSelect }]
-            };
+            this.initTransform = {};
             this.updateTransforms = [
                 ({ data }) => ({
                     '#target': ({ target }) => {

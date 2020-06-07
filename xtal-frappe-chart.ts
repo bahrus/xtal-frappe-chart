@@ -37,7 +37,7 @@ export class XtalFrappeChart extends XtalElement{
     newDataPoint: IAddDataPointParams;
     /**
      * Remove data point from chart
-     */
+    */
     staleDataPoint: number;
 
     readyToInit = true;
@@ -54,9 +54,7 @@ export class XtalFrappeChart extends XtalElement{
 
 
     chart: Chart;
-    initTransform = {
-        '#target': [,{'data-selected': this.handleDataSelect}] as PESettings<XtalFrappeChart>
-    };
+    initTransform = {};
 
     handleDataSelect(e: any){
         this.value = {
