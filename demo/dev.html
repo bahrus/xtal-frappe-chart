@@ -41,10 +41,10 @@
           ]
         </script>
       </xtal-insert-json>
-      <p-d on="merged-prop-changed" prop="data" val="target.value"></p-d>
-      <xtal-frappe-chart></xtal-frappe-chart>
-      <p-d on="selected-element-changed" prop="input" val="target.value"></p-d>
-      <xtal-json-editor options="{}"  height="300px"></xtal-json-editor>
+      <p-d on=merged-prop-changed to=[-data] val=target.mergedProp m=1></p-d>
+      <xtal-frappe-chart -data></xtal-frappe-chart>
+      <p-d on=selected-element-changed to=[-input] val=target.value m=1></p-d>
+      <xtal-json-editor options="{}" -input  height="300px"></xtal-json-editor>
 
     
         <!-- Use experimental import maps -->
@@ -62,7 +62,7 @@
           }
           </script>
         <script  type="module-shim">
-          import '../xtal-frappe-chart2.js';
+          import '../xtal-frappe-chart.js';
           import 'xtal-json-merge/xtal-insert-json.js';
           import 'xtal-json-editor/xtal-json-editor.js';
           import 'p-et-alia/p-d.js';
