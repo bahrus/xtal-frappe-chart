@@ -18,6 +18,12 @@ const mainTemplate = createTemplate(/* html */ `
 <div id=target></div>
 `);
 
+export const addDataPoint = ({newDataPoint, chart}: XtalFrappeChart) =>{
+    chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
+};
+export const removeDataPoint = ({staleDataPoint, chart}: XtalFrappeChart) => {
+    chart.removeDataPoint(staleDataPoint);
+}
 
 export class XtalFrappeChart extends XtalElement{
 
@@ -74,14 +80,7 @@ export class XtalFrappeChart extends XtalElement{
         })
     ];
 
-    propActions = [
-        ({newDataPoint, self}: XtalFrappeChart) =>{
-            self.chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
-        },
-        ({staleDataPoint, self}: XtalFrappeChart) => {
-            self.chart.removeDataPoint(staleDataPoint);
-        }
-    ]
+    propActions = [addDataPoint, removeDataPoint];
 }
 
 define(XtalFrappeChart);
