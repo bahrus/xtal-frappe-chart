@@ -1,6 +1,6 @@
 {
   "name": "xtal-frappe-chart",
-  "version": "0.0.72",
+  "version": "0.0.73",
   "description": "Web component wrapper around the Frappé chart library ",
   "repository": "https://github.com/bahrus/xtal-frappe-chart",
   "author": "bahrus <anderson.bruce.b@gmail.com>",
