@@ -24,6 +24,9 @@ export class XtalFrappeChart extends XtalElement {
         super(...arguments);
         this.readyToInit = true;
         this.readyToRender = true;
+        /**
+         * @private
+         */
         this.mainTemplate = mainTemplate;
         this.initTransform = {};
         this.updateTransforms = [
@@ -49,7 +52,14 @@ export class XtalFrappeChart extends XtalElement {
         this.selectedElement = this.value;
     }
 }
+/**
+ * @private
+ */
 XtalFrappeChart.is = 'xtal-frappe-chart';
+/**
+ *
+ * @private
+ */
 XtalFrappeChart.attributeProps = ({ data, value, selectedElement, newDataPoint, staleDataPoint }) => ({
     obj: [data, value, selectedElement, newDataPoint],
     num: [staleDataPoint],

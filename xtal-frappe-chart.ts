@@ -32,6 +32,9 @@ export const removeDataPoint = ({staleDataPoint, chart}: XtalFrappeChart) => {
  */
 export class XtalFrappeChart extends XtalElement{
 
+    /**
+     * @private
+     */
     static is = 'xtal-frappe-chart';
     /**
      * Data to chart
@@ -41,7 +44,7 @@ export class XtalFrappeChart extends XtalElement{
     selectedElement: SelectedElement;
     /**
      * Add new data point to chart
-     *
+     * 
      */
     newDataPoint: IAddDataPointParams;
     /**
@@ -53,8 +56,15 @@ export class XtalFrappeChart extends XtalElement{
 
     readyToRender = true;
 
+    /**
+     * @private
+     */
     mainTemplate = mainTemplate;
 
+    /**
+     * 
+     * @private 
+     */
     static attributeProps: any = ({data, value, selectedElement, newDataPoint, staleDataPoint}: XtalFrappeChart) => ({
         obj: [data, value, selectedElement, newDataPoint],
         num: [staleDataPoint],

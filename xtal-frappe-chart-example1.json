@@ -18,11 +18,6 @@
           "default": "{\"trigger\":\"\\n        import 'https://unpkg.com/xtal-shell/$hell.js?module';\\n        import 'https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module';\\n        setTimeout(() =>{\\n            $hell.$0=document.querySelector('xtal-frappe-chart');\\n            $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');\\n            setTimeout(() =>{\\n              $hell.$0.dispatchEvent(new Event('click'));\\n            }, 500);\\n            \\n          }, 3000);\\n        \",\"expectedEvent\":{\"name\":\"selected-element-changed\",\"detail\":{\"value\":{\"values\":[30,-10,-3],\"label\":\"6am-9am\",\"index\":2}},\"associatedPropName\":\"selectedElement\"}}"
         },
         {
-          "name": "is",
-          "type": "string",
-          "default": "\"xtal-frappe-chart\""
-        },
-        {
           "name": "data",
           "description": "Data to chart",
           "type": "object",
@@ -60,10 +55,6 @@
           "type": "RenderOptions"
         },
         {
-          "name": "mainTemplate",
-          "default": "\"mainTemplate\""
-        },
-        {
           "name": "initTransform",
           "type": "object",
           "default": "{}"
@@ -86,10 +77,6 @@
         {
           "name": "root",
           "type": "HTMLElement | ShadowRoot"
-        },
-        {
-          "name": "attributeProps",
-          "default": "\"({data, value, selectedElement, newDataPoint, staleDataPoint}: XtalFrappeChart) => ({\\r\\n        obj: [data, value, selectedElement, newDataPoint],\\r\\n        num: [staleDataPoint],\\r\\n        notify: [selectedElement]\\r\\n    }) as AttributeProps\""
         },
         {
           "name": "self",
