@@ -14,6 +14,11 @@ export const addDataPoint = ({ newDataPoint, chart }) => {
 export const removeDataPoint = ({ staleDataPoint, chart }) => {
     chart.removeDataPoint(staleDataPoint);
 };
+/**
+ * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
+ * @element xtal-frappe-chart
+ * @event selected-element-changed - fires when user selects chart data element
+ */
 export class XtalFrappeChart extends XtalElement {
     constructor() {
         super(...arguments);
@@ -24,10 +29,12 @@ export class XtalFrappeChart extends XtalElement {
         this.updateTransforms = [
             ({ data }) => ({
                 '#target': ({ target }) => {
-                    this.chart = new Chart(target, data);
                     setTimeout(() => {
-                        this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
-                    }, 50);
+                        this.chart = new Chart(target, data);
+                        setTimeout(() => {
+                            this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
+                        }, 50);
+                    }, 0);
                 }
             })
         ];

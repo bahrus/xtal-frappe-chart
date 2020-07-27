@@ -14,34 +14,63 @@
       ],
       "properties": [
         {
-          "name": "value",
-          "type": "{ values: any; label: any; index: any; } | undefined"
+          "name": "noShadow",
+          "type": "boolean",
+          "default": "false"
         },
         {
-          "name": "data",
-          "description": "Data to chart"
+          "name": "renderOptions",
+          "type": "RenderOptions"
         },
         {
-          "name": "selectedElement",
-          "type": "{ values: any; label: any; index: any; } | undefined"
+          "name": "mainTemplate",
+          "default": "\"mainTemplate\""
         },
         {
-          "name": "newDataPoint",
-          "description": "Add new data point to chart"
-        },
-        {
-          "name": "staleDataPoint",
-          "description": "Remove data point from chart"
-        },
-        {
-          "name": "updateData",
-          "description": "Update Data"
-        },
-        {
-          "name": "evCount",
-          "description": "Tracks how many times each event type was called.",
-          "type": "{ [key: string]: number; }",
+          "name": "initTransform",
+          "type": "object",
           "default": "{}"
+        },
+        {
+          "name": "readyToInit",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "readyToRender",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "updateTransforms",
+          "type": "{}[]",
+          "default": "[null]"
+        },
+        {
+          "name": "root",
+          "type": "HTMLElement | ShadowRoot"
+        },
+        {
+          "name": "attributeProps",
+          "default": "\"({disabled } : IXtallatXI) => ({\\r\\n            bool: [disabled],\\r\\n        } as AttributeProps)\""
+        },
+        {
+          "name": "self",
+          "type": "this",
+          "default": "\"this\""
+        },
+        {
+          "name": "propActions",
+          "type": "({} | {})[]",
+          "default": "[\"addDataPoint\",\"removeDataPoint\"]"
+        },
+        {
+          "name": "eventScopes",
+          "description": "Allow instances of component to specify custom event propagation (EventInit) parameters",
+          "type": "EventScopes | undefined"
+        },
+        {
+          "name": "defaultValues"
         },
         {
           "name": "disabled",
