@@ -14,42 +14,38 @@ export const addDataPoint = ({ newDataPoint, chart }) => {
 export const removeDataPoint = ({ staleDataPoint, chart }) => {
     chart.removeDataPoint(staleDataPoint);
 };
-let XtalFrappeChart = /** @class */ (() => {
-    class XtalFrappeChart extends XtalElement {
-        constructor() {
-            super(...arguments);
-            this.readyToInit = true;
-            this.readyToRender = true;
-            this.mainTemplate = mainTemplate;
-            this.initTransform = {};
-            this.updateTransforms = [
-                ({ data }) => ({
-                    '#target': ({ target }) => {
-                        this.chart = new Chart(target, data);
-                        setTimeout(() => {
-                            this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
-                        }, 50);
-                    }
-                })
-            ];
-            this.propActions = [addDataPoint, removeDataPoint];
-        }
-        handleDataSelect(e) {
-            this.value = {
-                values: e.values,
-                label: e.label,
-                index: e.index
-            };
-            this.selectedElement = this.value;
-        }
+export class XtalFrappeChart extends XtalElement {
+    constructor() {
+        super(...arguments);
+        this.readyToInit = true;
+        this.readyToRender = true;
+        this.mainTemplate = mainTemplate;
+        this.initTransform = {};
+        this.updateTransforms = [
+            ({ data }) => ({
+                '#target': ({ target }) => {
+                    this.chart = new Chart(target, data);
+                    setTimeout(() => {
+                        this.chart["parent"].addEventListener("data-select", this.handleDataSelect.bind(this));
+                    }, 50);
+                }
+            })
+        ];
+        this.propActions = [addDataPoint, removeDataPoint];
     }
-    XtalFrappeChart.is = 'xtal-frappe-chart';
-    XtalFrappeChart.attributeProps = ({ data, value, selectedElement, newDataPoint, staleDataPoint }) => ({
-        obj: [data, value, selectedElement, newDataPoint],
-        num: [staleDataPoint],
-        notify: [selectedElement]
-    });
-    return XtalFrappeChart;
-})();
-export { XtalFrappeChart };
+    handleDataSelect(e) {
+        this.value = {
+            values: e.values,
+            label: e.label,
+            index: e.index
+        };
+        this.selectedElement = this.value;
+    }
+}
+XtalFrappeChart.is = 'xtal-frappe-chart';
+XtalFrappeChart.attributeProps = ({ data, value, selectedElement, newDataPoint, staleDataPoint }) => ({
+    obj: [data, value, selectedElement, newDataPoint],
+    num: [staleDataPoint],
+    notify: [selectedElement]
+});
 define(XtalFrappeChart);
