@@ -7,7 +7,7 @@
       "attributes": [
         {
           "name": "disabled",
-          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "description": "Any component that emits events should not do so if it is disabled.",
           "type": "boolean"
         }
       ],
@@ -75,31 +75,14 @@
           "default": "[null]"
         },
         {
-          "name": "root",
-          "type": "HTMLElement | ShadowRoot"
-        },
-        {
-          "name": "self",
-          "type": "this",
-          "default": "\"this\""
-        },
-        {
           "name": "propActions",
           "type": "(({ newDataPoint, chart }: XtalFrappeChart) => void)[]",
           "default": "[\"addDataPoint\",\"removeDataPoint\"]"
         },
         {
-          "name": "eventScopes",
-          "description": "Allow instances of component to specify custom event propagation (EventInit) parameters",
-          "type": "EventScopes | undefined"
-        },
-        {
-          "name": "defaultValues"
-        },
-        {
           "name": "disabled",
           "attribute": "disabled",
-          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "description": "Any component that emits events should not do so if it is disabled.",
           "type": "boolean"
         }
       ],

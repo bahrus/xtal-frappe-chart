@@ -8,7 +8,7 @@
       "attributes": [
         {
           "name": "disabled",
-          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "description": "Any component that emits events should not do so if it is disabled.",
           "type": "boolean"
         }
       ],
@@ -23,59 +23,14 @@
           "type": "RenderOptions"
         },
         {
-          "name": "mainTemplate",
-          "default": "\"mainTemplate\""
-        },
-        {
-          "name": "initTransform",
-          "type": "object",
-          "default": "{}"
-        },
-        {
-          "name": "readyToInit",
-          "type": "boolean",
-          "default": "true"
-        },
-        {
-          "name": "readyToRender",
-          "type": "boolean",
-          "default": "true"
-        },
-        {
-          "name": "updateTransforms",
-          "type": "{}[]",
-          "default": "[null]"
-        },
-        {
-          "name": "root",
-          "type": "HTMLElement | ShadowRoot"
-        },
-        {
-          "name": "attributeProps",
-          "default": "\"({disabled } : IXtallatXI) => ({\\r\\n            bool: [disabled],\\r\\n        } as AttributeProps)\""
-        },
-        {
-          "name": "self",
-          "type": "this",
-          "default": "\"this\""
-        },
-        {
           "name": "propActions",
           "type": "({} | {})[]",
           "default": "[\"addDataPoint\",\"removeDataPoint\"]"
         },
         {
-          "name": "eventScopes",
-          "description": "Allow instances of component to specify custom event propagation (EventInit) parameters",
-          "type": "EventScopes | undefined"
-        },
-        {
-          "name": "defaultValues"
-        },
-        {
           "name": "disabled",
           "attribute": "disabled",
-          "description": "Any component that emits events should not do so if it is disabled.\r\nNote that this is not enforced, but the disabled property is made available.\r\nUsers of this mix-in should ensure not to call \"de\" if this property is set to true.",
+          "description": "Any component that emits events should not do so if it is disabled.",
           "type": "boolean"
         }
       ],

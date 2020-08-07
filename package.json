@@ -10,8 +10,8 @@
   "typings": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.5.2",
-    "xtal-element": "0.0.257",
-    "trans-render": "0.0.233"
+    "xtal-element": "0.0.262",
+    "trans-render": "0.0.238"
   },
   "scripts": {
     "test": "node test/test-all.js",

@@ -1,4 +1,4 @@
-import {XtalElement, define} from 'xtal-element/XtalElement.js';
+import {XtalElement, define, AttributeProps} from 'xtal-element/XtalElement.js';
 import {
     Chart,
     PercentageChart,
@@ -8,7 +8,6 @@ import {
 } from "frappe-charts/dist/frappe-charts.esm.js";
 import { createTemplate } from "trans-render/createTemplate.js";
 import {ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail, XtalFrappeChartIfc} from './types.js';
-import {AttributeProps} from 'xtal-element/types.d.js';
 
 const mainTemplate = createTemplate(/* html */ `
 <style>
