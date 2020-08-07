@@ -10,7 +10,7 @@
   "typings": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.5.2",
-    "xtal-element": "0.0.262",
+    "xtal-element": "0.0.263",
     "trans-render": "0.0.238"
   },
   "scripts": {
