@@ -23,11 +23,6 @@
           "type": "RenderOptions"
         },
         {
-          "name": "propActions",
-          "type": "({} | {})[]",
-          "default": "[\"addDataPoint\",\"removeDataPoint\"]"
-        },
-        {
           "name": "disabled",
           "attribute": "disabled",
           "description": "Any component that emits events should not do so if it is disabled.",

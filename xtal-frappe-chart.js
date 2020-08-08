@@ -22,13 +22,25 @@ export const removeDataPoint = ({ staleDataPoint, chart }) => {
 export class XtalFrappeChart extends XtalElement {
     constructor() {
         super(...arguments);
+        /**
+         * @private
+         */
         this.readyToInit = true;
+        /**
+         * @private
+         */
         this.readyToRender = true;
         /**
          * @private
          */
         this.mainTemplate = mainTemplate;
+        /**
+         * @private
+         */
         this.initTransform = {};
+        /**
+         * @private
+         */
         this.updateTransforms = [
             ({ data }) => ({
                 '#target': ({ target }) => {
@@ -41,6 +53,9 @@ export class XtalFrappeChart extends XtalElement {
                 }
             })
         ];
+        /**
+         * @private
+         */
         this.propActions = [addDataPoint, removeDataPoint];
     }
     handleDataSelect(e) {

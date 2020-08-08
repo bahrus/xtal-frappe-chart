@@ -17,7 +17,7 @@
     "test": "node test/test-all.js",
     "serve": "node node_modules/xtal-test/serve.js",
     "doc": "wca analyze xtal-frappe-chart.js --outFile custom-elements.json",
-    "test::spec": "wca analyze xtal-frappe-chart-example1.js --outFile xtal-frappe-chart-example1.json"
+    "example1": "wca analyze xtal-frappe-chart-example1.js --outFile xtal-frappe-chart-example1.json"
   },
   "devDependencies": {
     "@webcomponents/webcomponentsjs": "2.4.3",

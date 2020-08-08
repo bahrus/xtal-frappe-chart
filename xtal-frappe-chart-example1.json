@@ -55,31 +55,6 @@
           "type": "RenderOptions"
         },
         {
-          "name": "initTransform",
-          "type": "object",
-          "default": "{}"
-        },
-        {
-          "name": "readyToInit",
-          "type": "boolean",
-          "default": "true"
-        },
-        {
-          "name": "readyToRender",
-          "type": "boolean",
-          "default": "true"
-        },
-        {
-          "name": "updateTransforms",
-          "type": "(({ data }: XtalFrappeChart) => { '#target': ({ target }: { target: any; }) => void; })[]",
-          "default": "[null]"
-        },
-        {
-          "name": "propActions",
-          "type": "(({ newDataPoint, chart }: XtalFrappeChart) => void)[]",
-          "default": "[\"addDataPoint\",\"removeDataPoint\"]"
-        },
-        {
           "name": "disabled",
           "attribute": "disabled",
           "description": "Any component that emits events should not do so if it is disabled.",

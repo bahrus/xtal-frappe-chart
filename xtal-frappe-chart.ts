@@ -1,4 +1,4 @@
-import {XtalElement, define, AttributeProps} from 'xtal-element/XtalElement.js';
+import {XtalElement, define, AttributeProps, SelectiveUpdate} from 'xtal-element/XtalElement.js';
 import {
     Chart,
     PercentageChart,
@@ -51,8 +51,15 @@ export class XtalFrappeChart extends XtalElement{
     */
     staleDataPoint: number;
 
+
+    /**
+     * @private
+     */
     readyToInit = true;
 
+    /**
+     * @private
+     */
     readyToRender = true;
 
     /**
@@ -72,6 +79,10 @@ export class XtalFrappeChart extends XtalElement{
 
 
     chart: Chart;
+
+    /**
+     * @private
+     */
     initTransform = {};
 
     handleDataSelect(e: any){
@@ -83,6 +94,9 @@ export class XtalFrappeChart extends XtalElement{
         this.selectedElement = this.value;
     }
 
+    /**
+     * @private
+     */
     updateTransforms = [
         ({data}: XtalFrappeChart) =>({
             '#target': ({target}) => {
@@ -95,8 +109,11 @@ export class XtalFrappeChart extends XtalElement{
 
             }
         })
-    ];
+    ] as SelectiveUpdate<any>[];
 
+    /**
+     * @private
+     */
     propActions = [addDataPoint, removeDataPoint];
 }
 
