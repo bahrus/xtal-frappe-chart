@@ -1,11 +1,6 @@
-import {define} from 'xtal-element/lib/define.js';
-import {destructPropInfo, PropAction, ReactiveSurface, PropDef, XtalPattern} from 'xtal-element/types.js';
+import {xc, ReactiveSurface, PropAction, PropDef, PropDefMap} from 'xtal-element/lib/XtalCore.js';
 import {xp} from 'xtal-element/lib/XtalPattern.js';
 import {html} from 'xtal-element/lib/html.js';
-import {getPropDefs} from 'xtal-element/lib/getPropDefs.js';
-import {letThereBeProps} from 'xtal-element/lib/letThereBeProps.js';
-import {Reactor} from 'xtal-element/lib/Reactor.js';
-import {hydrate} from 'xtal-element/lib/hydrate.js';
 import {
     Chart,
     PercentageChart,
@@ -23,29 +18,7 @@ const mainTemplate = html`
 <div id=target></div>
 `;
 const refs = {targetId: ''};
-const propDefGetters = [
-    xp.props,
-    ({data, newDataPoint}: XtalFrappeChart) => ({
-        type: Object,
-        dry: true,
-        async: true,
-        parse: true,
-    }),
-    ({selectedElement}: XtalFrappeChart) => ({
-        type: Object,
-        notify: true,
-        echoTo: 'value'
-    }),
-    ({value}: XtalFrappeChart) => ({
-        type: Object,
-        notify: true,
-    }),
-    ({staleDataPoint}: XtalFrappeChart) => ({
-        type: Number,
-        stopReactionsIfFalsy: true,
-    }),
-] as destructPropInfo[];
-const propDefs = getPropDefs(propDefGetters);
+
 
 export const addDataPoint = ({newDataPoint, chart}: XtalFrappeChart) =>{
     chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
@@ -85,7 +58,7 @@ export class XtalFrappeChart extends HTMLElement implements ReactiveSurface, Xta
     self = this;
     domCache: any;
     propActions = propActions;
-    reactor = new Reactor(this);
+    reactor = new xc.Rx(this);
     
     /**
      * Data to chart
@@ -114,15 +87,40 @@ export class XtalFrappeChart extends HTMLElement implements ReactiveSurface, Xta
         this.selectedElement = this.value;
     }
     connectedCallback(){
-        hydrate<any>(this, propDefs, {});
+        xc.hydrate<any>(this, slicedPropDefs, {});
     }
     onPropChange(name: string, prop: PropDef, nv: any){
         this.reactor.addToQueue(prop, nv);
     }
     mainTemplate = mainTemplate;
 }
-letThereBeProps(XtalFrappeChart, propDefs, 'onPropChange');
-define(XtalFrappeChart);
+const obj1: PropDef = {
+    type: Object,
+    dry: true,
+    async: true,
+    parse: true,
+};
+const propDefMap: PropDefMap<XtalFrappeChart> = {
+    ...xp.props,
+    data: obj1, newDataPoint: obj1,
+    selectedElement: {
+        type: Object,
+        notify: true,
+        echoTo: 'value'
+    },
+    value: {
+        type: Object,
+        notify: true,
+    },
+    staleDataPoint: {
+        type: Number,
+        stopReactionsIfFalsy: true,
+    }
+};
+
+const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
+xc.letThereBeProps(XtalFrappeChart, slicedPropDefs.propDefs, 'onPropChange');
+xc.define(XtalFrappeChart);
 
 declare global {
     interface HTMLElementTagNameMap {

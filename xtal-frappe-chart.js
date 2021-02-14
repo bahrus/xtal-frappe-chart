@@ -1,10 +1,6 @@
-import { define } from 'xtal-element/lib/define.js';
+import { xc } from 'xtal-element/lib/XtalCore.js';
 import { xp } from 'xtal-element/lib/XtalPattern.js';
 import { html } from 'xtal-element/lib/html.js';
-import { getPropDefs } from 'xtal-element/lib/getPropDefs.js';
-import { letThereBeProps } from 'xtal-element/lib/letThereBeProps.js';
-import { Reactor } from 'xtal-element/lib/Reactor.js';
-import { hydrate } from 'xtal-element/lib/hydrate.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
 const mainTemplate = html `
 <style>
@@ -14,29 +10,6 @@ const mainTemplate = html `
 <div id=target></div>
 `;
 const refs = { targetId: '' };
-const propDefGetters = [
-    xp.props,
-    ({ data, newDataPoint }) => ({
-        type: Object,
-        dry: true,
-        async: true,
-        parse: true,
-    }),
-    ({ selectedElement }) => ({
-        type: Object,
-        notify: true,
-        echoTo: 'value'
-    }),
-    ({ value }) => ({
-        type: Object,
-        notify: true,
-    }),
-    ({ staleDataPoint }) => ({
-        type: Number,
-        stopReactionsIfFalsy: true,
-    }),
-];
-const propDefs = getPropDefs(propDefGetters);
 export const addDataPoint = ({ newDataPoint, chart }) => {
     chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
 };
@@ -71,7 +44,7 @@ export class XtalFrappeChart extends HTMLElement {
         this.refs = refs;
         this.self = this;
         this.propActions = propActions;
-        this.reactor = new Reactor(this);
+        this.reactor = new xc.Rx(this);
         this.mainTemplate = mainTemplate;
     }
     handleDataSelect(e) {
@@ -83,7 +56,7 @@ export class XtalFrappeChart extends HTMLElement {
         this.selectedElement = this.value;
     }
     connectedCallback() {
-        hydrate(this, propDefs, {});
+        xc.hydrate(this, slicedPropDefs, {});
     }
     onPropChange(name, prop, nv) {
         this.reactor.addToQueue(prop, nv);
@@ -93,5 +66,29 @@ export class XtalFrappeChart extends HTMLElement {
  * @private
  */
 XtalFrappeChart.is = 'xtal-frappe-chart';
-letThereBeProps(XtalFrappeChart, propDefs, 'onPropChange');
-define(XtalFrappeChart);
+const obj1 = {
+    type: Object,
+    dry: true,
+    async: true,
+    parse: true,
+};
+const propDefMap = {
+    ...xp.props,
+    data: obj1, newDataPoint: obj1,
+    selectedElement: {
+        type: Object,
+        notify: true,
+        echoTo: 'value'
+    },
+    value: {
+        type: Object,
+        notify: true,
+    },
+    staleDataPoint: {
+        type: Number,
+        stopReactionsIfFalsy: true,
+    }
+};
+const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
+xc.letThereBeProps(XtalFrappeChart, slicedPropDefs.propDefs, 'onPropChange');
+xc.define(XtalFrappeChart);
