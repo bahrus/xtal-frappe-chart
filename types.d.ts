@@ -1,3 +1,5 @@
+import { XtalPattern } from "../xtal-element/types";
+
 export interface SelectedElement {
     label: string;
     values: any[];
@@ -18,9 +20,37 @@ export interface IAddDataPointParams {
     index?: number;
 }
 
-export interface XtalFrappeChartIfc{
-    data: ChartOptions;
+export interface XtalFrappeChartProps extends HTMLElement{
+    /**
+     * Data to chart
+     */
+    data: HeatMapData | TabularData;
     readonly selectedElement: object,
+    domCache: any,
+    mainTemplate: HTMLTemplateElement,
+    clonedTemplate: DocumentFragment | undefined,
+    refs: any,
+    /**
+     * Add new data point to chart
+     * 
+     */
+    newDataPoint: IAddDataPointParams;
+
+    /**
+     * Remove data point from chart
+    */
+    staleDataPoint: number;
+
+    chartTitle: string;
+
+    height: number;
+
+    colors: string[];
+
+    type: 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
+
+    isNavigable: boolean;
+
 }
 
 export interface ChartOptions{

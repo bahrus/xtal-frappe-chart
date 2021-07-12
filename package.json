@@ -9,8 +9,8 @@
   "module": "xtal-frappe-chart.js",
   "typings": "types.d.ts",
   "dependencies": {
-    "frappe-charts": "1.5.6",
-    "xtal-element": "0.0.347"
+    "frappe-charts": "1.6.2",
+    "xtal-element": "0.0.414"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -19,14 +19,13 @@
     "example1": "wca analyze xtal-frappe-chart-example1.js --outFile xtal-frappe-chart-example1.json"
   },
   "devDependencies": {
-    "es-module-shims": "0.9.0",
     "for-instance": "0.0.27",
     "json-file-patch": "0.0.1",
-    "p-et-alia": "0.0.120",
-    "trans-render": "0.0.276",
+    "pass-down": "0.0.59",
+    "trans-render": "0.0.291",
     "xtal-json-editor": "0.0.44",
-    "xtal-json-merge": "0.2.39",
+    "xtal-json-merge": "0.2.42",
     "xtal-shell": "0.0.25",
-    "xtal-test": "0.0.48"
+    "xtal-test": "0.0.51"
   }
 }

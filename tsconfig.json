@@ -1,15 +1,16 @@
 {
 	"compilerOptions": {
 		"target": "ESNext",
-		"module":"esnext",
+		"module": "ESNext",
 		"sourceMap": false,
-		"experimentalDecorators": true,
+		"experimentalDecorators": false,
 		"newLine": "LF",
 		"watch": true
 	},
-
+	"files": [
+		"xtal-frappe-chart.ts",
+	],
 	"exclude":[
-		"build",
 		"node_modules",
 	]
 
