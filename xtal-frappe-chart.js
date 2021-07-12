@@ -73,13 +73,14 @@ export const removeDataPoint = ({ staleDataPoint, chart }) => {
         return;
     chart.removeDataPoint(staleDataPoint);
 };
-export const linkChart = ({ data, chartTitle, height, colors, type, domCache, isReallyConnected, self }) => {
+export const linkChart = ({ data, chartTitle, height, colors, type, domCache, isReallyConnected, toolTipOptions, self }) => {
     const chartOptions = {
         data,
         title: chartTitle,
         colors,
         height,
-        type
+        type,
+        toolTipOptions
     };
     setTimeout(() => {
         self.chart = new Chart(domCache[refs.targetId], chartOptions);
@@ -132,6 +133,7 @@ const propDefMap = {
     chartTitle: str1,
     height: num1,
     colors: obj1,
+    toolTipOptions: obj1,
     type: str1,
     isNavigable: bool1,
     selectedElement: {

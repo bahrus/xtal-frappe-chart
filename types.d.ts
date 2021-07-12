@@ -51,6 +51,8 @@ export interface XtalFrappeChartProps extends HTMLElement{
 
     isNavigable: boolean;
 
+    toolTipOptions: any;
+
 }
 
 export type ChartType = 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
@@ -61,6 +63,7 @@ export interface ChartOptions{
     height?: number,
     colors?: string[],
     type?: ChartType,
+    toolTipOptions: any,
 }
 
 export interface ChartData{

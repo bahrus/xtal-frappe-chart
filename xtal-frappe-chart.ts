@@ -89,13 +89,14 @@ export const removeDataPoint = ({staleDataPoint, chart}: XtalFrappeChart) => {
     if(staleDataPoint === undefined) return;
     chart.removeDataPoint(staleDataPoint);
 }
-export const linkChart = ({data, chartTitle, height, colors, type, domCache, isReallyConnected, self}: XtalFrappeChart) => {
+export const linkChart = ({data, chartTitle, height, colors, type, domCache, isReallyConnected, toolTipOptions, self}: XtalFrappeChart) => {
     const chartOptions: ChartOptions = {
         data,
         title: chartTitle,
         colors,
         height,
-        type
+        type,
+        toolTipOptions
     };
     setTimeout(() =>{
         self.chart = new Chart(domCache[refs.targetId], chartOptions);
@@ -154,6 +155,7 @@ const propDefMap: PropDefMap<XtalFrappeChart> = {
     chartTitle: str1,
     height: num1,
     colors: obj1,
+    toolTipOptions: obj1,
     type: str1,
     isNavigable: bool1,
     selectedElement: {
