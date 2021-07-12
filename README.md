@@ -73,6 +73,8 @@ Things I like about this chart library:
 ```
 -->
 
+# [API Reference](https://bahrus.github.io/wc-info/cdn-base.html?npmPackage=xtal-frappe-chart)
+
 # [Syntax](https://bahrus.github.io/api-viewer/index.html?npmPackage=xtal-frappe-chart&jsPath=xtal-frappe-chart-example1.js&jsonPath=custom-elements-example1.json)
 
 <!--
