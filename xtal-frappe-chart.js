@@ -16,26 +16,39 @@ const refs = { targetId: '' };
  * @event selected-element-changed - fires when user selects chart data element
  */
 export class XtalFrappeChart extends HTMLElement {
-    constructor() {
-        super(...arguments);
-        /**
-         * @private
-         */
-        this.refs = refs;
-        /**
-         * @private
-         */
-        this.self = this;
-        /**
-         * @private
-         */
-        this.propActions = propActions;
-        /**
-         * @private
-         */
-        this.reactor = new xc.Rx(this);
-        this.mainTemplate = mainTemplate;
-    }
+    /**
+     * @private
+     */
+    static is = 'xtal-frappe-chart';
+    /**
+     * @private
+     */
+    refs = refs;
+    /**
+     * @private
+     */
+    self = this;
+    /**
+     * @private
+     */
+    propActions = propActions;
+    /**
+     * @private
+     */
+    reactor = new xc.Rx(this);
+    /**
+     * @readonly
+     */
+    value;
+    /**
+     * @readonly
+     */
+    selectedElement;
+    /**
+     * @private
+     */
+    isReallyConnected = false;
+    chart;
     handleDataSelect(e) {
         this.selectedElement = {
             values: e.values,
@@ -45,15 +58,13 @@ export class XtalFrappeChart extends HTMLElement {
     }
     connectedCallback() {
         xc.mergeProps(this, slicedPropDefs);
+        this.isReallyConnected = true;
     }
     onPropChange(name, prop, nv) {
         this.reactor.addToQueue(prop, nv);
     }
+    mainTemplate = mainTemplate;
 }
-/**
- * @private
- */
-XtalFrappeChart.is = 'xtal-frappe-chart';
 export const addDataPoint = ({ newDataPoint, chart }) => {
     chart.addDataPoint(newDataPoint.label, newDataPoint.valueFromEachDataset, newDataPoint.index);
 };
@@ -62,7 +73,7 @@ export const removeDataPoint = ({ staleDataPoint, chart }) => {
         return;
     chart.removeDataPoint(staleDataPoint);
 };
-export const linkChart = ({ data, chartTitle, height, colors, type, domCache, self }) => {
+export const linkChart = ({ data, chartTitle, height, colors, type, domCache, isReallyConnected, self }) => {
     const chartOptions = {
         data,
         title: chartTitle,
@@ -100,6 +111,10 @@ const bool1 = {
     ...baseProp,
     type: Boolean,
 };
+const nnBool1 = {
+    ...bool1,
+    stopReactionsIfFalsy: true,
+};
 const obj1 = {
     type: Object,
     dry: true,
@@ -113,6 +128,7 @@ const nnObj1 = {
 const propDefMap = {
     ...xp.props,
     data: nnObj1, newDataPoint: nnObj1,
+    isReallyConnected: nnBool1,
     chartTitle: str1,
     height: num1,
     colors: obj1,

@@ -55,6 +55,11 @@ const refs = {targetId: ''};
      */
     selectedElement: SelectedElement;
 
+    /**
+     * @private
+     */
+    isReallyConnected = false;
+
     chart: Chart;
 
     handleDataSelect(e: any){
@@ -66,7 +71,7 @@ const refs = {targetId: ''};
     }
     connectedCallback(){
         xc.mergeProps(this, slicedPropDefs);
-
+        this.isReallyConnected = true;
     }
     onPropChange(name: string, prop: PropDef, nv: any){
         this.reactor.addToQueue(prop, nv);
@@ -84,7 +89,7 @@ export const removeDataPoint = ({staleDataPoint, chart}: XtalFrappeChart) => {
     if(staleDataPoint === undefined) return;
     chart.removeDataPoint(staleDataPoint);
 }
-export const linkChart = ({data, chartTitle, height, colors, type, domCache, self}: XtalFrappeChart) => {
+export const linkChart = ({data, chartTitle, height, colors, type, domCache, isReallyConnected, self}: XtalFrappeChart) => {
     const chartOptions: ChartOptions = {
         data,
         title: chartTitle,
@@ -127,6 +132,10 @@ const bool1: PropDef = {
     ...baseProp,
     type: Boolean,
 }
+const nnBool1: PropDef = {
+    ...bool1,
+    stopReactionsIfFalsy: true,
+}
 
 const obj1: PropDef = {
     type: Object,
@@ -141,6 +150,7 @@ const nnObj1: PropDef = {
 const propDefMap: PropDefMap<XtalFrappeChart> = {
     ...xp.props,
     data: nnObj1, newDataPoint: nnObj1,
+    isReallyConnected: nnBool1,
     chartTitle: str1,
     height: num1,
     colors: obj1,
