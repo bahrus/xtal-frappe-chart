@@ -31,7 +31,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n            labels: [\"12am-3am\", \"3am-6am\", \"6am-9am\", \"9am-12pm\",\n                \"12pm-3pm\", \"3pm-6pm\", \"6pm-9pm\", \"9pm-12am\"],\n            datasets: [\n                {\n                    name: \"Some Data\", \"color\": \"light-blue\",\n                    values: [25, 40, 30, 35, 8, 52, 17, -4]\n                },\n                {\n                    name: \"Another Set\", \"color\": \"violet\",\n                    values: [25, 50, -10, 15, 18, 32, 27, 14]\n                },\n                {\n                    name: \"Yet Another\", \"color\": \"blue\",\n                    values: [15, 20, -3, -15, 58, 12, -17, 37]\n                }\n            ]\n        }"
+              "default": "{\n        labels: [\"12am-3am\", \"3am-6am\", \"6am-9am\", \"9am-12pm\",\n            \"12pm-3pm\", \"3pm-6pm\", \"6pm-9pm\", \"9pm-12am\"],\n        datasets: [\n            {\n                name: \"Some Data\", \"color\": \"light-blue\",\n                values: [25, 40, 30, 35, 8, 52, 17, -4]\n            },\n            {\n                name: \"Another Set\", \"color\": \"violet\",\n                values: [25, 50, -10, 15, 18, 32, 27, 14]\n            },\n            {\n                name: \"Yet Another\", \"color\": \"blue\",\n                values: [15, 20, -3, -15, 58, 12, -17, 37]\n            }\n        ]\n    }"
             },
             {
               "kind": "field",
@@ -63,7 +63,7 @@
               "type": {
                 "text": "object"
               },
-              "default": "{\n            trigger: /* JS */ `\r\n        import 'https://unpkg.com/xtal-shell/$hell.js?module';\r\n        import 'https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module';\r\n        setTimeout(() =>{\r\n            $hell.$0=document.querySelector('xtal-frappe-chart');\r\n            $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');\r\n            setTimeout(() =>{\r\n              $hell.$0.dispatchEvent(new Event('click'));\r\n            }, 500);\r\n            \r\n          }, 3000);\r\n        `,\n            expectedEvent: {\n                name: 'selected-element-changed',\n                detail: {\n                    value: {\n                        values: [30, -10, -3],\n                        label: \"6am-9am\",\n                        index: 2,\n                    }\n                },\n                associatedPropName: 'selectedElement'\n            }\n        }"
+              "default": "{\n        trigger: /* JS */ `\r\n        import 'https://unpkg.com/xtal-shell/$hell.js?module';\r\n        import 'https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module';\r\n        setTimeout(() =>{\r\n            $hell.$0=document.querySelector('xtal-frappe-chart');\r\n            $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');\r\n            setTimeout(() =>{\r\n              $hell.$0.dispatchEvent(new Event('click'));\r\n            }, 500);\r\n            \r\n          }, 3000);\r\n        `,\n        expectedEvent: {\n            name: 'selected-element-changed',\n            detail: {\n                value: {\n                    values: [30, -10, -3],\n                    label: \"6am-9am\",\n                    index: 2,\n                }\n            },\n            associatedPropName: 'selectedElement'\n        }\n    }"
             },
             {
               "kind": "field",
@@ -139,6 +139,19 @@
               "type": {
                 "text": "SelectedElement"
               },
+              "inheritedFrom": {
+                "name": "XtalFrappeChart",
+                "module": "xtal-frappe-chart.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isReallyConnected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "private",
               "inheritedFrom": {
                 "name": "XtalFrappeChart",
                 "module": "xtal-frappe-chart.ts"
@@ -370,6 +383,19 @@
             },
             {
               "kind": "field",
+              "name": "isReallyConnected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "private",
+              "inheritedFrom": {
+                "name": "XtalFrappeChart",
+                "module": "xtal-frappe-chart.ts"
+              }
+            },
+            {
+              "kind": "field",
               "name": "chart",
               "type": {
                 "text": "Chart"
@@ -472,6 +498,67 @@
           "name": "XtalFrappeChart",
           "members": [
             {
+              "kind": "field",
+              "name": "is",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "'xtal-frappe-chart'",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "refs",
+              "default": "{ targetId: '' }",
+              "privacy": "private",
+              "type": {
+                "text": "object"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "propActions",
+              "default": "[\n    xp.manageMainTemplate,\n    xp.createShadow,\n    linkChart,\n    addDataPoint,\n    removeDataPoint\n]",
+              "privacy": "private",
+              "type": {
+                "text": "array"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "default": "new xc.Rx(this)",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "value"
+            },
+            {
+              "kind": "field",
+              "name": "selectedElement"
+            },
+            {
+              "kind": "field",
+              "name": "isReallyConnected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "chart"
+            },
+            {
               "kind": "method",
               "name": "handleDataSelect",
               "parameters": [
@@ -494,36 +581,6 @@
                   "name": "nv"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "refs",
-              "privacy": "private",
-              "default": "{ targetId: '' }",
-              "type": {
-                "text": "object"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "self",
-              "privacy": "private",
-              "default": "this"
-            },
-            {
-              "kind": "field",
-              "name": "propActions",
-              "privacy": "private",
-              "default": "[\n    xp.manageMainTemplate,\n    xp.createShadow,\n    linkChart,\n    addDataPoint,\n    removeDataPoint\n]",
-              "type": {
-                "text": "array"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "reactor",
-              "privacy": "private",
-              "default": "new xc.Rx(this)"
             },
             {
               "kind": "field",
@@ -566,7 +623,7 @@
           "name": "linkChart",
           "parameters": [
             {
-              "name": "{ data, chartTitle, height, colors, type, domCache, self }"
+              "name": "{ data, chartTitle, height, colors, type, domCache, isReallyConnected, self }"
             }
           ]
         }
@@ -668,6 +725,15 @@
             },
             {
               "kind": "field",
+              "name": "isReallyConnected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "chart",
               "type": {
                 "text": "Chart"
@@ -756,7 +822,7 @@
           "name": "linkChart",
           "parameters": [
             {
-              "name": "{data, chartTitle, height, colors, type, domCache, self}",
+              "name": "{data, chartTitle, height, colors, type, domCache, isReallyConnected, self}",
               "type": {
                 "text": "XtalFrappeChart"
               }
