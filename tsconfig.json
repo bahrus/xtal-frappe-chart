@@ -9,6 +9,7 @@
 	},
 	"files": [
 		"xtal-frappe-chart.ts",
+		"xtal-frappe-chart-example1.ts"
 	],
 	"exclude":[
 		"node_modules",

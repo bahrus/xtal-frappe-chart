@@ -47,18 +47,20 @@ export interface XtalFrappeChartProps extends HTMLElement{
 
     colors: string[];
 
-    type: 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
+    type: ChartType;
 
     isNavigable: boolean;
 
 }
+
+export type ChartType = 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage';
 
 export interface ChartOptions{
     data?: HeatMapData | TabularData,
     title?: string,
     height?: number,
     colors?: string[],
-    type?: 'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'
+    type?: ChartType,
 }
 
 export interface ChartData{
