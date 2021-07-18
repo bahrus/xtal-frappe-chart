@@ -48,6 +48,9 @@ export class XtalFrappeChart extends HTMLElement {
      * @private
      */
     isReallyConnected = false;
+    /**
+     * @private
+     */
     chart;
     handleDataSelect(e) {
         this.selectedElement = {
@@ -63,6 +66,9 @@ export class XtalFrappeChart extends HTMLElement {
     onPropChange(name, prop, nv) {
         this.reactor.addToQueue(prop, nv);
     }
+    /**
+     * @private
+     */
     mainTemplate = mainTemplate;
 }
 export const addDataPoint = ({ newDataPoint, chart }) => {

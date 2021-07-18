@@ -7,28 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Use experimental import maps -->
-    <script defer src="../node_modules/es-module-shims/dist/es-module-shims.js"></script>
     <for-instance 
-        href=../xtal-frappe-chart-example1.json
+        href=../custom-elements.json 
+        tag=xtal-frappe-chart-example1 
         contract-prop=selectedElementContract
-        tag=xtal-frappe-chart
-        skip-imports
     ></for-instance>
-    <script type="importmap-shim">
+    <script type=importmap>
     {
         "imports": {
             "xtal-element/": "../node_modules/xtal-element/",
-            "p-et-alia/": "../node_modules/p-et-alia/",
-            "if-diff/": "../node_modules/if-diff/",
+            "carbon-copy/": "../node_modules/carbon-copy/",
             "trans-render/": "../node_modules/trans-render/",
-            "frappe-charts/": "../node_modules/frappe-charts/",
-            "xtal-shell/": "../node_modules/$hell/",
-            "@alenaksu/": "../node_modules/@alenaksu/"
+            "templ-arts/": "../node_modules/templ-arts/",
+            "pass-prop/": "../node_modules/pass-prop/",
+            "xtal-fetch/": "../node_modules/xtal-fetch/",
+            "jsonpathesm/": "../node_modules/jsonpathesm/",
+            "on-to-me/": "../node_modules/on-to-me/",
+            "pass-down/": "../node_modules/pass-down/",
+            "mut-obs/": "../node_modules/mut-obs/",
+            "@alenaksu/": "../node_modules/@alenaksu/",
+            "aggregator-fn/": "../node_modules/aggregator-fn/",
+            "ref-to/": "../node_modules/ref-to/",
+            "xt-f/": "../node_modules/xt-f/",
+            "ib-id/": "../node_modules/ib-id/",
+            "frappe-charts/": "../node_modules/frappe-charts/"
         }
     }
     </script>
-    <script type="module-shim">
+    <script type=module>
         import '../xtal-frappe-chart-example1.js';
         import '../node_modules/for-instance/for-instance.js';
         import '../node_modules/xtal-shell/$hell.js';

@@ -18,7 +18,7 @@
     "doc": "custom-elements-manifest analyze"
   },
   "devDependencies": {
-    "for-instance": "0.0.27",
+    "for-instance": "0.0.33",
     "json-file-patch": "0.0.1",
     "pass-down": "0.0.63",
     "trans-render": "0.0.291",

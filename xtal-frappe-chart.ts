@@ -60,6 +60,9 @@ const refs = {targetId: ''};
      */
     isReallyConnected = false;
 
+    /**
+     * @private
+     */
     chart: Chart;
 
     handleDataSelect(e: any){
@@ -76,6 +79,9 @@ const refs = {targetId: ''};
     onPropChange(name: string, prop: PropDef, nv: any){
         this.reactor.addToQueue(prop, nv);
     }
+    /**
+     * @private
+     */
     mainTemplate = mainTemplate;
 }
 
