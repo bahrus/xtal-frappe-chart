@@ -46,7 +46,7 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         import 'https://cdn.skypack.dev/xtal-shell/$hell.js?module';
         import 'https://cdn.skypack.dev/xtal-frappe-chart/xtal-frappe-chart-example1.js';
         setTimeout(() =>{
-            $hell.$0=document.querySelector('xtal-frappe-chart');
+            $hell.$0=document.querySelector('xtal-frappe-chart-example1');
             $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');
             setTimeout(() =>{
               $hell.$0.dispatchEvent(new Event('click'));
