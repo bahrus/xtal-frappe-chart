@@ -79,19 +79,20 @@ export const removeDataPoint = ({ staleDataPoint, chart }) => {
         return;
     chart.removeDataPoint(staleDataPoint);
 };
-export const linkChart = ({ data, chartTitle, height, colors, type, domCache, isReallyConnected, toolTipOptions, self }) => {
+export const linkChart = ({ data, chartTitle, height, colors, type, domCache, isReallyConnected, toolTipOptions, isNavigable, self }) => {
     const chartOptions = {
         data,
         title: chartTitle,
         colors,
         height,
         type,
-        toolTipOptions
+        toolTipOptions,
+        isNavigable
     };
     setTimeout(() => {
         self.chart = new Chart(domCache[refs.targetId], chartOptions);
         setTimeout(() => {
-            self.chart["parent"].addEventListener("data-select", self.handleDataSelect.bind(this));
+            self.chart["parent"].addEventListener("data-select", self.handleDataSelect.bind(self));
         }, 50);
     }, 0);
 };

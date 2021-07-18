@@ -64,6 +64,8 @@ export interface ChartOptions{
     colors?: string[],
     type?: ChartType,
     toolTipOptions: any,
+    isNavigable: boolean,
+    
 }
 
 export interface ChartData{

@@ -10,36 +10,34 @@
   <body>
     <div>
       <h3>Basic xtal-frappe-chart demo</h3>
-      <xtal-frappe-chart chart-title="My Awesome Chart" type=bar height=250 is-navigable data='
+      <xtal-frappe-chart chart-title="My Awesome Chart" type=axis-mixed height=250 colors='["#7cd6fd", "#743ee2"]' is-navigable data='
       {
-        "labels": ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
-          "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
-    
+        "labels": ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
+            "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
+        ],
         "datasets": [
-          {
-            "name": "Some Data", "color": "light-blue",
-            "values": [25, 40, 30, 35, 8, 52, 17, -4]
-          },
-          {
-            "name": "Another Set", "color": "violet",
-            "values": [25, 50, -10, 15, 18, 32, 27, 14]
-          },
-          {
-            "name": "Yet Another", "color": "blue",
-            "values": [15, 20, -3, -15, 58, 12, -17, 37]
-          }
+            {
+                "name": "Some Data", "type": "bar",
+                "values": [25, 40, 30, 35, 8, 52, 17, -4]
+            },
+            {
+                "name": "Another Set", "type": "line",
+                "values": [25, 50, -10, 15, 18, 32, 27, 14]
+            }
         ]
       }
       ' id=chart></xtal-frappe-chart>
-      <!-- <p-d on=selected-element-changed to=[-input] val=target.value m=1></p-d>
-      <xtal-json-editor options="{}" -input  height="300px"></xtal-json-editor> -->
+      <p-d to=[-text-content] vft=value m=1></p-d>
+      <div -text-content></div>
       <script type=importmap>
         {
           "imports": {
             "xtal-element/": "../node_modules/xtal-element/",
             "trans-render/": "../node_modules/trans-render/",
             "pass-down/": "../node_modules/pass-down/",
-            "frappe-charts/": "../node_modules/frappe-charts/"
+            "frappe-charts/": "../node_modules/frappe-charts/",
+            "on-to-me/": "../node_modules/on-to-me/",
+            "mut-obs/": "../node_modules/mut-obs/"
           }
         }
       </script>
@@ -47,7 +45,7 @@
           import '../xtal-frappe-chart.js';
           //import 'xtal-json-merge/xtal-insert-json.js';
           //import 'xtal-json-editor/xtal-json-editor.js';
-          //import 'p-et-alia/p-d.js';
+          import 'pass-down/p-d.js';
         </script>
 
     </div>
