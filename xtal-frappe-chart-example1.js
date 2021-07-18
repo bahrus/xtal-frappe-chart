@@ -1,9 +1,11 @@
 import { XtalFrappeChart } from './xtal-frappe-chart.js';
+import { define } from "xtal-element/lib/define.js";
 ;
 /**
  * @element xtal-frappe-chart-example1
  */
 export class XtalFrappeChartExample1 extends XtalFrappeChart {
+    static is = 'xtal-frappe-chart-example1';
     chartTitle = "My Awesome Chart";
     data = {
         labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
@@ -52,3 +54,4 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         }
     };
 }
+define(XtalFrappeChartExample1);

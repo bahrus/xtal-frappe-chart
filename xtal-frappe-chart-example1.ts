@@ -1,5 +1,5 @@
 import { XtalFrappeChart} from './xtal-frappe-chart.js';
-import { define } from "trans-render/define.js";
+import { define } from "xtal-element/lib/define.js";
 import { TabularData, ChartOptions, XtalFrappeChartEventNameMap, XtalFrappeChartProps, ChartType } from './types.js';
 import {Test, ExpectedEvent} from 'for-instance/types.d.js';
 
@@ -17,6 +17,7 @@ interface XtalFrappeChartTest<eventName extends keyof XtalFrappeChartEventNameMa
  * @element xtal-frappe-chart-example1
  */
 export class XtalFrappeChartExample1 extends XtalFrappeChart {
+    static is='xtal-frappe-chart-example1';
     chartTitle = "My Awesome Chart";
     data = {
         labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
@@ -66,3 +67,4 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         }
     }
 }
+define(XtalFrappeChartExample1);

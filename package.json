@@ -15,8 +15,7 @@
   "scripts": {
     "test": "node test/test-all.js",
     "serve": "node node_modules/xtal-test/serve.js",
-    "doc": "custom-elements-manifest analyze",
-    "example1": "wca analyze xtal-frappe-chart-example1.js --outFile xtal-frappe-chart-example1.json"
+    "doc": "custom-elements-manifest analyze"
   },
   "devDependencies": {
     "for-instance": "0.0.27",
