@@ -42,8 +42,8 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
 
     selectedElementContract: XtalFrappeChartTest<'selected-element-changed', 'selectedElement'> = {
         trigger: /* JS */`
-        import 'https://unpkg.com/xtal-shell/$hell.js?module';
-        import 'https://unpkg.com/xtal-frappe-chart/xtal-frappe-chart.js?module';
+        import 'https://cdn.skypack.dev/xtal-shell/$hell.js?module';
+        import 'https://cdn.skypack.dev/xtal-frappe-chart';
         setTimeout(() =>{
             $hell.$0=document.querySelector('xtal-frappe-chart');
             $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');

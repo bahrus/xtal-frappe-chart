@@ -10,7 +10,7 @@
   "typings": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.6.2",
-    "xtal-element": "0.0.414"
+    "xtal-element": "0.0.415"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "for-instance": "0.0.27",
     "json-file-patch": "0.0.1",
-    "pass-down": "0.0.59",
+    "pass-down": "0.0.63",
     "trans-render": "0.0.291",
     "xtal-json-editor": "0.0.44",
     "xtal-json-merge": "0.2.42",
