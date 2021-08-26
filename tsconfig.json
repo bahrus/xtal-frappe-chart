@@ -8,7 +8,7 @@
 		"watch": true
 	},
 	"files": [
-		"xtal-frappe-chart2.ts",
+		"xtal-frappe-chart.ts",
 		"xtal-frappe-chart-example1.ts"
 	],
 	"exclude":[
