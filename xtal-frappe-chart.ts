@@ -60,10 +60,7 @@ const refs = {targetId: ''};
      */
     isReallyConnected = false;
 
-    /**
-     * @private
-     */
-    chart: Chart;
+
 
     handleDataSelect(e: any){
         this.selectedElement = {

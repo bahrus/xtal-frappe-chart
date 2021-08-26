@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>xtal-frappe-chart demo</title>
-    
-  </head>
-  <body>
-    <div>
-      <h3>Basic xtal-frappe-chart demo</h3>
-      <xtal-frappe-chart chart-title="My Awesome Chart" type=axis-mixed height=250 colors='["#7cd6fd", "#743ee2"]' is-navigable data='
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>xtal-frappe-chart demo</title>
+
+</head>
+
+<body>
+  <h3>Basic xtal-frappe-chart demo</h3>
+  <xtal-frappe-chart chart-title="My Awesome Chart" type=axis-mixed height=250 colors='["#7cd6fd", "#743ee2"]'
+    is-navigable data='
       {
         "labels": ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
             "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
@@ -27,9 +29,9 @@
         ]
       }
       ' id=chart></xtal-frappe-chart>
-      <p-d to=[-text-content] vft=value m=1></p-d>
-      <div -text-content></div>
-      <script type=importmap>
+  <p-d to=[-text-content] vft=value m=1></p-d>
+  <div -text-content></div>
+  <script type=importmap>
         {
           "imports": {
             "xtal-element/": "../node_modules/xtal-element/",
@@ -41,13 +43,13 @@
           }
         }
       </script>
-        <script  type=module>
-          import '../xtal-frappe-chart.js';
+  <script type=module>
+          import '../xtal-frappe-chart2.js';
           //import 'xtal-json-merge/xtal-insert-json.js';
           //import 'xtal-json-editor/xtal-json-editor.js';
           import 'pass-down/p-d.js';
         </script>
 
-    </div>
-  </body>
+</body>
+
 </html>

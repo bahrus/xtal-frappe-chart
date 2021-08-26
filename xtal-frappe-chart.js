@@ -48,10 +48,6 @@ export class XtalFrappeChart extends HTMLElement {
      * @private
      */
     isReallyConnected = false;
-    /**
-     * @private
-     */
-    chart;
     handleDataSelect(e) {
         this.selectedElement = {
             values: e.values,
