@@ -29,8 +29,8 @@
         ]
       }
       ' id=chart></xtal-frappe-chart>
-  <p-d to=[-text-content] vft=value m=1></p-d>
-  <div -text-content></div>
+  <p-d to=[-object] vft=value m=1></p-d>
+  <json-viewer -object></json-viewer>
   <script type=importmap>
         {
           "imports": {
@@ -44,12 +44,14 @@
         }
       </script>
   <script type=module>
-          import '../xtal-frappe-chart2.js';
+          import '../xtal-frappe-chart.js';
           //import 'xtal-json-merge/xtal-insert-json.js';
           //import 'xtal-json-editor/xtal-json-editor.js';
           import 'pass-down/p-d.js';
         </script>
-
+  <script type=module>
+    import '//cdn.skypack.dev/@power-elements/json-viewer'
+  </script>
 </body>
 
 </html>
