@@ -15,7 +15,8 @@
   "module": "xtal-frappe-chart.js",
   "exports": {
     ".": "./xtal-frappe-chart.js",
-    "./xtal-frappe-chart.js": "./xtal-frappe-chart.js"
+    "./xtal-frappe-chart.js": "./xtal-frappe-chart.js",
+    "./xtal-frappe-chart-example1.js": "./xtal-frappe-chart-example1.js"
   },
   "files": [
     "*.ts",
