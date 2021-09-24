@@ -39,9 +39,10 @@
     "xtal-editor": "0.0.60",
     "pass-down": "0.0.116",
     "xtal-shell": "0.0.25",
+    "for-instance": "0.0.46",
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.4.12"
+    "@custom-elements-manifest/analyzer": "0.5.3"
   },
   "customElements": "custom-elements.json"
 }

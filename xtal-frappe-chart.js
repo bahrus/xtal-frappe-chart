@@ -9,6 +9,11 @@ const mainTemplate = tm.html `
 </style>
 <div id=target part=chart-container></div>
 `;
+/**
+ * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
+ * @element xtal-frappe-chart
+ * @event selected-element-changed - fires when user selects chart data element
+ */
 export class XtalFrappeChartCore extends HTMLElement {
     #chart;
     createChart({ data, chartTitle, height, colors, type, domCache, toolTipOptions, isNavigable, chartContainerParts }) {

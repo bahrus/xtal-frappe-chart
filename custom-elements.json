@@ -180,7 +180,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
           "name": "XtalFrappeChartCore",
           "members": [
             {
@@ -207,9 +207,16 @@
               ]
             }
           ],
+          "events": [
+            {
+              "description": "fires when user selects chart data element",
+              "name": "selected-element-changed"
+            }
+          ],
           "superclass": {
             "name": "HTMLElement"
           },
+          "tagName": "xtal-frappe-chart",
           "customElement": true
         },
         {
@@ -242,7 +249,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
           "name": "XtalFrappeChartCore",
           "members": [
             {
@@ -278,9 +285,16 @@
               ]
             }
           ],
+          "events": [
+            {
+              "description": "fires when user selects chart data element",
+              "name": "selected-element-changed"
+            }
+          ],
           "superclass": {
             "name": "HTMLElement"
           },
+          "tagName": "xtal-frappe-chart",
           "customElement": true
         },
         {
