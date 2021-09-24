@@ -1,3 +1,4 @@
+import { CE } from 'trans-render/lib/CE.js';
 import { tm } from 'trans-render/lib/Mixins/TemplMgmtWithPEST.js';
 import { NotifyMixin } from 'trans-render/lib/mixins/notify.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
@@ -35,7 +36,7 @@ export class XtalFrappeChartCore extends HTMLElement {
         };
     }
 }
-const ce = new tm.CE({
+const ce = new CE({
     config: {
         tagName: 'xtal-frappe-chart',
         propDefaults: {
