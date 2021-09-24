@@ -1,13 +1,28 @@
 {
   "name": "xtal-frappe-chart",
   "version": "0.0.92",
+  "keywords": [
+    "web-components",
+    "web-component",
+    "custom-element",
+    "custom-elements"
+  ],
   "description": "Web component wrapper around the Frappé chart library ",
   "repository": "https://github.com/bahrus/xtal-frappe-chart",
   "author": "bahrus <anderson.bruce.b@gmail.com>",
   "license": "MIT",
   "main": "xtal-frappe-chart.js",
   "module": "xtal-frappe-chart.js",
-  "typings": "types.d.ts",
+  "exports":{
+    ".": "./xtal-frappe-chart.js",
+    "./xtal-frappe-chart.js": "./xtal-frappe-chart.js"
+  },
+  "files":[
+    "*.ts",
+    "*.js",
+    "*.json"
+  ],
+  "types": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.5.8",
     "trans-render": "0.0.412"
@@ -15,6 +30,7 @@
   "scripts": {
     "test": "node test/test-all.js",
     "serve": "node node_modules/xtal-test/serve.js",
+    "package-check": "package-check",
     "doc": "custom-elements-manifest analyze"
   },
   "devDependencies": {
