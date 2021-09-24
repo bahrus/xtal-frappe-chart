@@ -1,5 +1,5 @@
 import { CE } from 'trans-render/lib/CE.js';
-import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/Mixins/TemplMgmtWithPEST.js';
+import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 
 import {NotifyMixin, INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail} from './types.js';

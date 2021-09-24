@@ -1,5 +1,5 @@
 import { CE } from 'trans-render/lib/CE.js';
-import { tm } from 'trans-render/lib/Mixins/TemplMgmtWithPEST.js';
+import { tm } from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 import { NotifyMixin } from 'trans-render/lib/mixins/notify.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
 const mainTemplate = tm.html `
