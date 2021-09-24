@@ -1,5 +1,5 @@
 import { XtalFrappeChart} from './xtal-frappe-chart.js';
-import { define } from "xtal-element/lib/define.js";
+import { def } from "trans-render/lib/def.js";
 import { TabularData, ChartOptions, XtalFrappeChartEventNameMap, XtalFrappeChartProps, ChartType } from './types.js';
 import {Test, ExpectedEvent} from 'for-instance/types.d.js';
 
@@ -67,4 +67,4 @@ export class XtalFrappeChartExample1 extends XtalFrappeChart {
         }
     }
 }
-define(XtalFrappeChartExample1);
+def(XtalFrappeChartExample1);
