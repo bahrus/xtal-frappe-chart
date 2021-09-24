@@ -12,6 +12,7 @@ const mainTemplate = tm.html `
 /**
  * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
  * @element xtal-frappe-chart
+ * @tag xtal-frappe-chart
  * @event selected-element-changed - fires when user selects chart data element
  */
 export class XtalFrappeChartCore extends HTMLElement {

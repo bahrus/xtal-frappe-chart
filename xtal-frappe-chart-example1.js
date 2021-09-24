@@ -3,6 +3,7 @@ import { def } from "trans-render/lib/def.js";
 ;
 /**
  * @element xtal-frappe-chart-example1
+ * @event selected-element-changed - fires when user selects chart data element
  */
 export class XtalFrappeChartExample1 extends XtalFrappeChart {
     static is = 'xtal-frappe-chart-example1';
