@@ -10,7 +10,7 @@
   "typings": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.5.8",
-    "trans-render": "0.0.372"
+    "trans-render": "0.0.412"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -18,10 +18,9 @@
     "doc": "custom-elements-manifest analyze"
   },
   "devDependencies": {
-    "for-instance": "0.0.45",
     "json-file-patch": "0.0.1",
-    "@power-elements/json-viewer": "2.1.1",
-    "pass-down": "0.0.93",
+    "xtal-editor": "0.0.60",
+    "pass-down": "0.0.116",
     "xtal-shell": "0.0.25",
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
