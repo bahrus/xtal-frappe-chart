@@ -89,3 +89,12 @@ const ce = new tm.CE<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActio
     mixins: [NotifyMixin, tm.TemplMgmtMixin],
     superclass: XtalFrappeChartCore,
 });
+
+export const XtalFrappeChart = ce.classDef!;
+
+declare global {
+    interface HTMLElementTagNameMap {
+        "xtal-frappe-chart": XtalFrappeChartCore,
+    }
+}
+

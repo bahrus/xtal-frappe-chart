@@ -72,3 +72,4 @@ const ce = new tm.CE({
     mixins: [NotifyMixin, tm.TemplMgmtMixin],
     superclass: XtalFrappeChartCore,
 });
+export const XtalFrappeChart = ce.classDef;
