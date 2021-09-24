@@ -1,6 +1,6 @@
 {
   "name": "xtal-frappe-chart",
-  "version": "0.0.92",
+  "version": "0.0.93",
   "keywords": [
     "web-components",
     "web-component",
@@ -13,11 +13,11 @@
   "license": "MIT",
   "main": "xtal-frappe-chart.js",
   "module": "xtal-frappe-chart.js",
-  "exports":{
+  "exports": {
     ".": "./xtal-frappe-chart.js",
     "./xtal-frappe-chart.js": "./xtal-frappe-chart.js"
   },
-  "files":[
+  "files": [
     "*.ts",
     "*.js",
     "*.json"
