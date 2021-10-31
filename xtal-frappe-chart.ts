@@ -65,6 +65,8 @@ const ce = new CE<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions 
             isC: true,
             initTransform:{},
             isNavigable: false,
+            chartTitle: 'frappe-chart',
+            type: 'axis-mixed',
         },
         propInfo:{
             chartContainerParts:{

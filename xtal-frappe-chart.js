@@ -49,6 +49,8 @@ const ce = new CE({
             isC: true,
             initTransform: {},
             isNavigable: false,
+            chartTitle: 'frappe-chart',
+            type: 'axis-mixed',
         },
         propInfo: {
             chartContainerParts: {
