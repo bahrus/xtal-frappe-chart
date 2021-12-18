@@ -1,6 +1,7 @@
 import { CE } from 'trans-render/lib/CE.js';
 import { tm } from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 import 'be-loaded/be-loaded.js';
+import { importJSON } from 'be-loaded/importJSON.js';
 import { NotifyMixin } from 'trans-render/lib/mixins/notify.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
 const mainTemplate = tm.html `
@@ -60,43 +61,18 @@ export class XtalFrappeChartCore extends HTMLElement {
         };
     };
 }
-const ce = new CE({
-    config: {
-        tagName: 'xtal-frappe-chart',
-        propDefaults: {
-            isC: true,
-            initTransform: {},
-            isNavigable: false,
-            chartTitle: 'frappe-chart',
-            type: 'axis-mixed',
+const ce = new CE();
+async function register() {
+    const config = await importJSON('xtal-frappe-chart/config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/config.json');
+    const def = config.default;
+    ce.def({
+        ...def,
+        complexPropDefaults: {
+            mainTemplate,
         },
-        propInfo: {
-            chartContainerParts: {
-                isRef: true,
-            },
-            selectedElement: {
-                notify: {
-                    dispatch: true,
-                    echoTo: 'value'
-                }
-            },
-            value: {
-                notify: { dispatch: true, }
-            }
-        },
-        actions: {
-            ...tm.doInitTransform,
-            createChart: {
-                ifAllOf: ['isC', 'data', 'chartContainerParts'],
-                ifKeyIn: ['chartTitle', 'height', 'colors', 'type', 'toolTipOptions', 'isNavigable']
-            },
-        },
-        propChangeMethod: 'onPropChange'
-    },
-    complexPropDefaults: {
-        mainTemplate,
-    },
-    mixins: [NotifyMixin, tm.TemplMgmtMixin],
-    superclass: XtalFrappeChartCore,
-});
+        mixins: [NotifyMixin, tm.TemplMgmtMixin],
+        superclass: XtalFrappeChartCore,
+    });
+}
 export const XtalFrappeChart = ce.classDef;
+register();

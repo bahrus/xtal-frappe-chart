@@ -1,6 +1,8 @@
 import { CE } from 'trans-render/lib/CE.js';
+import {DefineArgs} from 'trans-render/lib/types';
 import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 import 'be-loaded/be-loaded.js';
+import {importJSON} from 'be-loaded/importJSON.js';
 import {NotifyMixin, INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail} from './types.js';
 import {
@@ -75,51 +77,28 @@ export class XtalFrappeChartCore extends HTMLElement implements XtalFrappeChartA
 
 export interface XtalFrappeChartCore extends XtalFrappeChartProps{}
 
-const ce = new CE<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>({
-    config:{
-        tagName: 'xtal-frappe-chart',
-        propDefaults:{
-            isC: true,
-            initTransform:{},
-            isNavigable: false,
-            chartTitle: 'frappe-chart',
-            type: 'axis-mixed',
-        },
-        propInfo:{
-            chartContainerParts:{
-                isRef: true,
-            },
-            selectedElement:{
-                notify:{
-                    dispatch: true,
-                    echoTo: 'value'
-                }
-            },
-            value:{
-                notify:{dispatch: true,}
-            }
-        },
-        actions:{
-            ...tm.doInitTransform,
-            createChart:{
-                ifAllOf:['isC', 'data', 'chartContainerParts'],
-                ifKeyIn: ['chartTitle', 'height', 'colors', 'type', 'toolTipOptions', 'isNavigable']
-            },
-            
-        },
-        propChangeMethod: 'onPropChange'
-    },
-    complexPropDefaults:{
-        mainTemplate,
-    },
+const ce = new CE<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>();
 
-    mixins: [NotifyMixin, tm.TemplMgmtMixin],
-    superclass: XtalFrappeChartCore,
-});
-
-
+async function register(){
+    const config = await importJSON('xtal-frappe-chart/config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/config.json');
+    const def = config.default as DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>;
+    ce.def({
+        ...def,
+        complexPropDefaults:{
+            mainTemplate,
+        },
+    
+        mixins: [NotifyMixin, tm.TemplMgmtMixin],
+        superclass: XtalFrappeChartCore,
+    });
+  
+}
 
 export const XtalFrappeChart = ce.classDef!;
+
+register();
+
+
 
 declare global {
     interface HTMLElementTagNameMap {
