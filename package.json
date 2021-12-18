@@ -21,7 +21,8 @@
   "files": [
     "*.ts",
     "*.js",
-    "*.json"
+    "*.json",
+    "*.css"
   ],
   "types": "types.d.ts",
   "dependencies": {
