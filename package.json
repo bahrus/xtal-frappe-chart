@@ -28,7 +28,7 @@
   "dependencies": {
     "frappe-charts": "1.5.8",
     "trans-render": "0.0.438",
-    "be-loaded": "0.0.24"
+    "be-loaded": "0.0.25"
   },
   "scripts": {
     "test": "node test/test-all.js",
