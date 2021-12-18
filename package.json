@@ -33,7 +33,8 @@
     "test": "node test/test-all.js",
     "serve": "node node_modules/xtal-test/serve.js",
     "package-check": "package-check",
-    "doc": "custom-elements-manifest analyze"
+    "doc": "custom-elements-manifest analyze",
+    "gen-config": "copy gen-config.js gen-config.mjs && node gen-config.mjs > config.json"
   },
   "devDependencies": {
     "json-file-patch": "0.0.1",

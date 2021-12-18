@@ -9,7 +9,8 @@
 	},
 	"files": [
 		"xtal-frappe-chart.ts",
-		"xtal-frappe-chart-example1.ts"
+		"xtal-frappe-chart-example1.ts",
+		"gen-config.ts"
 	],
 	"exclude":[
 		"node_modules",
