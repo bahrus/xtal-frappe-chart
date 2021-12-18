@@ -55,7 +55,7 @@ export class XtalFrappeChartCore extends HTMLElement {
 }
 const ce = new CE();
 async function register() {
-    const config = await importJSON('xtal-frappe-chart/config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/config.json');
+    const config = await importJSON('xtal-frappe-chart/xfc-config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xfc-config.json');
     const def = config.default;
     ce.def({
         ...def,

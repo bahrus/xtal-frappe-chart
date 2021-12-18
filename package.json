@@ -31,7 +31,7 @@
     "be-loaded": "0.0.25"
   },
   "watch": {
-    "gen-config": "gen-config.js"
+    "gen-config": "xfc-config.js"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -39,7 +39,7 @@
     "serve": "node node_modules/xtal-test/serve.js",
     "package-check": "package-check",
     "doc": "custom-elements-manifest analyze",
-    "gen-config": "copy gen-config.js gen-config.mjs && node gen-config.mjs > config.json"
+    "gen-config": "copy xfc-config.js xfc-config.mjs && node xfc-config.mjs > xfc-config.json"
   },
   "devDependencies": {
     "json-file-patch": "0.0.1",

@@ -72,7 +72,7 @@ export interface XtalFrappeChartCore extends XtalFrappeChartProps{}
 const ce = new CE<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>();
 
 async function register(){
-    const config = await importJSON('xtal-frappe-chart/config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/config.json');
+    const config = await importJSON('xtal-frappe-chart/xfc-config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xfc-config.json');
     const def = config.default as DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>;
     ce.def({
         ...def,    
