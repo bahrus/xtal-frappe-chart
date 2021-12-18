@@ -14,7 +14,7 @@ const config = {
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
             mainTemplate: html `
-                <style be-loaded='${JSON.stringify(styleBeLoaded)}'></style>
+                <style be-loaded='${styleBeLoaded}'></style>
                 <div id=target part=chart-container></div>
                 <be-hive></be-hive>
             `,
