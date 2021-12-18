@@ -210,13 +210,72 @@
               ]
             },
             {
-              "kind": "method",
-              "name": "handleDataSelect",
-              "parameters": [
-                {
-                  "name": "e"
-                }
-              ]
+              "kind": "field",
+              "name": "handleDataSelect"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "title of chart",
+              "name": "chartTitle",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "HeatMapData | TabularData"
+              },
+              "description": "data to be displayed in chart",
+              "name": "data",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'"
+              },
+              "description": "type of chart to be displayed",
+              "name": "type",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "whether or not chart is navigable",
+              "name": "isNavigable",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "IAddDataPointParams"
+              },
+              "description": "add new data point to chart",
+              "name": "newDataPoint",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "remove data point from chart",
+              "name": "staleDataPoint",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "height of chart",
+              "name": "height",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string[]"
+              },
+              "description": "colors to be used in chart",
+              "name": "colors",
+              "kind": "field"
             }
           ],
           "events": [
@@ -285,16 +344,72 @@
               ]
             },
             {
-              "kind": "method",
-              "name": "handleDataSelect",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "any"
-                  }
-                }
-              ]
+              "kind": "field",
+              "name": "handleDataSelect"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "title of chart",
+              "name": "chartTitle",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "HeatMapData | TabularData"
+              },
+              "description": "data to be displayed in chart",
+              "name": "data",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'"
+              },
+              "description": "type of chart to be displayed",
+              "name": "type",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "whether or not chart is navigable",
+              "name": "isNavigable",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "IAddDataPointParams"
+              },
+              "description": "add new data point to chart",
+              "name": "newDataPoint",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "remove data point from chart",
+              "name": "staleDataPoint",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "height of chart",
+              "name": "height",
+              "kind": "field"
+            },
+            {
+              "type": {
+                "text": "string[]"
+              },
+              "description": "colors to be used in chart",
+              "name": "colors",
+              "kind": "field"
             }
           ],
           "events": [

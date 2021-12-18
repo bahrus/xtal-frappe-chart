@@ -16,6 +16,22 @@ const mainTemplate = tm.html `
  * @element xtal-frappe-chart
  * @tag xtal-frappe-chart
  * @event selected-element-changed - fires when user selects chart data element
+ * @property {string} [chartTitle] - title of chart
+ * @attrib {string} [chart-title] - title of chart
+ * @property {HeatMapData | TabularData} [data] - data to be displayed in chart
+ * @attrib {string} [data] - data to be displayed in chart (JSON string)
+ * @property {'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'} [type] - type of chart to be displayed
+ * @attrib {string} [type] - type of chart
+ * @property {boolean} [isNavigable] - whether or not chart is navigable
+ * @attrib {string} [is-navigable] - whether or not chart is navigable
+ * @property {IAddDataPointParams} [newDataPoint] - add new data point to chart
+ * @attrib {string} [new-data-point] - add new data point to chart
+ * @property {number} [staleDataPoint] - remove data point from chart
+ * @attrib {number} [stale-data-point] - remove data point from chart
+ * @property {number} [height] - height of chart
+ * @attrib {number} [height] - height of chart
+ * @property {string[]} [colors] - colors to be used in chart
+ * @attrib {string} [colors] - colors to be used in chart (JSON string)
  */
 export class XtalFrappeChartCore extends HTMLElement {
     #chart;
