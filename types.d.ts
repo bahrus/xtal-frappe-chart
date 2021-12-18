@@ -27,7 +27,7 @@ export interface XtalFrappeChartProps{
     selectedElement: object,
     value: object,
     domCache: any,
-    mainTemplate: HTMLTemplateElement,
+    mainTemplate: HTMLTemplateElement | string,
     clonedTemplate: DocumentFragment | undefined,
     refs: any,
     /**

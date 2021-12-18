@@ -14,14 +14,6 @@ import {
 } from "frappe-charts/dist/frappe-charts.esm.js";
 
 
-const mainTemplate = tm.html`
-<style be-loaded='{
-    "preloadRef": "xtal-frappe-chart/xtal-frappe-chart.css",
-    "fallback": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css"
-}'></style>
-<div id=target part=chart-container></div>
-<be-hive></be-hive>
-`;
 
 /**
  * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
@@ -83,11 +75,7 @@ async function register(){
     const config = await importJSON('xtal-frappe-chart/config.json', 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/config.json');
     const def = config.default as DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>;
     ce.def({
-        ...def,
-        complexPropDefaults:{
-            mainTemplate,
-        },
-    
+        ...def,    
         mixins: [NotifyMixin, tm.TemplMgmtMixin],
         superclass: XtalFrappeChartCore,
     });

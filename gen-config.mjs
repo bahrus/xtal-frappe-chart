@@ -8,6 +8,14 @@ const config = {
             isNavigable: false,
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
+            mainTemplate: /* html */ `
+                <style be-loaded='{
+                    "preloadRef": "xtal-frappe-chart/xtal-frappe-chart.css",
+                    "fallback": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css"
+                }'></style>
+                <div id=target part=chart-container></div>
+                <be-hive></be-hive>
+            `,
         },
         propInfo: {
             chartContainerParts: {

@@ -4,14 +4,6 @@ import 'be-loaded/be-loaded.js';
 import { importJSON } from 'be-loaded/importJSON.js';
 import { NotifyMixin } from 'trans-render/lib/mixins/notify.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
-const mainTemplate = tm.html `
-<style be-loaded='{
-    "preloadRef": "xtal-frappe-chart/xtal-frappe-chart.css",
-    "fallback": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css"
-}'></style>
-<div id=target part=chart-container></div>
-<be-hive></be-hive>
-`;
 /**
  * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
  * @element xtal-frappe-chart
@@ -67,9 +59,6 @@ async function register() {
     const def = config.default;
     ce.def({
         ...def,
-        complexPropDefaults: {
-            mainTemplate,
-        },
         mixins: [NotifyMixin, tm.TemplMgmtMixin],
         superclass: XtalFrappeChartCore,
     });
