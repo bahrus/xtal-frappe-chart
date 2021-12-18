@@ -1,4 +1,5 @@
 import { XtalFrappeChart } from './xtal-frappe-chart.js';
+import 'be-loaded/be-loaded.js';
 import { def } from "trans-render/lib/def.js";
 ;
 /**
