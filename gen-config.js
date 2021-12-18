@@ -1,5 +1,9 @@
 import { html } from './node_modules/trans-render/lib/html.mjs';
 import { doInitTransform } from './node_modules/trans-render/lib/mixins/doInitTransform.mjs';
+const styleBeLoaded = {
+    preloadRef: 'xtal-frappe-chart/xtal-frappe-chart.css',
+    fallback: 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css'
+};
 const config = {
     config: {
         tagName: 'xtal-frappe-chart',
@@ -10,10 +14,7 @@ const config = {
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
             mainTemplate: html `
-                <style be-loaded='{
-                    "preloadRef": "xtal-frappe-chart/xtal-frappe-chart.css",
-                    "fallback": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css"
-                }'></style>
+                <style be-loaded='${JSON.stringify(styleBeLoaded)}'></style>
                 <div id=target part=chart-container></div>
                 <be-hive></be-hive>
             `,
