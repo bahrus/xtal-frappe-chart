@@ -31,7 +31,7 @@
     "be-loaded": "0.0.25"
   },
   "watch": {
-    "gen-config": "*.mjs"
+    "gen-config": "gen-config.js"
   },
   "scripts": {
     "test": "node test/test-all.js",
