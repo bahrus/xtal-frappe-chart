@@ -27,7 +27,7 @@
   "dependencies": {
     "frappe-charts": "1.5.8",
     "trans-render": "0.0.433",
-    "be-loaded": "0.0.20"
+    "be-loaded": "0.0.23"
   },
   "scripts": {
     "test": "node test/test-all.js",
@@ -44,7 +44,7 @@
     "on-to-me": "0.0.49",
     "xtal-shell": "0.0.25",
     "for-instance": "0.0.46",
-    "xtal-test": "0.0.51",
+    "xtal-test": "0.0.54",
     "@skypack/package-check": "0.2.2",
     "@custom-elements-manifest/analyzer": "0.5.6"
   },
