@@ -26,7 +26,7 @@
   "types": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.5.8",
-    "trans-render": "0.0.433",
+    "trans-render": "0.0.434",
     "be-loaded": "0.0.23"
   },
   "scripts": {

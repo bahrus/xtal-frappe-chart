@@ -1,6 +1,7 @@
 import {DefineArgs} from 'trans-render/lib/types';
 import {XtalFrappeChartProps, XtalFrappeChartActions} from './types';
 import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
+import { doInitTransform } from './node_modules/trans-render/lib/mixins/doInitTransform.mjs';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 
 const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo> = {
@@ -28,13 +29,7 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
             }
         },
         actions:{
-            cloneTemplate: {
-                ifAllOf: ['mainTemplate'],
-                ifKeyIn: ['noshadow', 'waitToInit']
-            },
-            doInitTransform: {
-                ifAllOf: ['clonedTemplate'],
-            },
+            ...doInitTransform,
             createChart:{
                 ifAllOf:['isC', 'data', 'chartContainerParts'],
                 ifKeyIn: ['chartTitle', 'height', 'colors', 'type', 'toolTipOptions', 'isNavigable']

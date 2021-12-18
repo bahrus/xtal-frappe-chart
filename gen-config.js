@@ -1,3 +1,4 @@
+import { doInitTransform } from './node_modules/trans-render/lib/mixins/doInitTransform.mjs';
 const config = {
     config: {
         tagName: 'xtal-frappe-chart',
@@ -23,13 +24,7 @@ const config = {
             }
         },
         actions: {
-            cloneTemplate: {
-                ifAllOf: ['mainTemplate'],
-                ifKeyIn: ['noshadow', 'waitToInit']
-            },
-            doInitTransform: {
-                ifAllOf: ['clonedTemplate'],
-            },
+            ...doInitTransform,
             createChart: {
                 ifAllOf: ['isC', 'data', 'chartContainerParts'],
                 ifKeyIn: ['chartTitle', 'height', 'colors', 'type', 'toolTipOptions', 'isNavigable']
@@ -39,4 +34,3 @@ const config = {
     },
 };
 console.log(JSON.stringify(config));
-export {};
