@@ -1,6 +1,7 @@
 import {DefineArgs} from 'trans-render/lib/types';
 import {XtalFrappeChartProps, XtalFrappeChartActions} from './types';
 import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
+import {html} from './node_modules/trans-render/lib/html.mjs';
 import { doInitTransform } from './node_modules/trans-render/lib/mixins/doInitTransform.mjs';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 
@@ -13,7 +14,7 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
             isNavigable: false,
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
-            mainTemplate: /* html */`
+            mainTemplate: html`
                 <style be-loaded='{
                     "preloadRef": "xtal-frappe-chart/xtal-frappe-chart.css",
                     "fallback": "https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css"
