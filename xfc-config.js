@@ -1,5 +1,5 @@
-import { html } from 'trans-render/lib/html';
-import { doInitTransform } from 'trans-render/lib/mixins/doInitTransform';
+import { html } from 'trans-render/lib/html.mjs';
+import { doInitTransform } from 'trans-render/lib/mixins/doInitTransform.mjs';
 const config = {
     config: {
         tagName: 'xtal-frappe-chart',
