@@ -1,5 +1,6 @@
 import {DefineArgs} from 'trans-render/lib/types';
 import {XtalFrappeChartProps, XtalFrappeChartActions} from './types';
+import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 
 const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo> = {
