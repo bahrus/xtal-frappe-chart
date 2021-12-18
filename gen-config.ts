@@ -4,12 +4,8 @@ import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/Temp
 import {html} from './node_modules/trans-render/lib/html.mjs';
 import { doInitTransform } from './node_modules/trans-render/lib/mixins/doInitTransform.mjs';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
-import {BeLoadedVirtualProps} from 'be-loaded/types';
+import {BeLoadedVirtualProps as bl} from 'be-loaded/types';
 
-const styleBeLoaded = {
-    preloadRef: 'xtal-frappe-chart/xtal-frappe-chart.css',
-    fallback: 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css'
-} as BeLoadedVirtualProps;
 
 const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo> = {
     config:{
@@ -21,7 +17,10 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
             mainTemplate: html`
-                <style be-loaded='${styleBeLoaded}'></style>
+                <style be-loaded='${{
+                    preloadRef: 'xtal-frappe-chart/xtal-frappe-chart.css',
+                    fallback: 'https://cdn.jsdelivr.net/npm/xtal-frappe-chart/xtal-frappe-chart.css'
+                } as bl}'></style>
                 <div id=target part=chart-container></div>
                 <be-hive></be-hive>
             `,
