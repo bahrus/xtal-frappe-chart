@@ -1,9 +1,8 @@
 import {DefineArgs} from 'trans-render/lib/types';
-import {XtalFrappeChartProps, XtalFrappeChartActions} from './types';
-//import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
-import {} from 'trans-render/lib/mixins/TemplMgmt.js';
+import {XtalFrappeChartProps, XtalFrappeChartActions} from '../types';
+import {TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmt.js';
 import {html} from 'may-it-be/html.js';
-//import { doInitTransform } from 'trans-render/lib/mixins/doInitTransform.mjs';
+import {beTransformed} from 'may-it-be/index.js';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 import {BeLoadedVirtualProps as bl} from 'be-loaded/types';
 
@@ -13,7 +12,7 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
         tagName: 'xtal-frappe-chart',
         propDefaults:{
             isC: true,
-            initTransform:{},
+            transform:{},
             isNavigable: false,
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
@@ -44,7 +43,7 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
             }
         },
         actions:{
-            ...doInitTransform,
+            ...beTransformed,
             createChart:{
                 ifAllOf:['isC', 'data', 'chartContainerParts'],
                 ifKeyIn: ['chartTitle', 'height', 'colors', 'type', 'toolTipOptions', 'isNavigable']

@@ -10,7 +10,7 @@
 	"files": [
 		"xtal-frappe-chart.ts",
 		"xtal-frappe-chart-example1.ts",
-		"xfc-config.ts"
+		"define/xfc-config.mts"
 	],
 	"exclude":[
 		"node_modules",
