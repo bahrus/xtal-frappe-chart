@@ -1,7 +1,7 @@
 import { CE } from 'trans-render/lib/CE.js';
 import {DefineArgs} from 'trans-render/lib/types';
-import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
-import 'be-loaded/be-loaded.js';
+import {TemplMgmtProps, TemplMgmtActions, TemplMgmt} from 'trans-render/lib/mixins/TemplMgmt.js';
+import {html} from 'trans-render/lib/html.js';
 import {importJSON} from 'be-loaded/importJSON.js';
 import {NotifyMixin, INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail} from './types.js';
@@ -76,7 +76,7 @@ async function register(){
     const def = config.default as DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartActions & TemplMgmtActions & INotifyMixin, INotifyPropInfo>;
     ce.def({
         ...def,    
-        mixins: [NotifyMixin, tm.TemplMgmtMixin],
+        mixins: [NotifyMixin, TemplMgmt],
         superclass: XtalFrappeChartCore,
     });
   

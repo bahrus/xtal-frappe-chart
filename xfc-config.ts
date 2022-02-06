@@ -1,8 +1,9 @@
 import {DefineArgs} from 'trans-render/lib/types';
 import {XtalFrappeChartProps, XtalFrappeChartActions} from './types';
-import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
-import {html} from 'trans-render/lib/html.mjs';
-import { doInitTransform } from 'trans-render/lib/mixins/doInitTransform.mjs';
+//import {tm, TemplMgmtProps, TemplMgmtActions} from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
+import {} from 'trans-render/lib/mixins/TemplMgmt.js';
+import {html} from 'may-it-be/html.js';
+//import { doInitTransform } from 'trans-render/lib/mixins/doInitTransform.mjs';
 import {INotifyMixin, INotifyPropInfo} from 'trans-render/lib/mixins/notify.js';
 import {BeLoadedVirtualProps as bl} from 'be-loaded/types';
 
@@ -23,6 +24,9 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
                 } as bl}'></style>
                 <div id=target part=chart-container></div>
                 <be-hive></be-hive>
+                <script type=module>
+                    import('be-loaded/be-loaded.js');
+                </script>
             `,
         },
         propInfo:{

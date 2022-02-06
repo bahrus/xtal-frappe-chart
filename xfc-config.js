@@ -16,6 +16,9 @@ const config = {
             }}'></style>
                 <div id=target part=chart-container></div>
                 <be-hive></be-hive>
+                <script type=module>
+                    import('be-loaded/be-loaded.js');
+                </script>
             `,
         },
         propInfo: {

@@ -1,6 +1,5 @@
 import { CE } from 'trans-render/lib/CE.js';
-import { tm } from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
-import 'be-loaded/be-loaded.js';
+import { TemplMgmt } from 'trans-render/lib/mixins/TemplMgmt.js';
 import { importJSON } from 'be-loaded/importJSON.js';
 import { NotifyMixin } from 'trans-render/lib/mixins/notify.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
@@ -59,7 +58,7 @@ async function register() {
     const def = config.default;
     ce.def({
         ...def,
-        mixins: [NotifyMixin, tm.TemplMgmtMixin],
+        mixins: [NotifyMixin, TemplMgmt],
         superclass: XtalFrappeChartCore,
     });
 }
