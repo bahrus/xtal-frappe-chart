@@ -51,7 +51,7 @@ export class XtalFrappeChartCore extends HTMLElement implements XtalFrappeChartA
             isNavigable
         };
         setTimeout(() =>{
-            this.#chart = new Chart(chartContainerParts[0], chartOptions);
+            this.#chart = new Chart(chartContainerParts[0].deref(), chartOptions);
             setTimeout(() => {
                 this.#chart["parent"].addEventListener("data-select", this.handleDataSelect);
             }, 50);

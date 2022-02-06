@@ -12,7 +12,9 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
         tagName: 'xtal-frappe-chart',
         propDefaults:{
             isC: true,
-            transform:{},
+            transform:{
+                chartContainerParts: true
+            },
             isNavigable: false,
             chartTitle: 'frappe-chart',
             type: 'axis-mixed',
@@ -29,9 +31,7 @@ const config: DefineArgs<XtalFrappeChartProps & TemplMgmtProps, XtalFrappeChartA
             `,
         },
         propInfo:{
-            chartContainerParts:{
-                isRef: true,
-            },
+            chartContainerParts:{},
             selectedElement:{
                 notify:{
                     dispatch: true,
