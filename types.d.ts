@@ -24,7 +24,7 @@ export interface IAddDataPointParams {
 
 export interface XtalFrappeChartProps{
     /**
-     * Data to chart
+     * Data to be displayed in chart (JSON string for attribute)
      */
     data: HeatMapData | TabularData;
     selectedElement: object,
@@ -33,6 +33,7 @@ export interface XtalFrappeChartProps{
     mainTemplate: HTMLTemplateElement | string,
     clonedTemplate: DocumentFragment | undefined,
     refs: any,
+
     /**
      * Add new data point to chart
      * 
@@ -44,14 +45,29 @@ export interface XtalFrappeChartProps{
     */
     staleDataPoint: number;
 
+    /**
+     * Title of chart
+     */
     chartTitle: string;
 
+    /**
+     * Height of chart
+     */
     height: number;
 
+    /**
+     * Colors to be used in chart
+     */
     colors: string[];
 
+    /**
+     * Type of chart to be displayed
+     */
     type: ChartType;
 
+    /**
+     * Whether or not chart is navigable
+     */
     isNavigable: boolean;
 
     toolTipOptions: any;
@@ -163,6 +179,9 @@ export interface TooltipOptions{
     formatTooltipY: (d: any) => string,
 }
 
+/**
+ * Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.
+ */
 export abstract class XtalFrappeChartInfo implements SimpleWCInfo<XtalFrappeChartProps>{
     src: './xtal-frappe-chart.js';
     tagName: 'xtal-frappe-chart';

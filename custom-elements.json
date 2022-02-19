@@ -14,7 +14,7 @@
             {
               "kind": "field",
               "name": "data",
-              "description": "Data to chart"
+              "description": "Data to be displayed in chart (JSON string for attribute)"
             },
             {
               "kind": "field",
@@ -52,23 +52,28 @@
             },
             {
               "kind": "field",
-              "name": "chartTitle"
+              "name": "chartTitle",
+              "description": "Title of chart"
             },
             {
               "kind": "field",
-              "name": "height"
+              "name": "height",
+              "description": "Height of chart"
             },
             {
               "kind": "field",
-              "name": "colors"
+              "name": "colors",
+              "description": "Colors to be used in chart"
             },
             {
               "kind": "field",
-              "name": "type"
+              "name": "type",
+              "description": "Type of chart to be displayed"
             },
             {
               "kind": "field",
-              "name": "isNavigable"
+              "name": "isNavigable",
+              "description": "Whether or not chart is navigable"
             },
             {
               "kind": "field",
@@ -86,7 +91,7 @@
           "attributes": [
             {
               "name": "data",
-              "description": "Data to chart"
+              "description": "Data to be displayed in chart (JSON string for attribute)"
             },
             {
               "name": "selected-element"
@@ -115,19 +120,24 @@
               "description": "Remove data point from chart"
             },
             {
-              "name": "chart-title"
+              "name": "chart-title",
+              "description": "Title of chart"
             },
             {
-              "name": "height"
+              "name": "height",
+              "description": "Height of chart"
             },
             {
-              "name": "colors"
+              "name": "colors",
+              "description": "Colors to be used in chart"
             },
             {
-              "name": "type"
+              "name": "type",
+              "description": "Type of chart to be displayed"
             },
             {
-              "name": "is-navigable"
+              "name": "is-navigable",
+              "description": "Whether or not chart is navigable"
             },
             {
               "name": "tool-tip-options"
