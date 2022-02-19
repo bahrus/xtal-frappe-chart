@@ -169,3 +169,5 @@ export abstract class XtalFrappeChartInfo implements SimpleWCInfo<XtalFrappeChar
     props:  XtalFrappeChartProps;
     methods: XtalFrappeChartActions;
 }
+
+export type Package = [XtalFrappeChartInfo];

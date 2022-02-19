@@ -4,456 +4,143 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "types.d.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "xtal-frappe-chart-example1.js",
+      "path": "./xtal-frappe-chart.js",
       "declarations": [
         {
-          "kind": "class",
-          "description": "",
-          "name": "XtalFrappeChartExample1",
-          "members": [
-            {
-              "kind": "field",
-              "name": "is",
-              "type": {
-                "text": "string"
-              },
-              "static": true,
-              "default": "'xtal-frappe-chart-example1'"
-            },
-            {
-              "kind": "field",
-              "name": "chartTitle",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"My Awesome Chart\""
-            },
-            {
-              "kind": "field",
-              "name": "data",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n        labels: [\"12am-3am\", \"3am-6am\", \"6am-9am\", \"9am-12pm\",\n            \"12pm-3pm\", \"3pm-6pm\", \"6pm-9pm\", \"9pm-12am\"],\n        datasets: [\n            {\n                name: \"Some Data\", \"color\": \"light-blue\",\n                values: [25, 40, 30, 35, 8, 52, 17, -4]\n            },\n            {\n                name: \"Another Set\", \"color\": \"violet\",\n                values: [25, 50, -10, 15, 18, 32, 27, 14]\n            },\n            {\n                name: \"Yet Another\", \"color\": \"blue\",\n                values: [15, 20, -3, -15, 58, 12, -17, 37]\n            }\n        ]\n    }"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"bar\""
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "number"
-              },
-              "default": "250"
-            },
-            {
-              "kind": "field",
-              "name": "isNavigable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true"
-            },
-            {
-              "kind": "field",
-              "name": "selectedElementContract",
-              "type": {
-                "text": "object"
-              },
-              "default": "{\n        trigger: /* JS */ `\r\n        import 'https://cdn.skypack.dev/xtal-shell/$hell.js?module';\r\n        import 'https://cdn.skypack.dev/xtal-frappe-chart/xtal-frappe-chart-example1.js';\r\n        setTimeout(() =>{\r\n            $hell.$0=document.querySelector('xtal-frappe-chart-example1');\r\n            $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');\r\n            setTimeout(() =>{\r\n              $hell.$0.dispatchEvent(new Event('click'));\r\n            }, 500);\r\n            \r\n          }, 3000);\r\n        `,\n        expectedEvent: {\n            name: 'selected-element-changed',\n            detail: {\n                value: {\n                    values: [30, -10, -3],\n                    label: \"6am-9am\",\n                    index: 2,\n                }\n            },\n            associatedPropName: 'selectedElement'\n        }\n    }"
-            }
-          ],
-          "events": [
-            {
-              "description": "fires when user selects chart data element",
-              "name": "selected-element-changed"
-            }
-          ],
-          "superclass": {
-            "name": "XtalFrappeChart",
-            "module": "/xtal-frappe-chart.js"
-          },
-          "tagName": "xtal-frappe-chart-example1",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "XtalFrappeChartExample1",
-          "declaration": {
-            "name": "XtalFrappeChartExample1",
-            "module": "xtal-frappe-chart-example1.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "xtal-frappe-chart-example1.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "XtalFrappeChartExample1",
-          "members": [
-            {
-              "kind": "field",
-              "name": "is",
-              "type": {
-                "text": "string"
-              },
-              "static": true,
-              "default": "'xtal-frappe-chart-example1'"
-            },
-            {
-              "kind": "field",
-              "name": "chartTitle",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"My Awesome Chart\""
-            },
-            {
-              "kind": "field",
-              "name": "data",
-              "default": "{\r\n        labels: [\"12am-3am\", \"3am-6am\", \"6am-9am\", \"9am-12pm\",\r\n            \"12pm-3pm\", \"3pm-6pm\", \"6pm-9pm\", \"9pm-12am\"],\r\n        datasets: [\r\n            {\r\n                name: \"Some Data\", \"color\": \"light-blue\",\r\n                values: [25, 40, 30, 35, 8, 52, 17, -4]\r\n            },\r\n            {\r\n                name: \"Another Set\", \"color\": \"violet\",\r\n                values: [25, 50, -10, 15, 18, 32, 27, 14]\r\n            },\r\n            {\r\n                name: \"Yet Another\", \"color\": \"blue\",\r\n                values: [15, 20, -3, -15, 58, 12, -17, 37]\r\n            }\r\n        ]\r\n    }"
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "default": "\"bar\""
-            },
-            {
-              "kind": "field",
-              "name": "height",
-              "type": {
-                "text": "number"
-              },
-              "default": "250"
-            },
-            {
-              "kind": "field",
-              "name": "isNavigable",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true"
-            },
-            {
-              "kind": "field",
-              "name": "selectedElementContract",
-              "type": {
-                "text": "XtalFrappeChartTest<'selected-element-changed', 'selectedElement'>"
-              },
-              "default": "{\r\n        trigger: /* JS */`\r\n        import 'https://cdn.skypack.dev/xtal-shell/$hell.js?module';\r\n        import 'https://cdn.skypack.dev/xtal-frappe-chart/xtal-frappe-chart-example1.js';\r\n        setTimeout(() =>{\r\n            $hell.$0=document.querySelector('xtal-frappe-chart-example1');\r\n            $hell.cd('div#target/div/svg/g[0]/g[2]/rect[2]');\r\n            setTimeout(() =>{\r\n              $hell.$0.dispatchEvent(new Event('click'));\r\n            }, 500);\r\n            \r\n          }, 3000);\r\n        `,\r\n        expectedEvent:{\r\n            name: 'selected-element-changed',\r\n            detail: {\r\n                value: {\r\n                    values: [30, -10, -3],\r\n                    label: \"6am-9am\",\r\n                    index: 2,\r\n                }\r\n            },\r\n            associatedPropName: 'selectedElement'\r\n        }\r\n    }"
-            }
-          ],
-          "events": [
-            {
-              "description": "fires when user selects chart data element",
-              "name": "selected-element-changed"
-            }
-          ],
-          "superclass": {
-            "name": "XtalFrappeChart",
-            "module": "/xtal-frappe-chart.js"
-          },
-          "tagName": "xtal-frappe-chart-example1",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "XtalFrappeChartExample1",
-          "declaration": {
-            "name": "XtalFrappeChartExample1",
-            "module": "xtal-frappe-chart-example1.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "xtal-frappe-chart.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-          "name": "XtalFrappeChartCore",
-          "members": [
-            {
-              "kind": "field",
-              "name": "#chart",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "createChart",
-              "parameters": [
-                {
-                  "name": "{ data, chartTitle, height, colors, type, domCache, toolTipOptions, isNavigable, chartContainerParts }"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "handleDataSelect"
-            },
-            {
-              "type": {
-                "text": "string"
-              },
-              "description": "title of chart",
-              "name": "chartTitle",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "HeatMapData | TabularData"
-              },
-              "description": "data to be displayed in chart",
-              "name": "data",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'"
-              },
-              "description": "type of chart to be displayed",
-              "name": "type",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "whether or not chart is navigable",
-              "name": "isNavigable",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "IAddDataPointParams"
-              },
-              "description": "add new data point to chart",
-              "name": "newDataPoint",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "number"
-              },
-              "description": "remove data point from chart",
-              "name": "staleDataPoint",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "number"
-              },
-              "description": "height of chart",
-              "name": "height",
-              "kind": "field"
-            },
-            {
-              "type": {
-                "text": "string[]"
-              },
-              "description": "colors to be used in chart",
-              "name": "colors",
-              "kind": "field"
-            }
-          ],
-          "events": [
-            {
-              "description": "fires when user selects chart data element",
-              "name": "selected-element-changed"
-            }
-          ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
           "tagName": "xtal-frappe-chart",
-          "customElement": true
-        },
-        {
-          "kind": "variable",
-          "name": "XtalFrappeChart"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "XtalFrappeChartCore",
-          "declaration": {
-            "name": "XtalFrappeChartCore",
-            "module": "xtal-frappe-chart.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "XtalFrappeChart",
-          "declaration": {
-            "name": "XtalFrappeChart",
-            "module": "xtal-frappe-chart.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "xtal-frappe-chart.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Web component wrapper around the cool Frappe chart (https://frappe.io/charts) library.",
-          "name": "XtalFrappeChartCore",
+          "name": "XtalFrappeChartInfo",
+          "customElement": true,
           "members": [
             {
               "kind": "field",
-              "name": "#chart",
-              "privacy": "private",
-              "type": {
-                "text": "Chart"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "createChart",
-              "parameters": [
-                {
-                  "name": "{data, chartTitle, height, colors, type, domCache, toolTipOptions, isNavigable, chartContainerParts}",
-                  "type": {
-                    "text": "this"
-                  }
-                }
-              ]
+              "name": "data",
+              "description": "Data to chart"
             },
             {
               "kind": "field",
-              "name": "handleDataSelect"
+              "name": "selectedElement"
             },
             {
-              "type": {
-                "text": "string"
-              },
-              "description": "title of chart",
-              "name": "chartTitle",
-              "kind": "field"
+              "kind": "field",
+              "name": "value"
             },
             {
-              "type": {
-                "text": "HeatMapData | TabularData"
-              },
-              "description": "data to be displayed in chart",
-              "name": "data",
-              "kind": "field"
+              "kind": "field",
+              "name": "domCache"
             },
             {
-              "type": {
-                "text": "'axis-mixed' | 'bar' | 'line' | 'scatter' | 'pie' | 'percentage'"
-              },
-              "description": "type of chart to be displayed",
-              "name": "type",
-              "kind": "field"
+              "kind": "field",
+              "name": "mainTemplate"
             },
             {
-              "type": {
-                "text": "boolean"
-              },
-              "description": "whether or not chart is navigable",
-              "name": "isNavigable",
-              "kind": "field"
+              "kind": "field",
+              "name": "clonedTemplate"
             },
             {
-              "type": {
-                "text": "IAddDataPointParams"
-              },
-              "description": "add new data point to chart",
+              "kind": "field",
+              "name": "refs"
+            },
+            {
+              "kind": "field",
               "name": "newDataPoint",
-              "kind": "field"
+              "description": "Add new data point to chart"
             },
             {
-              "type": {
-                "text": "number"
-              },
-              "description": "remove data point from chart",
+              "kind": "field",
               "name": "staleDataPoint",
-              "kind": "field"
+              "description": "Remove data point from chart"
             },
             {
-              "type": {
-                "text": "number"
-              },
-              "description": "height of chart",
-              "name": "height",
-              "kind": "field"
+              "kind": "field",
+              "name": "chartTitle"
             },
             {
-              "type": {
-                "text": "string[]"
-              },
-              "description": "colors to be used in chart",
-              "name": "colors",
-              "kind": "field"
-            }
-          ],
-          "events": [
+              "kind": "field",
+              "name": "height"
+            },
             {
-              "description": "fires when user selects chart data element",
-              "name": "selected-element-changed"
+              "kind": "field",
+              "name": "colors"
+            },
+            {
+              "kind": "field",
+              "name": "type"
+            },
+            {
+              "kind": "field",
+              "name": "isNavigable"
+            },
+            {
+              "kind": "field",
+              "name": "toolTipOptions"
+            },
+            {
+              "kind": "field",
+              "name": "isC"
+            },
+            {
+              "kind": "field",
+              "name": "chartContainerParts"
             }
           ],
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "tagName": "xtal-frappe-chart",
-          "customElement": true
-        },
-        {
-          "kind": "variable",
-          "name": "XtalFrappeChart",
-          "default": "ce.classDef!"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "XtalFrappeChartCore",
-          "declaration": {
-            "name": "XtalFrappeChartCore",
-            "module": "xtal-frappe-chart.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "XtalFrappeChart",
-          "declaration": {
-            "name": "XtalFrappeChart",
-            "module": "xtal-frappe-chart.ts"
-          }
+          "attributes": [
+            {
+              "name": "data",
+              "description": "Data to chart"
+            },
+            {
+              "name": "selected-element"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "dom-cache"
+            },
+            {
+              "name": "main-template"
+            },
+            {
+              "name": "cloned-template"
+            },
+            {
+              "name": "refs"
+            },
+            {
+              "name": "new-data-point",
+              "description": "Add new data point to chart"
+            },
+            {
+              "name": "stale-data-point",
+              "description": "Remove data point from chart"
+            },
+            {
+              "name": "chart-title"
+            },
+            {
+              "name": "height"
+            },
+            {
+              "name": "colors"
+            },
+            {
+              "name": "type"
+            },
+            {
+              "name": "is-navigable"
+            },
+            {
+              "name": "tool-tip-options"
+            },
+            {
+              "name": "is-c"
+            },
+            {
+              "name": "chart-container-parts"
+            }
+          ]
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "test/test-all.js",
-      "declarations": [],
-      "exports": []
     }
   ]
 }

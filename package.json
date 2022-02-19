@@ -32,15 +32,14 @@
   },
   "watch": {
     "build-xfc": "define/xfc-config.mjs",
-    "build-schema": "types.d.ts"
+    "build-manifest": "types.d.ts"
   },
   "scripts": {
     "test": "node test/test-all.js",
     "watch": "npm-watch",
     "serve": "node node_modules/xtal-test/serve.js",
     "package-check": "package-check",
-    "doc": "custom-elements-manifest analyze",
-    "build-schema": "node node_modules/typescript-json-schema/bin/typescript-json-schema types.d.ts * > schema.json",
+    "build-manifest": "node doc.mjs > custom-elements.json",
     "build-xfc": "node define/xfc-config.mjs > xfc-config.json"
   },
   "devDependencies": {
@@ -50,14 +49,13 @@
     "be-switched": "0.0.46",
     "for-instance": "0.0.46",
     "json-file-patch": "0.0.1",
-    "may-it-be": "0.0.135",
+    "may-it-be": "0.0.139",
     "npm-watch": "0.11.0",
     "on-to-me": "0.0.49",
     "typescript": "^4.6.0-beta",
     "xtal-editor": "0.0.108",
     "xtal-shell": "0.0.25",
-    "xtal-test": "0.0.55",
-    "typescript-json-schema": "0.53.0"
+    "xtal-test": "0.0.55"
   },
   "customElements": "custom-elements.json"
 }
