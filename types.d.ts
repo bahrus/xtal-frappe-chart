@@ -1,3 +1,6 @@
+import {SimpleWCInfo} from 'may-it-be/SimpleWCInfo';
+
+declare interface WeakRef<S>{}
 
 export interface SelectedElement {
     label: string;
@@ -158,4 +161,11 @@ export interface Region{
 export interface TooltipOptions{
     formatTooltipX: (d: any) => string,
     formatTooltipY: (d: any) => string,
+}
+
+export abstract class XtalFrappeChartInfo implements SimpleWCInfo<XtalFrappeChartProps>{
+    src: './xtal-frappe-chart.js';
+    tagName: 'xtal-frappe-chart';
+    props:  XtalFrappeChartProps;
+    methods: XtalFrappeChartActions;
 }
