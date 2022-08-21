@@ -52,7 +52,7 @@ Things I like about this chart library:
 ```
 -->
 
-# [API Reference](https://cf-sw.bahrus.workers.dev/?href=https%3A%2F%2Fcdn.skypack.dev%2Fxtal-frappe-chart%2Fcustom-elements.json&stylesheet=https%3A%2F%2Funpkg.com%2Fwc-info%2Fsimple-ce-style.css&embedded=false&tags=&ts=0.0.106&tocXSLT=https%3A%2F%2Funpkg.com%2Fwc-info%2Ftoc.xsl)
+# [API Reference](https://cf-sw.bahrus.workers.dev/?href=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fxtal-frappe-chart%400.0.106%2Fcustom-elements.json&stylesheet=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fwc-info%2Fsimple-ce-style.css&embedded=false&tags=&ts=2022-02-19T12%3A41%3A50.241Z&tocXSLT=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fwc-info%2Ftoc.xsl)
 
 # [Syntax](https://bahrus.github.io/api-viewer/index.html?npmPackage=xtal-frappe-chart&jsPath=xtal-frappe-chart-example1.js&jsonPath=custom-elements-example1.json)
 

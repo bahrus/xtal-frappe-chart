@@ -74,9 +74,7 @@ export interface XtalFrappeChartProps{
 
     isC: boolean;
 
-    chartContainerParts: WeakRef<HTMLDivElement>[];
-
-
+    chartContainerPart: WeakRef<HTMLDivElement>[];
 
 }
 
