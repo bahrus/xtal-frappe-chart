@@ -19,7 +19,7 @@ import {
 export class XtalFrappeChart extends HTMLElement implements XtalFrappeChartActions{
 
     #chart: Chart;
-    createChart({data, chartTitle, height, colors, type, domCache, toolTipOptions, isNavigable, chartContainerPart}: this){
+    createChart({data, chartTitle, height, colors, type, toolTipOptions, isNavigable, chartContainerPart}: this){
         const chartOptions: ChartOptions = {
             data,
             title: chartTitle,

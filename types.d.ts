@@ -29,7 +29,6 @@ export interface XtalFrappeChartProps{
     data: HeatMapData | TabularData;
     selectedElement: object,
     value: object,
-    domCache: any,
     mainTemplate: HTMLTemplateElement | string,
     clonedTemplate: DocumentFragment | undefined,
     refs: any,

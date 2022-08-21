@@ -9,7 +9,7 @@ import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
 **/
 export class XtalFrappeChart extends HTMLElement {
     #chart;
-    createChart({ data, chartTitle, height, colors, type, domCache, toolTipOptions, isNavigable, chartContainerPart }) {
+    createChart({ data, chartTitle, height, colors, type, toolTipOptions, isNavigable, chartContainerPart }) {
         const chartOptions = {
             data,
             title: chartTitle,
