@@ -1,4 +1,4 @@
-import { XE } from 'xtal-element/src/XE.js';
+import { XE } from 'xtal-element/XE.js';
 import { TemplMgmt, beTransformed } from 'trans-render/lib/mixins/TemplMgmt.js';
 import { Chart } from "frappe-charts/dist/frappe-charts.esm.js";
 /**

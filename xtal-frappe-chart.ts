@@ -1,4 +1,4 @@
-import {XE} from 'xtal-element/src/XE.js';
+import {XE} from 'xtal-element/XE.js';
 import {TemplMgmtProps, TemplMgmtActions, TemplMgmt, beTransformed} from 'trans-render/lib/mixins/TemplMgmt.js';
 
 import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions, XtalFrappeChartEventNameMap, IAddDataPointParams, SelectedElement, SelectedElementEventDetail} from './types.js';

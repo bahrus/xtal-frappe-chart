@@ -28,7 +28,7 @@
   "dependencies": {
     "frappe-charts": "1.5.8",
     "trans-render": "0.0.641",
-    "xtal-element": "0.0.532"
+    "xtal-element": "0.0.537"
   },
   "scripts": {
     "test": "playwright test",
