@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
   <title>xtal-frappe-chart demo</title>
-
+  <!-- #include virtual="/imports.html" -->
 </head>
 
 <body>
@@ -28,18 +28,9 @@
         ]
       }
       '></xtal-frappe-chart>
-  <script type=importmap>
-        {
-          "imports": {
-            "xtal-element/": "../node_modules/xtal-element/",
-            "trans-render/": "../node_modules/trans-render/",
-            "frappe-charts/": "../node_modules/frappe-charts/"
-            
-          }
-        }
-      </script>
+  
   <script type=module>
-          import '../xtal-frappe-chart.js';
+      import '/xtal-frappe-chart.js';
   </script>
 </body>
 
