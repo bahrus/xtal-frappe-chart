@@ -19,7 +19,11 @@ export class XtalFrappeChart extends Mount {
             
         },
         propInfo: {
-            data: {},
+            data: {
+                attrName: 'data',
+                parse: true,
+                type: 'Object'
+            },
         },
         styles: String.raw `
 <style>
@@ -30,3 +34,7 @@ export class XtalFrappeChart extends Mount {
     }
 
 }
+
+await XtalFrappeChart.bootUp();
+
+customElements.define('xtal-frappe-chart', XtalFrappeChart);
