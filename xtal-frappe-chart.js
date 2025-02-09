@@ -1,10 +1,34 @@
 // @ts-check
 import {Mount} from 'trans-render/Mount.js';
+import {
+    Chart,
+    PercentageChart,
+    PieChart,
+    Heatmap,
+    AxisChart
+} from 'frappe-charts/dist/frappe-charts.esm.js';
 
 /** @import {XtalFrappeChartProps, XtalFrappeChartActions} from  './ts-refs/xtal-frappe-chart/types' */
 /** @import {MntCfg, MountProps, MountActions} from './ts-refs/trans-render/types' */
 
+/**
+ * @implements {XtalFrappeChartActions}
+ */
 export class XtalFrappeChart extends Mount {
+    /**
+     * 
+     * @param {XtalFrappeChartProps} self 
+     */
+    createChart(self) {
+        const {
+            data, chartTitle, height, colors, type,
+            toolTipOptions, isNavigable, chartContainerPart,
+            
+        } = self;
+        // return ({
+
+        // });
+    }
     /**
      * @type {MntCfg<XtalFrappeChartProps  & MountProps, XtalFrappeChartActions & MountActions>}
      */
@@ -15,6 +39,15 @@ export class XtalFrappeChart extends Mount {
         mainTemplate: String.raw `
             <div id=target part=chart-container></div>
         `,
+        xform: {
+            '# target': {
+                m: {
+                    on: 'load',
+                    s: 'target',
+                    toValFrom: '.'
+                }
+            }
+        },
         propDefaults:{
             isC: true,
             isNavigable: false,
@@ -28,10 +61,15 @@ export class XtalFrappeChart extends Mount {
                 parse: true,
                 type: 'Object'
             },
+            target: {},
         },
         actions:{
-            ...super.mntCfgMxn.actions
+            ...super.mntCfgMxn.actions,
+            createChart: {
+                ifAllOf: ['data'],
+            }
         },
+
         styles: String.raw `
 <style>
 :host{display:block;}
