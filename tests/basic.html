@@ -32,11 +32,11 @@
         ]
       }
       '></xtal-frappe-chart>
-  <div id=target></div>
+  <div id=target2></div>
   <script>
     setTimeout(() => {
       if(document.querySelector('xtal-frappe-chart').shadowRoot.querySelectorAll('g').length === 21){
-        target.setAttribute('mark', 'good');
+        target2.setAttribute('mark', 'good');
       }
     }, 2000);
   </script>
