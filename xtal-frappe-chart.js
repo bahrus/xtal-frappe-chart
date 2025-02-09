@@ -8,13 +8,18 @@ import {
     AxisChart
 } from 'frappe-charts/dist/frappe-charts.esm.js';
 
-/** @import {XtalFrappeChartProps, XtalFrappeChartActions} from  './ts-refs/xtal-frappe-chart/types' */
+/** @import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions} from  './ts-refs/xtal-frappe-chart/types' */
 /** @import {MntCfg, MountProps, MountActions} from './ts-refs/trans-render/types' */
 
 /**
  * @implements {XtalFrappeChartActions}
  */
 export class XtalFrappeChart extends Mount {
+
+    /**
+     * @type {Chart}
+     */
+    #chart;
     /**
      * 
      * @param {XtalFrappeChartProps} self 
@@ -23,11 +28,27 @@ export class XtalFrappeChart extends Mount {
         const {
             data, chartTitle, height, colors, type,
             toolTipOptions, isNavigable, chartContainerPart,
-            
+            target
         } = self;
-        // return ({
-
-        // });
+        console.log({data, chartTitle, height, colors, type, toolTipOptions, isNavigable, chartContainerPart});
+        /**
+         * @type {ChartOptions}
+         */
+        const chartOptions = {
+            data,
+            title: chartTitle,
+            colors,
+            height,
+            type,
+            toolTipOptions,
+            isNavigable
+        };
+        setTimeout(() =>{
+            this.#chart = new Chart(target, chartOptions);
+            setTimeout(() => {
+                this.#chart["parent"].addEventListener("data-select", this.handleDataSelect);
+            }, 50);
+        }, 0);
     }
     /**
      * @type {MntCfg<XtalFrappeChartProps  & MountProps, XtalFrappeChartActions & MountActions>}
@@ -66,7 +87,7 @@ export class XtalFrappeChart extends Mount {
         actions:{
             ...super.mntCfgMxn.actions,
             createChart: {
-                ifAllOf: ['data'],
+                ifAllOf: ['data', 'target'],
             }
         },
 
