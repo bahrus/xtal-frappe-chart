@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <title>xtal-frappe-chart demo</title>
+  <!-- #include virtual="/imports.html" -->
+</head>
+
+<body>
+  <h3>Basic xtal-frappe-chart demo</h3>
+  <xtal-frappe-chart 
+    chart-title="My Awesome Chart" 
+    type=axis-mixed 
+    height=250 
+    colors='["#7cd6fd", "#743ee2"]'
+    is-navigable data='
+      {
+        "labels": ["12am-3am", "3am-6pm", "6am-9am", "9am-12am",
+            "12pm-3pm", "3pm-6pm", "6pm-9pm", "9am-12am"
+        ],
+        "datasets": [
+            {
+                "name": "Some Data", "type": "bar",
+                "values": [25, 40, 30, 35, 8, 52, 17, -4]
+            },
+            {
+                "name": "Another Set", "type": "line",
+                "values": [25, 50, -10, 15, 18, 32, 27, 14]
+            }
+        ]
+      }
+      '></xtal-frappe-chart>
+  <div id=target></div>
+  <script>
+    setTimeout(() => {
+      if(document.querySelector('xtal-frappe-chart').shadowRoot.querySelectorAll('g').length === 21){
+        target.setAttribute('mark', 'good');
+      }
+    }, 2000);
+  </script>
+  <script type=module>
+      import '/xtal-frappe-chart.js';
+  </script>
+</body>
+
+</html>
