@@ -27,7 +27,7 @@
   "types": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.6.2",
-    "trans-render": "0.0.882"
+    "trans-render": "0.0.883"
   },
   "scripts": {
     "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
