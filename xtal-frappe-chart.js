@@ -82,7 +82,28 @@ export class XtalFrappeChart extends Mount {
                 parse: true,
                 type: 'Object'
             },
+            colors:{
+                attrName: 'colors',
+                parse: true,
+                type: 'Object'
+            },
+            height:{
+                attrName: 'height',
+                parse: true,
+                type: 'Number'
+            },
+            type:{
+                attrName: 'type',
+                parse: true,
+                type: 'String'
+            },
+            isNavigable:{
+                attrName: 'is-navigable',
+                parse: true,
+                type: 'Boolean'
+            },
             target: {},
+
         },
         actions:{
             ...super.mntCfgMxn.actions,
