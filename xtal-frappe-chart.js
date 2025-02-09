@@ -1,14 +1,17 @@
 // @ts-check
 import {Mount} from 'trans-render/Mount.js';
 
-/** @import {XtalFrappeChartProps} from  './ts-refs/xtal-frappe-chart/types' */
-/** @import {MntCfg} from './ts-refs/trans-render/types' */
+/** @import {XtalFrappeChartProps, XtalFrappeChartActions} from  './ts-refs/xtal-frappe-chart/types' */
+/** @import {MntCfg, MountProps, MountActions} from './ts-refs/trans-render/types' */
 
 export class XtalFrappeChart extends Mount {
     /**
-     * @type {MntCfg<XtalFrappeChartProps>}
+     * @type {MntCfg<XtalFrappeChartProps  & MountProps, XtalFrappeChartActions & MountActions>}
      */
     static config = {
+        shadowRootInit:{
+            mode: 'open'
+        },
         mainTemplate: String.raw `
             <div id=target part=chart-container></div>
         `,
@@ -19,11 +22,15 @@ export class XtalFrappeChart extends Mount {
             
         },
         propInfo: {
+            ...super.mntCfgMxn.propInfo,
             data: {
                 attrName: 'data',
                 parse: true,
                 type: 'Object'
             },
+        },
+        actions:{
+            ...super.mntCfgMxn.actions
         },
         styles: String.raw `
 <style>
