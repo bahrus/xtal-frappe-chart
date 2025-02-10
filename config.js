@@ -1,5 +1,5 @@
 // @ts-ref
-import {Mount} from 'trans-render/Mount.js';
+import {MntCfgMxn} from 'trans-render/MntCfgMxn.js';
 /** @import {XtalFrappeChartProps, XtalFrappeChartActions, ChartOptions} from  './ts-refs/xtal-frappe-chart/types' */
 /** @import {MntCfg, MountProps, MountActions} from './ts-refs/trans-render/types' */
 
@@ -29,7 +29,7 @@ export const config = {
         
     },
     propInfo: {
-        ...Mount.mntCfgMxn.propInfo,
+        ...MntCfgMxn.propInfo,
         data: {
             attrName: 'data',
             parse: true,
@@ -59,7 +59,7 @@ export const config = {
 
     },
     actions:{
-        ...Mount.mntCfgMxn.actions,
+        ...MntCfgMxn.actions,
         createChart: {
             ifAllOf: ['data', 'target'],
         }

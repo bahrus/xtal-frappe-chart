@@ -1,5 +1,6 @@
 {
   "name": "xtal-frappe-chart",
+  "type": "module",
   "version": "0.0.108",
   "keywords": [
     "web-components",
@@ -27,9 +28,10 @@
   "types": "types.d.ts",
   "dependencies": {
     "frappe-charts": "1.6.2",
-    "trans-render": "0.0.883"
+    "trans-render": "0.0.884"
   },
   "scripts": {
+    "doc": "node doc.js",
     "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
     "test": "playwright test",
     "safari": "npx playwright wk http://localhost:8000",
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.50.1",
+    "may-it-be": "0.0.180",
     "ssi-server": "0.0.1"
   }
 }
