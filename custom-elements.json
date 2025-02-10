@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "./README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "members": [
+            {
+              "kind": "field",
+              "name": "clonedTemplate",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "data",
+              "description": "Data to be displayed in chart (JSON string for attribute)"
+            },
+            {
+              "kind": "field",
+              "name": "colors",
+              "description": "Colors to be used in chart"
+            },
+            {
+              "kind": "field",
+              "name": "height",
+              "description": "Height of chart"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "description": "Type of chart to be displayed"
+            },
+            {
+              "kind": "field",
+              "name": "isNavigable",
+              "default": false,
+              "description": "Whether or not chart is navigable"
+            },
+            {
+              "kind": "field",
+              "name": "target"
+            },
+            {
+              "kind": "field",
+              "name": "isC",
+              "default": true
+            },
+            {
+              "kind": "field",
+              "name": "chartTitle",
+              "default": "frappe-chart",
+              "description": "Title of chart"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "data",
+              "description": "Data to be displayed in chart (JSON string for attribute)"
+            },
+            {
+              "name": "colors",
+              "description": "Colors to be used in chart"
+            },
+            {
+              "name": "height",
+              "description": "Height of chart"
+            },
+            {
+              "name": "type",
+              "description": "Type of chart to be displayed"
+            },
+            {
+              "name": "is-navigable",
+              "description": "Whether or not chart is navigable"
+            },
+            {
+              "name": "is-c"
+            },
+            {
+              "name": "chart-title",
+              "description": "Title of chart"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
