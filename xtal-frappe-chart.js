@@ -46,10 +46,24 @@ export class XtalFrappeChart extends Mount {
         };
         setTimeout(() =>{
             this.#chart = new Chart(target, chartOptions);
-            setTimeout(() => {
-                this.#chart["parent"].addEventListener("data-select", this.handleDataSelect);
-            }, 50);
+            // setTimeout(() => {
+            //     console.log({parent: this.#chart["parent"]});
+            //     this.#chart["parent"].addEventListener("data-select", this.handleDataSelect);
+            // }, 50);
         }, 0);
+    }
+
+    /**
+     * 
+     * @param {Event} e 
+     */
+    handleDataSelect(e){
+        console.log({e})
+        // this.selectedElement = {
+        //     values: e.values,
+        //     label: e.label,
+        //     index: e.index
+        // }
     }
     /**
      * @type {MntCfg<XtalFrappeChartProps  & MountProps, XtalFrappeChartActions & MountActions>}
@@ -63,14 +77,28 @@ await XtalFrappeChart.bootUp();
 customElements.define('xtal-frappe-chart', XtalFrappeChart);
 
 export class DataSelectedEvent extends Event{
+
+    static EventName = 'data-selected';
     /**
      * @type {Array<number>}
      */
     values;
 
     /**
-     * 
+     * @type {string}
      */
     label;
+
+    /**
+     * @type {number}
+     */
+    index;
+
+    constructor(values, label, index){
+        super(DataSelectedEvent.EventName);
+        this.values = values;
+        this.label = label;
+        this.index = index;
+    }
 
 }

@@ -19,6 +19,10 @@ export const config = {
                 on: 'load',
                 s: 'target',
                 toValFrom: '.'
+            },
+            a: {
+                on: 'data-select',
+                do: 'handleDataSelect'
             }
         }
     },
